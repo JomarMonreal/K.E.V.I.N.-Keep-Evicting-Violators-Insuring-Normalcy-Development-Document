@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://by3yaeckrtk5d"]
+
+[ext_resource type="Script" uid="uid://cas4qy1d4k5la" path="res://entities/player/player.gd" id="1_sglur"]
+[ext_resource type="Script" uid="uid://q0c5t8psmc7i" path="res://entities/player/player_state_manager.gd" id="2_bls4j"]
+[ext_resource type="Texture2D" uid="uid://dcgo4ch3rukki" path="res://icon.svg" id="2_fkugw"]
+[ext_resource type="Script" uid="uid://b35lwsjswdvw6" path="res://entities/player/states/player_idle.gd" id="3_fkugw"]
+[ext_resource type="Script" uid="uid://xiprp7egc8ii" path="res://entities/player/states/player_moving.gd" id="4_bls4j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8fjmc"]
+radius = 63.03174
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_sglur")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_fkugw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8fjmc")
+
+[node name="TopDownMovement" type="Node" parent="."]
+
+[node name="StateManager" type="Node" parent="."]
+script = ExtResource("2_bls4j")
+metadata/_custom_type_script = "uid://q0c5t8psmc7i"
+
+[node name="Idle" type="Node2D" parent="StateManager"]
+script = ExtResource("3_fkugw")
+
+[node name="Moving" type="Node2D" parent="StateManager"]
+script = ExtResource("4_bls4j")
+
+[node name="Interacting" type="Node2D" parent="StateManager"]
+
+[node name="Freezing" type="Node2D" parent="StateManager"]
+
+[node name="Dead" type="Node2D" parent="StateManager"]
