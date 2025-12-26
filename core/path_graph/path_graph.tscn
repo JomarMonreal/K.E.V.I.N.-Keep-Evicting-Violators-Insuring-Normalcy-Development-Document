@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3u1flcfl1yu8"]
+
+[ext_resource type="Texture2D" uid="uid://dcgo4ch3rukki" path="res://assets/icons/icon.svg" id="1_kapgh"]
+[ext_resource type="Script" uid="uid://snm604eis1go" path="res://core/utils/debug_node.gd" id="2_kapgh"]
+
+[node name="PathGraph" type="Node2D"]
+
+[node name="Node2D3" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(75, 347)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_kapgh")
+script = ExtResource("2_kapgh")
+neighbors = [NodePath("../Node2D4"), NodePath("../Node2D6"), NodePath("../Node2D7")]
+
+[node name="Node2D5" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(809, 69)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_kapgh")
+script = ExtResource("2_kapgh")
+neighbors = [NodePath("../Node2D6"), NodePath("../Node2D7"), NodePath("../Node2D8")]
+
+[node name="Node2D8" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(818, 365)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_kapgh")
+script = ExtResource("2_kapgh")
+neighbors = [NodePath("../Node2D6"), NodePath("../Node2D7"), NodePath("../Node2D5")]
+
+[node name="Node2D4" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(81, 42)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_kapgh")
+script = ExtResource("2_kapgh")
+neighbors = [NodePath("../Node2D3"), NodePath("../Node2D7")]
+
+[node name="Node2D6" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(519, 358)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_kapgh")
+script = ExtResource("2_kapgh")
+neighbors = [NodePath("../Node2D3"), NodePath("../Node2D7"), NodePath("../Node2D5"), NodePath("../Node2D8")]
+
+[node name="Node2D7" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(511, 54)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_kapgh")
+script = ExtResource("2_kapgh")
+neighbors = [NodePath("../Node2D3"), NodePath("../Node2D4"), NodePath("../Node2D6"), NodePath("../Node2D5"), NodePath("../Node2D8")]
