@@ -1,3 +1,37 @@
-[gd_scene format=3 uid="uid://mxui41ovhubs"]
+[gd_scene load_steps=6 format=3 uid="uid://mxui41ovhubs"]
 
-[node name="Invader" type="Node2D"]
+[ext_resource type="Script" uid="uid://clfhyk11p2wkd" path="res://entities/invader/invader.gd" id="1_gts6a"]
+[ext_resource type="Texture2D" uid="uid://cy6st8pstf4cd" path="res://assets/icons/person.png" id="2_fmxwh"]
+[ext_resource type="Script" uid="uid://dt2ejicc2qmum" path="res://entities/invader/invader_state_manager.gd" id="3_fmxwh"]
+[ext_resource type="Script" uid="uid://b6aqbw2sf58nc" path="res://entities/invader/states/invader_moving.gd" id="4_mwhei"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mwhei"]
+radius = 43.0
+height = 100.0
+
+[node name="Invader" type="StaticBody2D"]
+script = ExtResource("1_gts6a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_mwhei")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_fmxwh")
+
+[node name="StateManager" type="Node" parent="."]
+script = ExtResource("3_fmxwh")
+metadata/_custom_type_script = "uid://dt2ejicc2qmum"
+
+[node name="Moving" type="Node2D" parent="StateManager"]
+script = ExtResource("4_mwhei")
+
+[node name="Trapped" type="Node2D" parent="StateManager"]
+
+[node name="Fleeing" type="Node2D" parent="StateManager"]
+
+[node name="Attacking" type="Node2D" parent="StateManager"]
+
+[node name="Stealing" type="Node2D" parent="StateManager"]
+
+[node name="Leaving" type="Node2D" parent="StateManager"]
