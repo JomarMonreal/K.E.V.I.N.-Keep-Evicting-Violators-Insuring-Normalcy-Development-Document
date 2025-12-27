@@ -5,7 +5,6 @@ func _ready() -> void:
 	states = {
 		InvaderBaseState.State.Moving: $Moving,
 		InvaderBaseState.State.Trapped: $Trapped,
-		InvaderBaseState.State.Fleeing: $Fleeing,
 		InvaderBaseState.State.Attacking: $Attacking,
 		InvaderBaseState.State.Stealing: $Stealing,
 		InvaderBaseState.State.Leaving: $Leaving,

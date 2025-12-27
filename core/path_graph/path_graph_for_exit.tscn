@@ -1,74 +1,74 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3u1flcfl1yu8"]
+[gd_scene load_steps=4 format=3 uid="uid://be4q66weo8yqh"]
 
-[ext_resource type="Texture2D" uid="uid://dcgo4ch3rukki" path="res://assets/icons/icon.svg" id="1_kapgh"]
-[ext_resource type="Script" uid="uid://dvs7b3obhk67y" path="res://core/path_graph/path_graph.gd" id="2_kapgh"]
-[ext_resource type="Script" uid="uid://snm604eis1go" path="res://core/path_graph/path_node.gd" id="3_u4o7m"]
+[ext_resource type="Script" uid="uid://dvs7b3obhk67y" path="res://core/path_graph/path_graph.gd" id="1_wmw7q"]
+[ext_resource type="Texture2D" uid="uid://dcgo4ch3rukki" path="res://assets/icons/icon.svg" id="2_8vr3t"]
+[ext_resource type="Script" uid="uid://snm604eis1go" path="res://core/path_graph/path_node.gd" id="3_twoct"]
 
 [node name="PathGraph" type="Node2D" node_paths=PackedStringArray("entrance_nodes", "exit_nodes")]
-script = ExtResource("2_kapgh")
-entrance_nodes = [NodePath("Node2D9"), NodePath("Node2D5")]
-exit_nodes = [NodePath("Node2D9")]
+script = ExtResource("1_wmw7q")
+entrance_nodes = [NodePath("Node2D10")]
+exit_nodes = [NodePath("Node2D8")]
 
 [node name="Node2D3" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
 process_mode = 3
 position = Vector2(75, 347)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_kapgh")
-script = ExtResource("3_u4o7m")
+texture = ExtResource("2_8vr3t")
+script = ExtResource("3_twoct")
 neighbors = [NodePath("../Node2D4"), NodePath("../Node2D6"), NodePath("../Node2D7"), NodePath("../Node2D9")]
 
 [node name="Node2D5" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
 process_mode = 3
 position = Vector2(809, 69)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_kapgh")
-script = ExtResource("3_u4o7m")
+texture = ExtResource("2_8vr3t")
+script = ExtResource("3_twoct")
 neighbors = [NodePath("../Node2D6"), NodePath("../Node2D7"), NodePath("../Node2D8")]
 
 [node name="Node2D8" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
 process_mode = 3
 position = Vector2(818, 365)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_kapgh")
-script = ExtResource("3_u4o7m")
+texture = ExtResource("2_8vr3t")
+script = ExtResource("3_twoct")
 neighbors = [NodePath("../Node2D6"), NodePath("../Node2D7"), NodePath("../Node2D5"), NodePath("../Node2D9")]
 
 [node name="Node2D4" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
 process_mode = 3
 position = Vector2(81, 42)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_kapgh")
-script = ExtResource("3_u4o7m")
+texture = ExtResource("2_8vr3t")
+script = ExtResource("3_twoct")
 neighbors = [NodePath("../Node2D3"), NodePath("../Node2D7"), NodePath("../Node2D10")]
 
 [node name="Node2D10" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
 process_mode = 3
 position = Vector2(-142, -121)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_kapgh")
-script = ExtResource("3_u4o7m")
+texture = ExtResource("2_8vr3t")
+script = ExtResource("3_twoct")
 neighbors = [NodePath("../Node2D4")]
 
 [node name="Node2D6" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
 process_mode = 3
 position = Vector2(519, 358)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_kapgh")
-script = ExtResource("3_u4o7m")
+texture = ExtResource("2_8vr3t")
+script = ExtResource("3_twoct")
 neighbors = [NodePath("../Node2D3"), NodePath("../Node2D7"), NodePath("../Node2D5"), NodePath("../Node2D8")]
 
 [node name="Node2D9" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
 process_mode = 3
 position = Vector2(520, 622)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_kapgh")
-script = ExtResource("3_u4o7m")
+texture = ExtResource("2_8vr3t")
+script = ExtResource("3_twoct")
 neighbors = [NodePath("../Node2D3"), NodePath("../Node2D8")]
 
 [node name="Node2D7" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
 process_mode = 3
 position = Vector2(511, 54)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_kapgh")
-script = ExtResource("3_u4o7m")
+texture = ExtResource("2_8vr3t")
+script = ExtResource("3_twoct")
 neighbors = [NodePath("../Node2D3"), NodePath("../Node2D4"), NodePath("../Node2D6"), NodePath("../Node2D5"), NodePath("../Node2D8")]

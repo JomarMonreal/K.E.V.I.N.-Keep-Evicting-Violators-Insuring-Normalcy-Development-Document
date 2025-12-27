@@ -3,6 +3,10 @@ class_name Invader
 
 @onready var states: InvaderStateManager = $StateManager
 @export var path_graph: PathGraph
+@export var speed: float = 100
+@export var maxFear: int = 100
+
+var currentFear: int = 0
 var target_node: PathNode
 var current_node: PathNode
 
@@ -11,6 +15,7 @@ func _ready() -> void:
 	current_node = path_graph.entrance_nodes.pick_random()
 	global_position = current_node.position
 	target_node = current_node.neighbors.pick_random()
+	states.initial_state = InvaderBaseState.State.Leaving
 	states.init(self)
 
 func _process(delta: float) -> void:

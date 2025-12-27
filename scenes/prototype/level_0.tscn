@@ -1,16 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://yq8cnqjwu8eg"]
 
-[ext_resource type="PackedScene" uid="uid://b3u1flcfl1yu8" path="res://core/path_graph/path_graph.tscn" id="1_tkv2o"]
+[ext_resource type="PackedScene" uid="uid://be4q66weo8yqh" path="res://core/path_graph/path_graph_for_exit.tscn" id="1_6vtnu"]
 [ext_resource type="PackedScene" uid="uid://mxui41ovhubs" path="res://entities/invader/base_invader.tscn" id="2_6vtnu"]
 
 [node name="Level0" type="Node2D"]
 
-[node name="PathGraph" parent="." instance=ExtResource("1_tkv2o")]
-position = Vector2(-4, 27)
+[node name="PathGraph2" parent="." instance=ExtResource("1_6vtnu")]
 
 [node name="Invader" parent="." node_paths=PackedStringArray("path_graph") instance=ExtResource("2_6vtnu")]
 position = Vector2(-4, 27)
-path_graph = NodePath("../PathGraph")
+path_graph = NodePath("../PathGraph2")
 
 [node name="Camera2D" type="Camera2D" parent="Invader"]
 position = Vector2(4, -27)

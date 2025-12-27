@@ -5,8 +5,7 @@ enum State {
 	Null,
 	Moving,
 	Trapped,
-	Fleeing,
+	Leaving,
 	Attacking,
 	Stealing,
-	Leaving
 }
