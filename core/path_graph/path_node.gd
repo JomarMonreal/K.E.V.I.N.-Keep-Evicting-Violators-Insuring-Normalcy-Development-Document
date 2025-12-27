@@ -1,7 +1,7 @@
-# NeighborLines2D.gd (Godot 4.x)
+# PathNode.gd (Godot 4.x)
 @tool
 extends Sprite2D
-class_name NeighborLines2D
+class_name PathNode
 
 @export var line_color: Color = Color.WHITE:
 	set(v):
@@ -14,9 +14,9 @@ class_name NeighborLines2D
 		queue_redraw()
 
 var _syncing: bool = false
-var _neighbors: Array[NeighborLines2D] = []
+var _neighbors: Array[PathNode] = []
 
-@export var neighbors: Array[NeighborLines2D]:
+@export var neighbors: Array[PathNode]:
 	get:
 		return _neighbors
 	set(value):
@@ -40,7 +40,7 @@ func _draw() -> void:
 
 # --- Public helpers (optional, but nice) ---
 
-func add_neighbor(n: NeighborLines2D) -> void:
+func add_neighbor(n: PathNode) -> void:
 	if n == null or n == self:
 		return
 	var v := _neighbors.duplicate()
@@ -48,7 +48,7 @@ func add_neighbor(n: NeighborLines2D) -> void:
 		v.append(n)
 	neighbors = v
 
-func remove_neighbor(n: NeighborLines2D) -> void:
+func remove_neighbor(n: PathNode) -> void:
 	if n == null:
 		return
 	var v := _neighbors.duplicate()
@@ -57,7 +57,7 @@ func remove_neighbor(n: NeighborLines2D) -> void:
 
 # --- Core logic ---
 
-func _set_neighbors(value: Array[NeighborLines2D]) -> void:
+func _set_neighbors(value: Array[PathNode]) -> void:
 	if _syncing:
 		_neighbors = _normalize(value)
 		queue_redraw()
@@ -84,7 +84,7 @@ func _set_neighbors(value: Array[NeighborLines2D]) -> void:
 
 	queue_redraw()
 
-func _mirror_add(other: NeighborLines2D) -> void:
+func _mirror_add(other: PathNode) -> void:
 	if other == null or other == self:
 		return
 	if _neighbors.has(other):
@@ -95,7 +95,7 @@ func _mirror_add(other: NeighborLines2D) -> void:
 	neighbors = v # goes through setter, but _syncing blocks ping-pong
 	_syncing = false
 
-func _mirror_remove(other: NeighborLines2D) -> void:
+func _mirror_remove(other: PathNode) -> void:
 	if other == null:
 		return
 	if not _neighbors.has(other):
@@ -106,8 +106,8 @@ func _mirror_remove(other: NeighborLines2D) -> void:
 	neighbors = v
 	_syncing = false
 
-func _normalize(list: Array[NeighborLines2D]) -> Array[NeighborLines2D]:
-	var out: Array[NeighborLines2D] = []
+func _normalize(list: Array[PathNode]) -> Array[PathNode]:
+	var out: Array[PathNode] = []
 	for n in list:
 		if n == null or not is_instance_valid(n):
 			continue
