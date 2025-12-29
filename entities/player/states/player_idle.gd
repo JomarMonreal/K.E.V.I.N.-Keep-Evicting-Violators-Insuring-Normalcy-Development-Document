@@ -14,10 +14,10 @@ func enter():
 
 func input(_event: InputEvent) -> BaseState:
 	if (
-		Input.is_action_just_pressed("ui_left")
-		or Input.is_action_just_pressed("ui_right")
-		or Input.is_action_just_pressed("ui_up")
-		or Input.is_action_just_pressed("ui_down")
+		Input.is_action_just_pressed("move_left")
+		or Input.is_action_just_pressed("move_right")
+		or Input.is_action_just_pressed("move_up")
+		or Input.is_action_just_pressed("move_down")
 	):
 		return moving_state
 	return null
