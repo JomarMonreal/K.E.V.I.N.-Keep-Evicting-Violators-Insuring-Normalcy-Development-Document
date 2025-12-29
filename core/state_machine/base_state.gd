@@ -1,21 +1,25 @@
-extends Node
 class_name BaseState
+extends Node
 
-static var STATE_NULL: int = 0
 
-var entity: Node
+@export var animation_name : String = ""
 
-func enter() -> void:
+
+func enter():
 	pass
 
-func exit() -> void:
+
+func exit():
 	pass
-	
-func input(_event: InputEvent) -> int:
-	return STATE_NULL 
-	
-func process(_delta: float) -> int:
-	return STATE_NULL
-		
-func physics_process(delta: float) -> int:
-	return STATE_NULL
+
+
+func input(_event: InputEvent) -> BaseState:
+	return null
+
+
+func process(_delta: float) -> BaseState:
+	return null
+
+
+func physics_process(_delta: float) -> BaseState:
+	return null

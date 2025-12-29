@@ -1,15 +1,28 @@
 extends PlayerBaseState
+## Player Idle State
 
-func input(event: InputEvent) -> int:
-	var player := entity as Player
-		
-	if Input.is_action_just_pressed("ui_left") or Input.is_action_just_pressed("ui_right") or Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_down"):
-		return PlayerBaseState.State.Moving
-		
-	return PlayerBaseState.State.Idle
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func physics_process(delta: float) -> int:
-	var player := entity as Player
-	return PlayerBaseState.State.Idle
-	
+@export var moving_state : PlayerBaseState
+#@export var interact_state : PlayerBaseState
+#@export var hide_state : PlayerBaseState
+#@export var die_state : PlayerBaseState
+
+
+func enter():
+	super()
+	parent.velocity = Vector2()
+
+
+func input(_event: InputEvent) -> BaseState:
+	if (
+		Input.is_action_just_pressed("ui_left")
+		or Input.is_action_just_pressed("ui_right")
+		or Input.is_action_just_pressed("ui_up")
+		or Input.is_action_just_pressed("ui_down")
+	):
+		return moving_state
+	return null
+
+
+func physics_process(_delta: float) -> BaseState:
+	parent.move_and_slide()
+	return null

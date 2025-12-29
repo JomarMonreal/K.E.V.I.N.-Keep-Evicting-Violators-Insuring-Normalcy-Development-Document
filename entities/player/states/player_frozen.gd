@@ -1,4 +1,5 @@
-extends Node
+extends PlayerBaseState
+## Player Frozen State
 
 
 # Called when the node enters the scene tree for the first time.
