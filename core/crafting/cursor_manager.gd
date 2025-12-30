@@ -19,15 +19,18 @@ enum STATE {
 }
 
 func _process(_delta: float) -> void:
+	print(state)
 	match state:
 		STATE.default:
-			if Input.is_action_pressed("ui_left_click"):
+			if Input.is_action_just_pressed("ui_left_click"):
 				if tooltip_item != null:
 					is_dragging = true
 					GameToolTip.display_description(false)
 					GameToolTip.display_texture(true)
 					state = STATE.dragging
 			if slot_source and slot_dest:
+				if slot_source.item == null:
+					return
 				print("slot_source" + str(slot_source))
 				print("slot_dest" + str(slot_dest))
 				var temp_item = null
@@ -36,9 +39,10 @@ func _process(_delta: float) -> void:
 				var temp_count = slot_source.item_count
 				slot_source.set_item(slot_dest.item, slot_dest.item_count)
 				slot_dest.set_item(temp_item, temp_count)
+				GameToolTip.display_description(true)
 
-				slot_source = null
-				slot_dest = null
+			slot_source = null
+			slot_dest = null
 
 		STATE.dragging:
 			if Input.is_action_just_released("ui_left_click"):
