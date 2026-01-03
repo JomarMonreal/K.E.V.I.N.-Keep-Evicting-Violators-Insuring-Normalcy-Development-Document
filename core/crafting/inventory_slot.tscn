@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://hws6k70f7tw"]
 
 [ext_resource type="Script" uid="uid://bbbgwu5kti0b6" path="res://core/crafting/inventory_slot.gd" id="1_oo50m"]
-[ext_resource type="Texture2D" uid="uid://blr6lq454wg0b" path="res://assets/icons/red-circle-outline-transparent-icon.png" id="1_xtl3i"]
+[ext_resource type="Texture2D" uid="uid://blr6lq454wg0b" path="res://assets/prototype/red-circle-outline-transparent-icon.png" id="1_xtl3i"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_52qb3"]
 

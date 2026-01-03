@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://k4u7e1uwv35g"]
 
 [ext_resource type="PackedScene" uid="uid://by3yaeckrtk5d" path="res://entities/player/player.tscn" id="1_i1vr1"]
-[ext_resource type="Texture2D" uid="uid://dcgo4ch3rukki" path="res://assets/icons/icon.svg" id="2_w1m8s"]
+[ext_resource type="Texture2D" uid="uid://dcgo4ch3rukki" path="res://assets/prototype/icon.svg" id="2_w1m8s"]
 [ext_resource type="PackedScene" uid="uid://c3ifr4bjdss33" path="res://core/crafting/crafting_ui.tscn" id="3_77qoa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1vr1"]
@@ -11,11 +11,14 @@ size = Vector2(401, 200)
 
 [node name="Player" parent="." instance=ExtResource("1_i1vr1")]
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.75, 0.75)
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(83.5, 177)
-scale = Vector2(3.08594, 1)
+position = Vector2(83.5, 214.5)
+scale = Vector2(3.08594, 1.5859375)
 texture = ExtResource("2_w1m8s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]

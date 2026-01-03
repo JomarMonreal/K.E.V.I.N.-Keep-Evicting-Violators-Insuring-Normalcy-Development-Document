@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://be4q66weo8yqh"]
 
 [ext_resource type="Script" uid="uid://dvs7b3obhk67y" path="res://core/path_graph/path_graph.gd" id="1_wmw7q"]
-[ext_resource type="Texture2D" uid="uid://dcgo4ch3rukki" path="res://assets/icons/icon.svg" id="2_8vr3t"]
+[ext_resource type="Texture2D" uid="uid://dcgo4ch3rukki" path="res://assets/prototype/icon.svg" id="2_8vr3t"]
 [ext_resource type="Script" uid="uid://snm604eis1go" path="res://core/path_graph/path_node.gd" id="3_twoct"]
 
 [node name="PathGraph" type="Node2D" node_paths=PackedStringArray("entrance_nodes", "exit_nodes")]

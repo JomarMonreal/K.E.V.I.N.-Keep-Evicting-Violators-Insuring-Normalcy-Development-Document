@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://sdgxjc41a8d5"]
 
 [ext_resource type="Script" uid="uid://d1ikam1mi4qd4" path="res://core/crafting/item.gd" id="1_wi6s3"]
-[ext_resource type="Texture2D" uid="uid://blr6lq454wg0b" path="res://assets/icons/red-circle-outline-transparent-icon.png" id="2_mka5d"]
+[ext_resource type="Texture2D" uid="uid://blr6lq454wg0b" path="res://assets/prototype/red-circle-outline-transparent-icon.png" id="2_mka5d"]
 
 [resource]
 script = ExtResource("1_wi6s3")

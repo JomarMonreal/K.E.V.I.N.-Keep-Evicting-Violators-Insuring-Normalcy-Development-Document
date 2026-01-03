@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ou8acpa0ppm1"]
 
 [ext_resource type="Script" uid="uid://yqtop1wykqmv" path="res://core/crafting/game_tool_tip.gd" id="1_0u820"]
-[ext_resource type="Texture2D" uid="uid://blr6lq454wg0b" path="res://assets/icons/red-circle-outline-transparent-icon.png" id="1_qx5dh"]
+[ext_resource type="Texture2D" uid="uid://blr6lq454wg0b" path="res://assets/prototype/red-circle-outline-transparent-icon.png" id="1_qx5dh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qx5dh"]
 
