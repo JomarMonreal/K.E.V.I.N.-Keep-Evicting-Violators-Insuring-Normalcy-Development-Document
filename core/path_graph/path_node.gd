@@ -1,4 +1,3 @@
-# PathNode.gd (Godot 4.x)
 @tool
 extends Sprite2D
 class_name PathNode
@@ -23,16 +22,29 @@ var _neighbors: Array[PathNode] = []
 		_set_neighbors(value)
 
 func _enter_tree() -> void:
+	# Editor: show + keep redrawing so lines update while moving nodes.
 	if Engine.is_editor_hint():
+		visible = true
 		process_mode = Node.PROCESS_MODE_ALWAYS
 		set_process(true)
-	queue_redraw()
+		queue_redraw()
+		return
+
+	# Runtime: hide sprite and prevent line drawing.
+	visible = false
+	process_mode = Node.PROCESS_MODE_DISABLED
+	set_process(false)
+	queue_redraw() # clears any editor draw cache immediately
 
 func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		queue_redraw()
 
 func _draw() -> void:
+	# Only draw neighbor lines in the editor.
+	if not Engine.is_editor_hint():
+		return
+
 	for n in _neighbors:
 		if n == null or not is_instance_valid(n):
 			continue
@@ -92,7 +104,7 @@ func _mirror_add(other: PathNode) -> void:
 	_syncing = true
 	var v := _neighbors.duplicate()
 	v.append(other)
-	neighbors = v # goes through setter, but _syncing blocks ping-pong
+	neighbors = v
 	_syncing = false
 
 func _mirror_remove(other: PathNode) -> void:

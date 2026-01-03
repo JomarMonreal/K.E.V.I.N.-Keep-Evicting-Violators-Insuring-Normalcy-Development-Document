@@ -1,0 +1,88 @@
+[gd_scene load_steps=5 format=3 uid="uid://do2s031gtn5hu"]
+
+[ext_resource type="Script" uid="uid://dvs7b3obhk67y" path="res://core/path_graph/path_graph.gd" id="1_4635n"]
+[ext_resource type="Texture2D" uid="uid://bxpl7d6ityfih" path="res://assets/main_assets/Map/Map_Invasion.png" id="2_5axlx"]
+[ext_resource type="Texture2D" uid="uid://dcgo4ch3rukki" path="res://assets/prototype/icon.svg" id="2_frbf0"]
+[ext_resource type="Script" uid="uid://snm604eis1go" path="res://core/path_graph/path_node.gd" id="3_5axlx"]
+
+[node name="PathGraph" type="Node2D" node_paths=PackedStringArray("entrance_nodes", "exit_nodes")]
+script = ExtResource("1_4635n")
+entrance_nodes = [NodePath("Node2D10")]
+exit_nodes = [NodePath("Node2D8")]
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(-793, 410)
+texture = ExtResource("2_5axlx")
+metadata/_edit_lock_ = true
+
+[node name="Node2D3" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-1035, -522)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+neighbors = [NodePath("../Node2D4"), NodePath("../Node2D7"), NodePath("../Node2D9"), NodePath("../Node2D6"), NodePath("../Node2D8")]
+metadata/_edit_group_ = true
+
+[node name="Node2D5" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-46, -1748)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+neighbors = [NodePath("../Node2D7"), NodePath("../Node2D6")]
+metadata/_edit_group_ = true
+
+[node name="Node2D8" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-2068, -1714)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+neighbors = [NodePath("../Node2D7"), NodePath("../Node2D9"), NodePath("../Node2D4"), NodePath("../Node2D3")]
+metadata/_edit_group_ = true
+
+[node name="Node2D4" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-1009, -1910)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+neighbors = [NodePath("../Node2D3"), NodePath("../Node2D7"), NodePath("../Node2D10"), NodePath("../Node2D8")]
+metadata/_edit_group_ = true
+
+[node name="Node2D10" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-1016, -2368)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+neighbors = [NodePath("../Node2D4")]
+metadata/_edit_group_ = true
+
+[node name="Node2D6" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-80, -477)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+neighbors = [NodePath("../Node2D5"), NodePath("../Node2D3")]
+metadata/_edit_group_ = true
+
+[node name="Node2D9" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-2077, -474)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+neighbors = [NodePath("../Node2D3"), NodePath("../Node2D8")]
+metadata/_edit_group_ = true
+
+[node name="Node2D7" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-498, -1776)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+neighbors = [NodePath("../Node2D3"), NodePath("../Node2D4"), NodePath("../Node2D5"), NodePath("../Node2D8")]
+metadata/_edit_group_ = true
