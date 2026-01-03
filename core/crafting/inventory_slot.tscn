@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://hws6k70f7tw"]
+
+[ext_resource type="Script" uid="uid://bbbgwu5kti0b6" path="res://core/crafting/inventory_slot.gd" id="1_oo50m"]
+[ext_resource type="Texture2D" uid="uid://blr6lq454wg0b" path="res://assets/icons/red-circle-outline-transparent-icon.png" id="1_xtl3i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_52qb3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nsgh0"]
+
+[node name="InventorySlot1" type="PanelContainer"]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_oo50m")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("1_xtl3i")
+expand_mode = 1
+
+[node name="TextEdit" type="RichTextLabel" parent="MarginContainer/VBoxContainer/TextureRect"]
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 0
+offset_top = 34.545
+offset_right = 50.0
+offset_bottom = 59.545033
+size_flags_horizontal = 8
+size_flags_vertical = 8
+mouse_filter = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_52qb3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nsgh0")
+text = "x10"
+shortcut_keys_enabled = false
+horizontal_alignment = 2
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

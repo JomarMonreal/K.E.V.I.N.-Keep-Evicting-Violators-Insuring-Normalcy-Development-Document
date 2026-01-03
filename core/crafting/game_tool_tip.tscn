@@ -1,0 +1,95 @@
+[gd_scene load_steps=6 format=3 uid="uid://ou8acpa0ppm1"]
+
+[ext_resource type="Script" uid="uid://yqtop1wykqmv" path="res://core/crafting/game_tool_tip.gd" id="1_0u820"]
+[ext_resource type="Texture2D" uid="uid://blr6lq454wg0b" path="res://assets/icons/red-circle-outline-transparent-icon.png" id="1_qx5dh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qx5dh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7xdhu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mo5ej"]
+
+[node name="GameToolTip" type="Control"]
+z_index = 4096
+layout_mode = 3
+anchors_preset = 0
+offset_right = 70.0
+offset_bottom = 70.0
+mouse_filter = 2
+script = ExtResource("1_0u820")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="Parent" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Description" type="PanelContainer" parent="CanvasLayer/Parent"]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 125.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Parent/Description"]
+custom_minimum_size = Vector2(300, 125)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+bbcode_enabled = true
+text = "[b][i]Crazy[/i][/b]
+
+asdfasdasdfaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+
+[node name="Texture" type="PanelContainer" parent="CanvasLayer/Parent"]
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 70.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_qx5dh")
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Parent/Texture"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Parent/Texture/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Parent/Texture/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("1_qx5dh")
+expand_mode = 1
+
+[node name="TextEdit" type="RichTextLabel" parent="CanvasLayer/Parent/Texture/MarginContainer/VBoxContainer/TextureRect"]
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 0
+offset_top = 34.545
+offset_right = 50.0
+offset_bottom = 59.545033
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7xdhu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mo5ej")
+text = "x10"
+shortcut_keys_enabled = false
+horizontal_alignment = 2
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
