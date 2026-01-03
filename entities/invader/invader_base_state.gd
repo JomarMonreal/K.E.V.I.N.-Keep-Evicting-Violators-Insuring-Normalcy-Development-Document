@@ -1,4 +1,4 @@
-extends BaseState
+extends BaseState2
 class_name InvaderBaseState
 
 enum State {

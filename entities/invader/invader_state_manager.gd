@@ -1,4 +1,4 @@
-extends BaseStateManager
+extends BaseStateManager2
 class_name InvaderStateManager
 
 func _ready() -> void:
