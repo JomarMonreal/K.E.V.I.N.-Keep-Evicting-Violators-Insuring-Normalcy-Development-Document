@@ -1,13 +1,12 @@
-extends BaseStateManager
 class_name PlayerStateManager
+extends BaseStateManager
 
-func _ready() -> void:
-	states = {
-		PlayerBaseState.State.Idle: $Idle,
-		PlayerBaseState.State.Moving: $Moving,
-		PlayerBaseState.State.Interacting: $Interacting,
-		PlayerBaseState.State.Freezing: $Freezing,
-		PlayerBaseState.State.Dead: $Dead,
-	}
+@export var starting_state : BaseState
 
-	initial_state = PlayerBaseState.State.Idle
+
+func init(parent: Player):
+	for child in get_children():
+		child.parent = parent
+	
+	initial_state = starting_state
+	change_state(initial_state)

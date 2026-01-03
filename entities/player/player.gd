@@ -1,19 +1,21 @@
-extends CharacterBody2D
 class_name Player
+extends CharacterBody2D
 
-@onready var states: PlayerStateManager = $StateManager
+@export var animations : AnimatedSprite2D
+@onready var state_manager : PlayerStateManager = $PlayerStateManager
 
-var motion_velocity
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	states.init(self)
+	state_manager.init(self)
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	state_manager.input(event)
+
 
 func _process(delta: float) -> void:
-	states.process(delta)
+	state_manager.process(delta)
+
 
 func _physics_process(delta: float) -> void:
-	states.physics_process(delta)
-	
-func _input(event: InputEvent) -> void:
-	states.input(event)
+	state_manager.physics_process(delta)

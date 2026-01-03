@@ -14,7 +14,7 @@ size = Vector2(401, 200)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 position = Vector2(83.5, 177)
-scale = Vector2(3.0859375, 1)
+scale = Vector2(3.08594, 1)
 texture = ExtResource("2_w1m8s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]

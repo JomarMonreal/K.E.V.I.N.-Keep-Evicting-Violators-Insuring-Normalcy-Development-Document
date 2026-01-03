@@ -1,11 +1,7 @@
-extends BaseState
 class_name PlayerBaseState
+extends BaseState
 
-enum State {
-	Null,
-	Idle,
-	Moving,
-	Interacting,
-	Freezing,
-	Dead
-}
+var parent : Player # change to different entity type as needed
+
+func enter():
+	parent.animations.play(animation_name)
