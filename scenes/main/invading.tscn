@@ -26,3 +26,45 @@ speed = 400.0
 
 [node name="Player" parent="." instance=ExtResource("2_bti8c")]
 position = Vector2(-1120, 1423)
+
+[node name="OutsideColliders" type="StaticBody2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="OutsideColliders"]
+polygon = PackedVector2Array(-24, 157, -30, -417, 932, -424, 1135, -420, 1147, 170, 1737, 170, 1734, -310, 4433, -317, 4431, -556, -3037, -579, -3017, -255, -660, -258, -646, 149)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="OutsideColliders"]
+polygon = PackedVector2Array(4427, -297, 4442, 2371, 4656, 2393, 4686, 5425, -2996, 5432, -3018, -330, -3003, -685, -3662, -737, -3440, 5985, 5619, 5963, 5493, -637, 4449, -571)
+
+[node name="WallColliders" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallColliders"]
+polygon = PackedVector2Array(-16, 126, 154, 121, 158, 208, -614, 218, -605, 705, -701, 709, -706, -265, -632, -265)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="WallColliders"]
+polygon = PackedVector2Array(944, 126, 972, 222, 1675, 204, 1675, 360, 1776, 369, 1789, 116)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="WallColliders"]
+polygon = PackedVector2Array(-3010, 997, -2176, 1002, -2148, 1019, -2159, 1102, -3038, 1075)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="WallColliders"]
+polygon = PackedVector2Array(-1509, 1008, -1509, 1097, -713, 1086, -691, 1191, -608, 1191, -602, 947, -686, 941, -691, 1019)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="WallColliders"]
+polygon = PackedVector2Array(-595, 1498, -711, 1504, -687, 2743, -583, 2743, -583, 1746, 224, 1746, 212, 1617, -583, 1605)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="WallColliders"]
+polygon = PackedVector2Array(903, 1611, 897, 1733, 1674, 1740, 1668, 2779, 1949, 2767, 1949, 2681, 1784, 2681, 1790, 1494, 3938, 1500, 3932, 1408, 3852, 1402, 3852, 1310, 1779, 1328, 1785, 1072, 1681, 1090, 1663, 1616)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="WallColliders"]
+polygon = PackedVector2Array(4173, 1338, 4184, 1533, 4368, 1530, 4377, 2326, 3786, 2318, 3804, 1449, 3661, 1467, 3661, 2309, 3222, 2300, 3195, 2676, 2219, 2703, 2228, 2792, 3204, 2792, 3213, 2909, 3348, 2917, 3348, 2443, 4700, 2443, 4700, 2282, 4485, 1333)
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="WallColliders"]
+polygon = PackedVector2Array(-706, 3086, -706, 3237, -2505, 3270, -2472, 3389, -2071, 3367, -2071, 4527, -3036, 4527, -3036, 4689, 85, 4689, 117, 5090, 312, 5036, 291, 3389, 2566, 3422, 2577, 5047, 2761, 5079, 2761, 3205, 96, 3248, 96, 4451, 96, 4548, -609, 4516, -576, 3833, -728, 3812, -739, 4538, -1952, 4505, -1920, 3378, -739, 3378, -717, 3541, -587, 3530, -587, 3086)
+
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="WallColliders"]
+polygon = PackedVector2Array(-3068, 3248, -2808, 3270, -2808, 3400, -3046, 3400)
+
+[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="WallColliders"]
+polygon = PackedVector2Array(3348, 3163, 3237, 3148, 3259, 4006, 3362, 3984, 3355, 3437, 4613, 3451, 4613, 4302, 3340, 4317, 3333, 4191, 3244, 4199, 3237, 4946, 3348, 4976, 3355, 4436, 4620, 4428, 4613, 5384, 4613, 5436, 3325, 5414, 3348, 5155, 3207, 5169, 3207, 5406, 2733, 5414, 2741, 5243, 2615, 5288, 2607, 5421, 259, 5414, 244, 5273, 148, 5273, 155, 5406, 192, 5569, 4894, 5495, 4805, 3304, 4694, 3341, 3348, 3304)
+metadata/_edit_lock_ = true

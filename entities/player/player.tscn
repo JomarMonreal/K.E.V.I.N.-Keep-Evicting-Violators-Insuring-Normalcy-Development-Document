@@ -29,8 +29,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wvtmh"]
-radius = 58.0
-height = 174.0
+radius = 41.0
+height = 114.0
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animations")]
 script = ExtResource("1_sglur")
@@ -44,6 +44,8 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 52)
+rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_wvtmh")
 
 [node name="TopDownMovement" type="Node" parent="."]

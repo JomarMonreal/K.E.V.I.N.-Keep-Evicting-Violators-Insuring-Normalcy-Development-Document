@@ -62,7 +62,7 @@ metadata/_edit_group_ = true
 
 [node name="Node2D6" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
 process_mode = 3
-position = Vector2(-80, -477)
+position = Vector2(-71, -549)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
@@ -71,7 +71,7 @@ metadata/_edit_group_ = true
 
 [node name="Node2D9" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
 process_mode = 3
-position = Vector2(-2077, -474)
+position = Vector2(-2059, -501)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
