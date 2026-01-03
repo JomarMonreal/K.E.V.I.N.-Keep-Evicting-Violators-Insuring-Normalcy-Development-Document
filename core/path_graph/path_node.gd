@@ -2,6 +2,8 @@
 extends Sprite2D
 class_name PathNode
 
+var visit_count = 0
+
 @export var line_color: Color = Color.WHITE:
 	set(v):
 		line_color = v
@@ -36,6 +38,9 @@ func _enter_tree() -> void:
 	set_process(false)
 	queue_redraw() # clears any editor draw cache immediately
 
+func _ready() -> void:
+	visit_count = 0
+	
 func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		queue_redraw()

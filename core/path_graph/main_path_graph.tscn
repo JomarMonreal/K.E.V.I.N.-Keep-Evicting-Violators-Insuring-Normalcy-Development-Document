@@ -17,11 +17,409 @@ metadata/_edit_lock_ = true
 
 [node name="Node2D3" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
 process_mode = 3
-position = Vector2(-1035, -522)
+position = Vector2(-1028, -526)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
-neighbors = [NodePath("../Node2D4"), NodePath("../Node2D7"), NodePath("../Node2D9"), NodePath("../Node2D6"), NodePath("../Node2D8")]
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D4"), NodePath("../Node2D7"), NodePath("../Node2D9"), NodePath("../Node2D6"), NodePath("../Node2D8"), NodePath("../Node2D26")]
+metadata/_edit_group_ = true
+
+[node name="Node2D26" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-1029, -167)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D3"), NodePath("../Node2D27"), NodePath("../Node2D28")]
+metadata/_edit_group_ = true
+
+[node name="Node2D27" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-311, -172)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D26"), NodePath("../Node2D30")]
+metadata/_edit_group_ = true
+
+[node name="Node2D28" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-1755, -148)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D26"), NodePath("../Node2D29")]
+metadata/_edit_group_ = true
+
+[node name="Node2D29" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-1732, 715)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D28"), NodePath("../Node2D31"), NodePath("../Node2D36")]
+metadata/_edit_group_ = true
+
+[node name="Node2D31" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-1718, 1081)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D29"), NodePath("../Node2D30"), NodePath("../Node2D36"), NodePath("../Node2D40"), NodePath("../Node2D41")]
+metadata/_edit_group_ = true
+
+[node name="Node2D30" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-330, 1029)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D31"), NodePath("../Node2D27"), NodePath("../Node2D43")]
+metadata/_edit_group_ = true
+
+[node name="Node2D42" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(484, 645)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D43"), NodePath("../Node2D46"), NodePath("../Node2D49")]
+metadata/_edit_group_ = true
+
+[node name="Node2D46" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(494, -214)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D42"), NodePath("../Node2D49"), NodePath("../Node2D47")]
+metadata/_edit_group_ = true
+
+[node name="Node2D47" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(1519, -205)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D46"), NodePath("../Node2D49"), NodePath("../Node2D48")]
+metadata/_edit_group_ = true
+
+[node name="Node2D48" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(1519, -545)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D47")]
+metadata/_edit_group_ = true
+
+[node name="Node2D49" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(853, 75)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D46"), NodePath("../Node2D42"), NodePath("../Node2D47")]
+metadata/_edit_group_ = true
+
+[node name="Node2D43" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(473, 1044)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D30"), NodePath("../Node2D42"), NodePath("../Node2D52")]
+metadata/_edit_group_ = true
+
+[node name="Node2D52" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(1494, 957)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D53"), NodePath("../Node2D43"), NodePath("../Node2D60")]
+metadata/_edit_group_ = true
+
+[node name="Node2D60" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(1921, 969)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D52"), NodePath("../Node2D61"), NodePath("../Node2D62")]
+metadata/_edit_group_ = true
+
+[node name="Node2D62" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(1900, 591)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D61"), NodePath("../Node2D60")]
+metadata/_edit_group_ = true
+
+[node name="Node2D61" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(2767, 996)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D60"), NodePath("../Node2D62")]
+metadata/_edit_group_ = true
+
+[node name="Node2D53" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(1489, 1972)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D52"), NodePath("../Node2D54"), NodePath("../Node2D69")]
+metadata/_edit_group_ = true
+
+[node name="Node2D69" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(1980, 1976)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D53"), NodePath("../Node2D71"), NodePath("../Node2D72")]
+metadata/_edit_group_ = true
+
+[node name="Node2D71" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(2782, 1993)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D69"), NodePath("../Node2D72")]
+metadata/_edit_group_ = true
+
+[node name="Node2D72" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(1988, 1665)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D71"), NodePath("../Node2D69")]
+metadata/_edit_group_ = true
+
+[node name="Node2D54" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(1431, 3023)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D53"), NodePath("../Node2D55"), NodePath("../Node2D70")]
+metadata/_edit_group_ = true
+
+[node name="Node2D70" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(1992, 3018)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D54"), NodePath("../Node2D73"), NodePath("../Node2D74")]
+metadata/_edit_group_ = true
+
+[node name="Node2D74" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(1995, 2601)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D73"), NodePath("../Node2D70")]
+metadata/_edit_group_ = true
+
+[node name="Node2D73" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(2912, 3043)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D70"), NodePath("../Node2D74")]
+metadata/_edit_group_ = true
+
+[node name="Node2D55" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(838, 3104)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D54"), NodePath("../Node2D56"), NodePath("../Node2D66")]
+metadata/_edit_group_ = true
+
+[node name="Node2D56" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(313, 3108)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D55"), NodePath("../Node2D64"), NodePath("../Node2D65")]
+metadata/_edit_group_ = true
+
+[node name="Node2D65" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(317, 1642)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D56"), NodePath("../Node2D67"), NodePath("../Node2D66")]
+metadata/_edit_group_ = true
+
+[node name="Node2D66" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(812, 1633)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D55"), NodePath("../Node2D65")]
+metadata/_edit_group_ = true
+
+[node name="Node2D67" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-138, 1642)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D65"), NodePath("../Node2D68")]
+metadata/_edit_group_ = true
+
+[node name="Node2D68" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-1079, 1687)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D67"), NodePath("../Node2D75")]
+metadata/_edit_group_ = true
+
+[node name="Node2D75" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-1189, 1387)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D68")]
+metadata/_edit_group_ = true
+
+[node name="Node2D57" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-2588, 3120)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D58"), NodePath("../Node2D59"), NodePath("../Node2D64")]
+metadata/_edit_group_ = true
+
+[node name="Node2D63" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-1670, 2716)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D64")]
+metadata/_edit_group_ = true
+
+[node name="Node2D64" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-1659, 3106)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D59"), NodePath("../Node2D63"), NodePath("../Node2D57"), NodePath("../Node2D56")]
+metadata/_edit_group_ = true
+
+[node name="Node2D59" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-2580, 2695)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D58"), NodePath("../Node2D57"), NodePath("../Node2D64")]
+metadata/_edit_group_ = true
+
+[node name="Node2D58" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-4248, 2943)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D57"), NodePath("../Node2D59")]
 metadata/_edit_group_ = true
 
 [node name="Node2D5" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
@@ -30,7 +428,163 @@ position = Vector2(-46, -1748)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
-neighbors = [NodePath("../Node2D7"), NodePath("../Node2D6")]
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D7"), NodePath("../Node2D6"), NodePath("../Node2D11")]
+metadata/_edit_group_ = true
+
+[node name="Node2D12" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(443, -2087)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D11"), NodePath("../Node2D19")]
+metadata/_edit_group_ = true
+
+[node name="Node2D19" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(1211, -2283)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D11"), NodePath("../Node2D12"), NodePath("../Node2D21")]
+metadata/_edit_group_ = true
+
+[node name="Node2D21" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(2472, -2287)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D19"), NodePath("../Node2D22")]
+metadata/_edit_group_ = true
+
+[node name="Node2D22" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(2522, -1598)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D21"), NodePath("../Node2D20"), NodePath("../Node2D16"), NodePath("../Node2D17")]
+metadata/_edit_group_ = true
+
+[node name="Node2D13" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(389, -896)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D11"), NodePath("../Node2D18")]
+metadata/_edit_group_ = true
+
+[node name="Node2D18" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(1250, -867)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D11"), NodePath("../Node2D13"), NodePath("../Node2D20")]
+metadata/_edit_group_ = true
+
+[node name="Node2D20" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(2474, -842)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D18"), NodePath("../Node2D22"), NodePath("../Node2D50")]
+metadata/_edit_group_ = true
+
+[node name="Node2D50" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(2406, -422)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D20"), NodePath("../Node2D51")]
+metadata/_edit_group_ = true
+
+[node name="Node2D51" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(2371, 139)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D50")]
+metadata/_edit_group_ = true
+
+[node name="Node2D14" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(1245, -1472)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D11"), NodePath("../Node2D15"), NodePath("../Node2D17")]
+metadata/_edit_group_ = true
+
+[node name="Node2D15" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(1262, -1798)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D11"), NodePath("../Node2D16"), NodePath("../Node2D14")]
+metadata/_edit_group_ = true
+
+[node name="Node2D16" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(2206, -1781)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D15"), NodePath("../Node2D17"), NodePath("../Node2D22")]
+metadata/_edit_group_ = true
+
+[node name="Node2D17" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(2190, -1451)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D16"), NodePath("../Node2D14"), NodePath("../Node2D22")]
+metadata/_edit_group_ = true
+
+[node name="Node2D11" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(142, -1355)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D6"), NodePath("../Node2D5"), NodePath("../Node2D12"), NodePath("../Node2D13"), NodePath("../Node2D14"), NodePath("../Node2D15"), NodePath("../Node2D18"), NodePath("../Node2D19")]
 metadata/_edit_group_ = true
 
 [node name="Node2D8" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
@@ -39,7 +593,9 @@ position = Vector2(-2068, -1714)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
-neighbors = [NodePath("../Node2D7"), NodePath("../Node2D9"), NodePath("../Node2D4"), NodePath("../Node2D3")]
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D7"), NodePath("../Node2D4"), NodePath("../Node2D3"), NodePath("../Node2D24"), NodePath("../Node2D25")]
 metadata/_edit_group_ = true
 
 [node name="Node2D4" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
@@ -48,6 +604,8 @@ position = Vector2(-1009, -1910)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
 neighbors = [NodePath("../Node2D3"), NodePath("../Node2D7"), NodePath("../Node2D10"), NodePath("../Node2D8")]
 metadata/_edit_group_ = true
 
@@ -57,6 +615,8 @@ position = Vector2(-1016, -2368)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
 neighbors = [NodePath("../Node2D4")]
 metadata/_edit_group_ = true
 
@@ -66,16 +626,328 @@ position = Vector2(-71, -549)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
-neighbors = [NodePath("../Node2D5"), NodePath("../Node2D3")]
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D5"), NodePath("../Node2D3"), NodePath("../Node2D11")]
 metadata/_edit_group_ = true
 
 [node name="Node2D9" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
 process_mode = 3
-position = Vector2(-2059, -501)
+position = Vector2(-2030, -540)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
-neighbors = [NodePath("../Node2D3"), NodePath("../Node2D8")]
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D3"), NodePath("../Node2D23"), NodePath("../Node2D24")]
+metadata/_edit_group_ = true
+
+[node name="Node2D23" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-2234, -726)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D9"), NodePath("../Node2D24")]
+metadata/_edit_group_ = true
+
+[node name="Node2D24" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-2050, -1020)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D9"), NodePath("../Node2D8"), NodePath("../Node2D23"), NodePath("../Node2D25")]
+metadata/_edit_group_ = true
+
+[node name="Node2D25" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-2243, -1259)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D8"), NodePath("../Node2D24"), NodePath(""), NodePath("../Node2D32")]
+metadata/_edit_group_ = true
+
+[node name="Node2D32" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-2681, -1366)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D25"), NodePath("../Node2D84"), NodePath("../Node2D87")]
+metadata/_edit_group_ = true
+
+[node name="Node2D86" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-2368, -1911)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D85"), NodePath("../Node2D87")]
+metadata/_edit_group_ = true
+
+[node name="Node2D87" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-2403, -1502)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D32"), NodePath("../Node2D86")]
+metadata/_edit_group_ = true
+
+[node name="Node2D84" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-3212, -1735)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D33"), NodePath("../Node2D83"), NodePath("../Node2D32"), NodePath("../Node2D85"), NodePath("../Node2D88")]
+metadata/_edit_group_ = true
+
+[node name="Node2D85" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-2696, -2099)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D83"), NodePath("../Node2D84"), NodePath("../Node2D86"), NodePath("../Node2D88")]
+metadata/_edit_group_ = true
+
+[node name="Node2D83" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-3783, -1924)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D33"), NodePath("../Node2D84"), NodePath(""), NodePath("../Node2D85")]
+metadata/_edit_group_ = true
+
+[node name="Node2D88" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-3999, -1465)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D33"), NodePath("../Node2D84"), NodePath(""), NodePath("../Node2D85")]
+metadata/_edit_group_ = true
+
+[node name="Node2D33" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-3406, -1039)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D34"), NodePath("../Node2D44"), NodePath("../Node2D83"), NodePath("../Node2D84"), NodePath(""), NodePath("../Node2D88")]
+metadata/_edit_group_ = true
+
+[node name="Node2D34" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-2648, -440)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D33"), NodePath("../Node2D35")]
+metadata/_edit_group_ = true
+
+[node name="Node2D44" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-4256, -415)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D33"), NodePath("../Node2D45")]
+metadata/_edit_group_ = true
+
+[node name="Node2D45" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-4263, 662)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D44"), NodePath("../Node2D38")]
+metadata/_edit_group_ = true
+
+[node name="Node2D35" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-2599, 838)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D34"), NodePath("../Node2D36"), NodePath("../Node2D37")]
+metadata/_edit_group_ = true
+
+[node name="Node2D37" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-2593, 1083)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D35"), NodePath("../Node2D38")]
+metadata/_edit_group_ = true
+
+[node name="Node2D38" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-4280, 1052)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D37"), NodePath("../Node2D39"), NodePath("../Node2D45")]
+metadata/_edit_group_ = true
+
+[node name="Node2D39" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-4287, 1241)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D38"), NodePath("../Node2D76"), NodePath("../Node2D77"), NodePath("../Node2D78")]
+metadata/_edit_group_ = true
+
+[node name="Node2D76" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-3910, 2275)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D39"), NodePath("../Node2D78"), NodePath("../Node2D77")]
+metadata/_edit_group_ = true
+
+[node name="Node2D77" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-3814, 1540)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D78"), NodePath("../Node2D39"), NodePath("../Node2D76")]
+metadata/_edit_group_ = true
+
+[node name="Node2D78" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-4407, 1908)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D77"), NodePath("../Node2D39"), NodePath("../Node2D76")]
+metadata/_edit_group_ = true
+
+[node name="Node2D36" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-1990, 849)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D35"), NodePath("../Node2D29"), NodePath("../Node2D31")]
+metadata/_edit_group_ = true
+
+[node name="Node2D40" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-1943, 1597)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D31"), NodePath("../Node2D41"), NodePath("../Node2D79")]
+metadata/_edit_group_ = true
+
+[node name="Node2D79" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-2504, 1557)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D40"), NodePath("../Node2D80")]
+metadata/_edit_group_ = true
+
+[node name="Node2D80" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-2499, 1779)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D79"), NodePath("../Node2D81")]
+metadata/_edit_group_ = true
+
+[node name="Node2D81" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-3237, 1764)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D80"), NodePath("../Node2D82")]
+metadata/_edit_group_ = true
+
+[node name="Node2D82" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-3232, 2300)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D81")]
+metadata/_edit_group_ = true
+
+[node name="Node2D41" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+position = Vector2(-1726, 2327)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+neighbors = [NodePath("../Node2D31"), NodePath("../Node2D40")]
 metadata/_edit_group_ = true
 
 [node name="Node2D7" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
@@ -84,5 +956,7 @@ position = Vector2(-498, -1776)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
 neighbors = [NodePath("../Node2D3"), NodePath("../Node2D4"), NodePath("../Node2D5"), NodePath("../Node2D8")]
 metadata/_edit_group_ = true

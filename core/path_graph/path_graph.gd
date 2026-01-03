@@ -3,6 +3,7 @@ class_name PathGraph
 
 @export var entrance_nodes: Array[PathNode] = [];
 @export var exit_nodes: Array[PathNode] = [];
+@export var trap_nodes: Array[PathNode] = [];
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

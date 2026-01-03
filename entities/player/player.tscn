@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://by3yaeckrtk5d"]
 
 [ext_resource type="Script" uid="uid://cas4qy1d4k5la" path="res://entities/player/player.gd" id="1_sglur"]
-[ext_resource type="Texture2D" uid="uid://cx86fusfg5nus" path="res://assets/main_assets/Characters/KevinSttroked.png" id="2_26q78"]
+[ext_resource type="Texture2D" uid="uid://curx56m3ytu0x" path="res://assets/main_assets/Map/Blueprint Icons/Player Symbol.PNG" id="2_26q78"]
 [ext_resource type="Script" uid="uid://q0c5t8psmc7i" path="res://entities/player/player_state_manager.gd" id="2_bls4j"]
 [ext_resource type="Script" uid="uid://b35lwsjswdvw6" path="res://entities/player/states/player_idle.gd" id="3_fkugw"]
 [ext_resource type="Script" uid="uid://xiprp7egc8ii" path="res://entities/player/states/player_moving.gd" id="4_bls4j"]
@@ -38,13 +38,13 @@ animations = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(0.05, 0.05)
+scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_wq0jh")
-animation = &"idle"
+animation = &"moving"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 52)
+position = Vector2(0, -2)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_wvtmh")
 
@@ -63,7 +63,7 @@ animation_name = "idle"
 [node name="Moving" type="Node" parent="PlayerStateManager" node_paths=PackedStringArray("idle_state")]
 script = ExtResource("4_bls4j")
 idle_state = NodePath("../Idle")
-move_speed = 500.0
+move_speed = 600.0
 animation_name = "moving"
 
 [node name="Interacting" type="Node" parent="PlayerStateManager"]

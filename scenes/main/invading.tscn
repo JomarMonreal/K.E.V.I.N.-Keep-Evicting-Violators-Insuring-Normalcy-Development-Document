@@ -10,6 +10,7 @@
 
 [node name="PathGraph" parent="." instance=ExtResource("3_0bch8")]
 position = Vector2(1593, 2090)
+metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2421, 2758)
@@ -22,7 +23,7 @@ targets = Array[NodePath]([NodePath("../Player"), NodePath("../Invader2")])
 [node name="Invader2" parent="." node_paths=PackedStringArray("path_graph") instance=ExtResource("3_hovik")]
 position = Vector2(739, -276)
 path_graph = NodePath("../PathGraph")
-speed = 400.0
+speed = 1000.0
 
 [node name="Player" parent="." instance=ExtResource("2_bti8c")]
 position = Vector2(-1120, 1423)
