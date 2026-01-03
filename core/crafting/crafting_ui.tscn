@@ -48,18 +48,18 @@ size_flags_vertical = 0
 
 [node name="Button" type="Button" parent="CanvasLayer/Debug"]
 layout_mode = 0
-offset_left = 607.0
-offset_top = 25.0
-offset_right = 686.0
-offset_bottom = 56.0
+offset_left = 577.0
+offset_top = 19.0
+offset_right = 656.0
+offset_bottom = 50.0
 text = "Add Item"
 
 [node name="Button2" type="Button" parent="CanvasLayer/Debug"]
 layout_mode = 0
-offset_left = 607.0
-offset_top = 66.0
-offset_right = 686.0
-offset_bottom = 97.0
+offset_left = 581.0
+offset_top = 58.0
+offset_right = 660.0
+offset_bottom = 89.0
 text = "Sub Item"
 
 [connection signal="pressed" from="CanvasLayer/Debug/Button" to="CanvasLayer/Inventory" method="_on_button_pressed"]

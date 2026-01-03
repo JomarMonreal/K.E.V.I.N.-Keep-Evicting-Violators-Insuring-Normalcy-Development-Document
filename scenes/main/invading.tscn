@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1w0osl1efdju"]
+[gd_scene load_steps=6 format=3 uid="uid://c1w0osl1efdju"]
 
 [ext_resource type="Script" uid="uid://j43vlokslkrl" path="res://core/movement/array_target_camera_2d.gd" id="1_bti8c"]
 [ext_resource type="PackedScene" uid="uid://by3yaeckrtk5d" path="res://entities/player/player.tscn" id="2_bti8c"]
 [ext_resource type="PackedScene" uid="uid://do2s031gtn5hu" path="res://core/path_graph/main_path_graph.tscn" id="3_0bch8"]
+[ext_resource type="PackedScene" uid="uid://c3ifr4bjdss33" path="res://core/crafting/crafting_ui.tscn" id="3_cotca"]
 [ext_resource type="PackedScene" uid="uid://mxui41ovhubs" path="res://entities/invader/base_invader.tscn" id="3_hovik"]
 
 [node name="Invading" type="Node2D"]
@@ -15,6 +16,8 @@ position = Vector2(2421, 2758)
 zoom = Vector2(0.5, 0.5)
 script = ExtResource("1_bti8c")
 targets = Array[NodePath]([NodePath("../Player"), NodePath("../Invader2")])
+
+[node name="CraftingUI" parent="Camera2D" instance=ExtResource("3_cotca")]
 
 [node name="Invader2" parent="." node_paths=PackedStringArray("path_graph") instance=ExtResource("3_hovik")]
 position = Vector2(739, -276)

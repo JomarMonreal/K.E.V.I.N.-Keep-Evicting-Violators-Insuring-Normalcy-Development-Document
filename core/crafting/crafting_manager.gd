@@ -1,6 +1,2 @@
 class_name CraftingManager
 extends Node2D
-
-
-
-
