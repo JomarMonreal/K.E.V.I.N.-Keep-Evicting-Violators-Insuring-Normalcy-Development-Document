@@ -1,3 +1,9 @@
-[gd_scene format=3 uid="uid://ttgcnjkwnsqg"]
+[gd_scene load_steps=2 format=3 uid="uid://ttgcnjkwnsqg"]
 
-[node name="GameManager" type="Node2D"]
+[ext_resource type="Script" uid="uid://d4dvo805h4mec" path="res://core/game_manager/game_manager.gd" id="1_pe224"]
+
+[node name="GameManager" type="Node2D" node_paths=PackedStringArray("world_scene")]
+script = ExtResource("1_pe224")
+world_scene = NodePath("SampleLevel")
+
+[node name="SampleLevel" type="Node2D" parent="."]
