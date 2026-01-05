@@ -15,6 +15,10 @@ run/main_scene="uid://k4u7e1uwv35g"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+EventListener="*res://core/event_listener.gd"
+
 [input]
 
 move_left={

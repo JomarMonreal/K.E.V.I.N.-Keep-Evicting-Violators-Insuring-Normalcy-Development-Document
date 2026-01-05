@@ -1,0 +1,9 @@
+class_name Events
+extends Node
+
+signal trap_triggered
+signal invader_scared
+signal item_stolen
+signal player_killed
+signal insanity_increased
+signal insanity_reached
