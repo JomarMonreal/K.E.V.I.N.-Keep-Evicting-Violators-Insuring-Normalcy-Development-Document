@@ -1,34 +1,28 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1w0osl1efdju"]
+[gd_scene load_steps=6 format=3 uid="uid://cmwye6wej0qem"]
 
-[ext_resource type="Script" uid="uid://j43vlokslkrl" path="res://core/movement/array_target_camera_2d.gd" id="1_bti8c"]
-[ext_resource type="PackedScene" uid="uid://by3yaeckrtk5d" path="res://entities/player/player.tscn" id="2_bti8c"]
-[ext_resource type="PackedScene" uid="uid://do2s031gtn5hu" path="res://core/path_graph/main_path_graph.tscn" id="3_0bch8"]
-[ext_resource type="PackedScene" uid="uid://c3ifr4bjdss33" path="res://core/crafting/crafting_ui.tscn" id="3_cotca"]
-[ext_resource type="PackedScene" uid="uid://mxui41ovhubs" path="res://entities/invader/base_invader.tscn" id="3_hovik"]
+[ext_resource type="PackedScene" uid="uid://do2s031gtn5hu" path="res://core/path_graph/main_path_graph.tscn" id="1_8awrg"]
+[ext_resource type="Script" uid="uid://j43vlokslkrl" path="res://core/movement/array_target_camera_2d.gd" id="2_bvagb"]
+[ext_resource type="PackedScene" uid="uid://c3ifr4bjdss33" path="res://core/crafting/crafting_ui.tscn" id="3_l7lcy"]
+[ext_resource type="PackedScene" uid="uid://by3yaeckrtk5d" path="res://entities/player/player.tscn" id="5_5vsuv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hovik"]
 radius = 214.93254
 
-[node name="Invading" type="Node2D"]
+[node name="Planning" type="Node2D"]
 
-[node name="PathGraph" parent="." instance=ExtResource("3_0bch8")]
+[node name="PathGraph" parent="." instance=ExtResource("1_8awrg")]
 position = Vector2(1593, 2090)
 metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2421, 2758)
 zoom = Vector2(0.25, 0.25)
-script = ExtResource("1_bti8c")
-targets = Array[NodePath]([NodePath("../Player"), NodePath("../Invader2")])
+script = ExtResource("2_bvagb")
+targets = Array[NodePath]([NodePath("../Player"), NodePath("")])
 
-[node name="CraftingUI" parent="Camera2D" instance=ExtResource("3_cotca")]
+[node name="CraftingUI" parent="Camera2D" instance=ExtResource("3_l7lcy")]
 
-[node name="Invader2" parent="." node_paths=PackedStringArray("path_graph") instance=ExtResource("3_hovik")]
-position = Vector2(739, -276)
-path_graph = NodePath("../PathGraph")
-speed = 670.0
-
-[node name="Player" parent="." instance=ExtResource("2_bti8c")]
+[node name="Player" parent="." instance=ExtResource("5_5vsuv")]
 position = Vector2(-1120, 1423)
 
 [node name="OutsideColliders" type="StaticBody2D" parent="."]

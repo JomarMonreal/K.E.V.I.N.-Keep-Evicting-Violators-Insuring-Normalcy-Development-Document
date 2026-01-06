@@ -1,9 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://ttgcnjkwnsqg"]
+[gd_scene load_steps=5 format=3 uid="uid://ttgcnjkwnsqg"]
 
 [ext_resource type="Script" uid="uid://d4dvo805h4mec" path="res://core/game_manager/game_manager.gd" id="1_pe224"]
+[ext_resource type="PackedScene" uid="uid://c1w0osl1efdju" path="res://scenes/main/invading.tscn" id="2_yqcwj"]
+[ext_resource type="PackedScene" uid="uid://cmwye6wej0qem" path="res://scenes/main/planning.tscn" id="3_5ihah"]
+[ext_resource type="PackedScene" uid="uid://dyw8qkx653po" path="res://scenes/main/main_menu.tscn" id="4_0at8j"]
 
-[node name="GameManager" type="Node2D" node_paths=PackedStringArray("world_scene")]
+[node name="GameManager" type="Node2D"]
 script = ExtResource("1_pe224")
-world_scene = NodePath("SampleLevel")
+scenes = Dictionary[StringName, PackedScene]({
+&"invading": ExtResource("2_yqcwj"),
+&"main_menu": ExtResource("4_0at8j"),
+&"planning": ExtResource("3_5ihah")
+})
 
-[node name="SampleLevel" type="Node2D" parent="."]
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
