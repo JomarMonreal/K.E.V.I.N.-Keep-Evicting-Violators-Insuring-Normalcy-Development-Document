@@ -1,4 +1,4 @@
 extends Node
 
 var game_manager : GameManager
-var current_night = 0
+var current_night = 1

@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://cecg0rv3tntcx"]
+
+[ext_resource type="FontFile" uid="uid://bqjj85gpm6r88" path="res://assets/main_assets/Fonts/Handwritten Font/Kevin-Regular.ttf" id="1_gchie"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mjqmx"]
+font = ExtResource("1_gchie")
+font_size = 67
+
+[node name="NightStart" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.49411765)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = -63.5
+offset_right = 296.0
+offset_bottom = 63.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Invaders are now approaching..."
+label_settings = SubResource("LabelSettings_mjqmx")
+horizontal_alignment = 1
+autowrap_mode = 2

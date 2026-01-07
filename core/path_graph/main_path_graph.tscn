@@ -10,7 +10,7 @@ script = ExtResource("1_4635n")
 entrance_nodes = [NodePath("Node2D10")]
 exit_nodes = [NodePath("Node2D8")]
 
-[node name="background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
 position = Vector2(-793, 410)
 texture = ExtResource("2_5axlx")
 metadata/_edit_lock_ = true
@@ -672,7 +672,7 @@ texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
 line_color = Color(1, 0, 0, 1)
 line_width = 18.0
-neighbors = [NodePath("../Node2D8"), NodePath("../Node2D24"), NodePath(""), NodePath("../Node2D32")]
+neighbors = [NodePath("../Node2D8"), NodePath("../Node2D24"), NodePath("../Node2D32")]
 metadata/_edit_group_ = true
 
 [node name="Node2D32" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
@@ -738,7 +738,7 @@ texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
 line_color = Color(1, 0, 0, 1)
 line_width = 18.0
-neighbors = [NodePath("../Node2D33"), NodePath("../Node2D84"), NodePath(""), NodePath("../Node2D85")]
+neighbors = [NodePath("../Node2D33"), NodePath("../Node2D84"), NodePath("../Node2D85")]
 metadata/_edit_group_ = true
 
 [node name="Node2D88" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
@@ -749,7 +749,7 @@ texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
 line_color = Color(1, 0, 0, 1)
 line_width = 18.0
-neighbors = [NodePath("../Node2D33"), NodePath("../Node2D84"), NodePath(""), NodePath("../Node2D85")]
+neighbors = [NodePath("../Node2D33"), NodePath("../Node2D84"), NodePath("../Node2D85")]
 metadata/_edit_group_ = true
 
 [node name="Node2D33" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
@@ -760,7 +760,7 @@ texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
 line_color = Color(1, 0, 0, 1)
 line_width = 18.0
-neighbors = [NodePath("../Node2D34"), NodePath("../Node2D44"), NodePath("../Node2D83"), NodePath("../Node2D84"), NodePath(""), NodePath("../Node2D88")]
+neighbors = [NodePath("../Node2D34"), NodePath("../Node2D44"), NodePath("../Node2D83"), NodePath("../Node2D84"), NodePath("../Node2D88")]
 metadata/_edit_group_ = true
 
 [node name="Node2D34" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]

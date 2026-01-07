@@ -1,28 +1,42 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmwye6wej0qem"]
+[gd_scene load_steps=10 format=3 uid="uid://cdm3l21spj67o"]
 
-[ext_resource type="PackedScene" uid="uid://do2s031gtn5hu" path="res://core/path_graph/main_path_graph.tscn" id="1_8awrg"]
-[ext_resource type="Script" uid="uid://j43vlokslkrl" path="res://core/movement/array_target_camera_2d.gd" id="2_bvagb"]
-[ext_resource type="PackedScene" uid="uid://c3ifr4bjdss33" path="res://core/crafting/crafting_ui.tscn" id="3_l7lcy"]
-[ext_resource type="PackedScene" uid="uid://by3yaeckrtk5d" path="res://entities/player/player.tscn" id="5_5vsuv"]
+[ext_resource type="Script" uid="uid://cyugpt4ebl116" path="res://core/night_manager/night_manager.gd" id="1_avkg3"]
+[ext_resource type="PackedScene" uid="uid://do2s031gtn5hu" path="res://core/path_graph/main_path_graph.tscn" id="1_rl6em"]
+[ext_resource type="Script" uid="uid://j43vlokslkrl" path="res://core/movement/array_target_camera_2d.gd" id="2_6xtx7"]
+[ext_resource type="Texture2D" uid="uid://dq8586ppkneav" path="res://assets/main_assets/Map/Map_Planning.png" id="2_q0pdu"]
+[ext_resource type="Texture2D" uid="uid://bxpl7d6ityfih" path="res://assets/main_assets/Map/Map_Invasion.png" id="3_b440g"]
+[ext_resource type="PackedScene" uid="uid://c3ifr4bjdss33" path="res://core/crafting/crafting_ui.tscn" id="3_vkvwu"]
+[ext_resource type="PackedScene" uid="uid://by3yaeckrtk5d" path="res://entities/player/player.tscn" id="4_avkg3"]
+[ext_resource type="PackedScene" uid="uid://cecg0rv3tntcx" path="res://scenes/ui/night_start.tscn" id="8_q0pdu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hovik"]
 radius = 214.93254
 
-[node name="Planning" type="Node2D"]
+[node name="Night" type="Node2D"]
+script = ExtResource("1_avkg3")
+planning_background = ExtResource("2_q0pdu")
+invading_background = ExtResource("3_b440g")
 
-[node name="PathGraph" parent="." instance=ExtResource("1_8awrg")]
+[node name="LoadingTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="PlanningTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="PlanToInvadeTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="InvadingTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="PathGraph" parent="." instance=ExtResource("1_rl6em")]
 position = Vector2(1593, 2090)
 metadata/_edit_lock_ = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(2421, 2758)
-zoom = Vector2(0.25, 0.25)
-script = ExtResource("2_bvagb")
-targets = Array[NodePath]([NodePath("../Player"), NodePath("")])
-
-[node name="CraftingUI" parent="Camera2D" instance=ExtResource("3_l7lcy")]
-
-[node name="Player" parent="." instance=ExtResource("5_5vsuv")]
+[node name="Player" parent="." instance=ExtResource("4_avkg3")]
 position = Vector2(-1120, 1423)
 
 [node name="OutsideColliders" type="StaticBody2D" parent="."]
@@ -128,3 +142,22 @@ polygon = PackedVector2Array(-2016, 4388, -1192, 4388, -1187, 4585, -2011, 4595)
 
 [node name="CollisionPolygon2D18" type="CollisionPolygon2D" parent="FurnitureColliders"]
 polygon = PackedVector2Array(-1077, 3320, -1071, 3665, -1994, 3693, -2027, 3287)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(2421, 2758)
+zoom = Vector2(0.25, 0.25)
+script = ExtResource("2_6xtx7")
+targets = Array[NodePath]([NodePath("../Player"), NodePath("")])
+
+[node name="CraftingUI" parent="Camera2D" instance=ExtResource("3_vkvwu")]
+
+[node name="NightStart" parent="Camera2D" instance=ExtResource("8_q0pdu")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[connection signal="timeout" from="LoadingTimer" to="." method="_on_loading_timer_timeout"]
+[connection signal="timeout" from="PlanningTimer" to="." method="_on_planning_timer_timeout"]
+[connection signal="timeout" from="PlanToInvadeTimer" to="." method="_on_plan_to_invade_timer_timeout"]
