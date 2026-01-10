@@ -1,0 +1,100 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmryqnwtmepne"]
+
+[ext_resource type="Script" uid="uid://bkcvsw2djevj2" path="res://core/ui/main_menu.gd" id="1_sl14k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vrkn"]
+bg_color = Color(0, 0.0239989, 0, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_rhts7"]
+color = Color(0, 0, 0, 0)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sl14k")
+main_scene = "uid://k4u7e1uwv35g"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0162137, 0, 0, 1)
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -200.0
+offset_right = 150.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7vrkn")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 36
+text = "K.E.V.I.N."
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_rhts7")
+
+[node name="ButtonVbox" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Play" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/ButtonVbox"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Play"
+
+[node name="Settings" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/ButtonVbox"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Settings"
+
+[node name="Quit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/ButtonVbox"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Quit"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/ButtonVbox/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/ButtonVbox/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/ButtonVbox/Quit" to="." method="_on_quit_pressed"]

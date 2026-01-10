@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [gd_scene load_steps=5 format=3 uid="uid://ttgcnjkwnsqg"]
 
 [ext_resource type="Script" uid="uid://d4dvo805h4mec" path="res://core/game_manager/game_manager.gd" id="1_pe224"]
@@ -16,3 +17,27 @@ scenes = Dictionary[StringName, PackedScene]({
 [node name="TextEdit" type="TextEdit" parent="."]
 offset_right = 8.0
 offset_bottom = 8.0
+=======
+[gd_scene load_steps=3 format=3 uid="uid://ttgcnjkwnsqg"]
+
+[ext_resource type="Script" uid="uid://d4dvo805h4mec" path="res://core/game_manager/game_manager.gd" id="1_pe224"]
+[ext_resource type="PackedScene" uid="uid://cmryqnwtmepne" path="res://core/ui/main_menu.tscn" id="2_yqcwj"]
+
+[node name="GameManager" type="Node" node_paths=PackedStringArray("world_scene", "gui")]
+script = ExtResource("1_pe224")
+world_scene = NodePath("World")
+gui = NodePath("GUI")
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenu" parent="GUI" instance=ExtResource("2_yqcwj")]
+layout_mode = 1
+>>>>>>> 6e44021 (ADDED: UI Main Menu, Scene Manager to Main Game)

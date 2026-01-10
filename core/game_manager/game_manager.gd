@@ -12,16 +12,29 @@ const MAX_NIGHTS: int = 7
 # key -> PackedScene
 @export var scenes: Dictionary[StringName, PackedScene] = {}
 
+<<<<<<< HEAD
 var current_scene: Node2D
+=======
+@export var world_scene : Node2D
+@export var gui : Control
+var current_world_scene
+var current_ui_scene
+>>>>>>> 6e44021 (ADDED: UI Main Menu, Scene Manager to Main Game)
 
 
 func _ready() -> void:
 	Global.game_manager = self
+<<<<<<< HEAD
 
+=======
+	current_ui_scene = $GUI/MainMenu
+	
+>>>>>>> 6e44021 (ADDED: UI Main Menu, Scene Manager to Main Game)
 	EventListener.player_killed.connect(_on_player_killed)
 	EventListener.insanity_reached.connect(_on_player_insane)
 
 
+<<<<<<< HEAD
 func change_scene(scene_key: StringName, delete: bool = true, keep_running: bool = false) -> void:
 	if current_scene:
 		if delete:
@@ -43,6 +56,35 @@ func change_scene(scene_key: StringName, delete: bool = true, keep_running: bool
 
 	add_child(next_scene)
 	current_scene = next_scene
+=======
+func change_world_scene(new_scene: String, delete: bool = true, keep_running: bool = false):
+	print("changing")
+	if current_world_scene:
+		if delete:
+			current_world_scene.queue_free() #delete scene in memory
+		elif keep_running:
+			current_world_scene.visible = false #hide scene but keep in memory
+		else:
+			world_scene.remove_child(current_world_scene) #sumunod lang ako sa tutorial idk what this is
+	
+	var new = load(new_scene).instantiate()
+	world_scene.add_child(new)
+	current_world_scene = new
+
+
+func change_ui_scene(new_scene: String, delete: bool = true, keep_running: bool = false):
+	if current_ui_scene:
+		if delete:
+			current_ui_scene.queue_free() #delete scene in memory
+		elif keep_running:
+			current_ui_scene.visible = false #hide scene but keep in memory
+		else:
+			gui.remove_child(current_ui_scene) #sumunod lang ako sa tutorial idk what this is
+	
+	var new = load(new_scene).instantiate()
+	gui.add_child(new)
+	current_ui_scene = new
+>>>>>>> 6e44021 (ADDED: UI Main Menu, Scene Manager to Main Game)
 
 
 func start_game() -> void:
