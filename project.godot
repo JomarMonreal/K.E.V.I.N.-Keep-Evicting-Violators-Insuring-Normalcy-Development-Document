@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Lechon Jam"
-run/main_scene="uid://k4u7e1uwv35g"
+run/main_scene="uid://ttgcnjkwnsqg"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

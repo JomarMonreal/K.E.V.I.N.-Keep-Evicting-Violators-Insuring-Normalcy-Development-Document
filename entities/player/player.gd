@@ -1,12 +1,21 @@
 class_name Player
 extends CharacterBody2D
 
+@export_file(".tscn") var main_menu : String = ""
+
 @export var animations : AnimatedSprite2D
 @onready var state_manager : PlayerStateManager = $PlayerStateManager
 
 
 func _ready() -> void:
 	state_manager.init(self)
+
+
+func _input(event: InputEvent) -> void:
+	# testing ui scene changing
+	if event.is_action_pressed("ui_accept"):
+		print("test ui change")
+		Global.game_manager.change_ui_scene(Global.main_menu_file)
 
 
 func _unhandled_input(event: InputEvent) -> void:
