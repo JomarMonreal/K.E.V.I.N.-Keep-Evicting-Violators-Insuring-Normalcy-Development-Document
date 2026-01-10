@@ -9,54 +9,22 @@ enum GameCondition {
 
 const MAX_NIGHTS: int = 7
 
-# key -> PackedScene
-@export var scenes: Dictionary[StringName, PackedScene] = {}
-
-<<<<<<< HEAD
-var current_scene: Node2D
-=======
 @export var world_scene : Node2D
 @export var gui : Control
 var current_world_scene
 var current_ui_scene
->>>>>>> 6e44021 (ADDED: UI Main Menu, Scene Manager to Main Game)
+
 
 
 func _ready() -> void:
 	Global.game_manager = self
-<<<<<<< HEAD
 
-=======
 	current_ui_scene = $GUI/MainMenu
 	
->>>>>>> 6e44021 (ADDED: UI Main Menu, Scene Manager to Main Game)
 	EventListener.player_killed.connect(_on_player_killed)
 	EventListener.insanity_reached.connect(_on_player_insane)
 
 
-<<<<<<< HEAD
-func change_scene(scene_key: StringName, delete: bool = true, keep_running: bool = false) -> void:
-	if current_scene:
-		if delete:
-			current_scene.queue_free()
-		elif keep_running:
-			current_scene.visible = false
-		else:
-			remove_child(current_scene)
-
-	var packed: PackedScene = scenes.get(scene_key)
-	if packed == null:
-		push_error("GameManager.change_scene: Unknown scene_key '%s'." % String(scene_key))
-		return
-
-	var next_scene := packed.instantiate() as Node2D
-	if next_scene == null:
-		push_error("GameManager.change_scene: Scene '%s' is not a Node2D." % String(scene_key))
-		return
-
-	add_child(next_scene)
-	current_scene = next_scene
-=======
 func change_world_scene(new_scene: String, delete: bool = true, keep_running: bool = false):
 	print("changing")
 	if current_world_scene:
@@ -84,7 +52,6 @@ func change_ui_scene(new_scene: String, delete: bool = true, keep_running: bool 
 	var new = load(new_scene).instantiate()
 	gui.add_child(new)
 	current_ui_scene = new
->>>>>>> 6e44021 (ADDED: UI Main Menu, Scene Manager to Main Game)
 
 
 func start_game() -> void:

@@ -1,23 +1,3 @@
-<<<<<<< HEAD
-[gd_scene load_steps=5 format=3 uid="uid://ttgcnjkwnsqg"]
-
-[ext_resource type="Script" uid="uid://d4dvo805h4mec" path="res://core/game_manager/game_manager.gd" id="1_pe224"]
-[ext_resource type="PackedScene" uid="uid://c1w0osl1efdju" path="res://scenes/main/invading.tscn" id="2_yqcwj"]
-[ext_resource type="PackedScene" uid="uid://cmwye6wej0qem" path="res://scenes/main/planning.tscn" id="3_5ihah"]
-[ext_resource type="PackedScene" uid="uid://dyw8qkx653po" path="res://scenes/main/main_menu.tscn" id="4_0at8j"]
-
-[node name="GameManager" type="Node2D"]
-script = ExtResource("1_pe224")
-scenes = Dictionary[StringName, PackedScene]({
-&"invading": ExtResource("2_yqcwj"),
-&"main_menu": ExtResource("4_0at8j"),
-&"planning": ExtResource("3_5ihah")
-})
-
-[node name="TextEdit" type="TextEdit" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
-=======
 [gd_scene load_steps=3 format=3 uid="uid://ttgcnjkwnsqg"]
 
 [ext_resource type="Script" uid="uid://d4dvo805h4mec" path="res://core/game_manager/game_manager.gd" id="1_pe224"]
@@ -40,4 +20,3 @@ grow_vertical = 2
 
 [node name="MainMenu" parent="GUI" instance=ExtResource("2_yqcwj")]
 layout_mode = 1
->>>>>>> 6e44021 (ADDED: UI Main Menu, Scene Manager to Main Game)

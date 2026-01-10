@@ -11,13 +11,8 @@ config_version=5
 [application]
 
 config/name="Lechon Jam"
-<<<<<<< HEAD
-run/main_scene="uid://k4u7e1uwv35g"
-config/features=PackedStringArray("4.5", "GL Compatibility")
-=======
 run/main_scene="uid://ttgcnjkwnsqg"
 config/features=PackedStringArray("4.4", "GL Compatibility")
->>>>>>> 6e44021 (ADDED: UI Main Menu, Scene Manager to Main Game)
 config/icon="res://icon.svg"
 
 [autoload]
