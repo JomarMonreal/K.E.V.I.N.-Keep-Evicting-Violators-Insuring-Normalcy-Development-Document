@@ -2,7 +2,7 @@
 extends Sprite2D
 class_name PathNode
 
-var visit_count = 0
+var visit_count := 0
 
 @export var line_color: Color = Color.WHITE:
 	set(v):
@@ -14,8 +14,16 @@ var visit_count = 0
 		line_width = v
 		queue_redraw()
 
-var _syncing: bool = false
+enum Role { NONE, ENTRANCE, EXIT, ITEM }
+
+@export var role: Role = Role.NONE:
+	set(v):
+		role = v
+		_apply_role_modulate()
+
+var _syncing := false
 var _neighbors: Array[PathNode] = []
+
 
 @export var neighbors: Array[PathNode]:
 	get:
@@ -29,6 +37,7 @@ func _enter_tree() -> void:
 		visible = true
 		process_mode = Node.PROCESS_MODE_ALWAYS
 		set_process(true)
+		_apply_role_modulate()
 		queue_redraw()
 		return
 
@@ -36,17 +45,18 @@ func _enter_tree() -> void:
 	visible = false
 	process_mode = Node.PROCESS_MODE_DISABLED
 	set_process(false)
-	queue_redraw() # clears any editor draw cache immediately
+	queue_redraw()
 
 func _ready() -> void:
 	visit_count = 0
-	
+	if Engine.is_editor_hint():
+		_apply_role_modulate()
+
 func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		queue_redraw()
 
 func _draw() -> void:
-	# Only draw neighbor lines in the editor.
 	if not Engine.is_editor_hint():
 		return
 
@@ -55,7 +65,16 @@ func _draw() -> void:
 			continue
 		draw_line(Vector2.ZERO, to_local(n.global_position), line_color, line_width, true)
 
-# --- Public helpers (optional, but nice) ---
+func _apply_role_modulate() -> void:
+	if not Engine.is_editor_hint():
+		return
+
+	match role:
+		Role.ENTRANCE: modulate = Color(1, 1, 0)
+		Role.EXIT:     modulate = Color(1, 0, 0)
+		Role.ITEM:     modulate = Color(1, 0, 1)
+		_:             modulate = Color(1, 1, 1)
+# --- Public helpers (optional) ---
 
 func add_neighbor(n: PathNode) -> void:
 	if n == null or n == self:
@@ -72,7 +91,7 @@ func remove_neighbor(n: PathNode) -> void:
 	v.erase(n)
 	neighbors = v
 
-# --- Core logic ---
+# --- Core logic (unchanged) ---
 
 func _set_neighbors(value: Array[PathNode]) -> void:
 	if _syncing:
@@ -85,14 +104,12 @@ func _set_neighbors(value: Array[PathNode]) -> void:
 
 	_neighbors = neu
 
-	# Added: ensure reciprocal add
 	for n in neu:
 		if n == null or not is_instance_valid(n) or n == self:
 			continue
 		if not old.has(n):
 			n._mirror_add(self)
 
-	# Removed: ensure reciprocal remove
 	for n in old:
 		if n == null or not is_instance_valid(n) or n == self:
 			continue

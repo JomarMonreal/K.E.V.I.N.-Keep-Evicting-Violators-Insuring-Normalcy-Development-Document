@@ -5,10 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://dcgo4ch3rukki" path="res://assets/prototype/icon.svg" id="2_frbf0"]
 [ext_resource type="Script" uid="uid://snm604eis1go" path="res://core/path_graph/path_node.gd" id="3_5axlx"]
 
-[node name="PathGraph" type="Node2D" node_paths=PackedStringArray("entrance_nodes", "exit_nodes")]
+[node name="PathGraph" type="Node2D"]
 script = ExtResource("1_4635n")
-entrance_nodes = [NodePath("Node2D10")]
-exit_nodes = [NodePath("Node2D8")]
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(-793, 410)
@@ -413,12 +411,14 @@ metadata/_edit_group_ = true
 
 [node name="Node2D58" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
 process_mode = 3
+modulate = Color(1, 0, 1, 1)
 position = Vector2(-4248, 2943)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
 line_color = Color(1, 0, 0, 1)
 line_width = 18.0
+role = 3
 neighbors = [NodePath("../Node2D57"), NodePath("../Node2D59")]
 metadata/_edit_group_ = true
 
@@ -611,12 +611,14 @@ metadata/_edit_group_ = true
 
 [node name="Node2D10" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
 process_mode = 3
+modulate = Color(1, 1, 0, 1)
 position = Vector2(-1016, -2368)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
 line_color = Color(1, 0, 0, 1)
 line_width = 18.0
+role = 1
 neighbors = [NodePath("../Node2D4")]
 metadata/_edit_group_ = true
 
@@ -930,12 +932,14 @@ metadata/_edit_group_ = true
 
 [node name="Node2D82" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
 process_mode = 3
+modulate = Color(1, 0, 1, 1)
 position = Vector2(-3232, 2300)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
 line_color = Color(1, 0, 0, 1)
 line_width = 18.0
+role = 3
 neighbors = [NodePath("../Node2D81")]
 metadata/_edit_group_ = true
 

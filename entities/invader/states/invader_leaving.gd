@@ -4,9 +4,8 @@ var leaving_path: Array[PathNode]
 
 func enter() -> void:
 	var invader := entity as Invader
-	leaving_path = invader.path_graph.find_path(invader.current_node, invader.path_graph.exit_nodes.pick_random())
+	leaving_path = invader.path_graph.find_path(invader.current_node, invader.path_graph.get_nodes_by_role(PathNode.Role.ENTRANCE).pick_random())
 	invader.speed = 500
-	print(invader.current_node,  invader.path_graph.exit_nodes.pick_random(), leaving_path)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func physics_process(delta: float) -> int:

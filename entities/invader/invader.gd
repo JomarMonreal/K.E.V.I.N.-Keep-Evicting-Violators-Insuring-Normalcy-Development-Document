@@ -12,7 +12,7 @@ var current_node: PathNode
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	current_node = path_graph.entrance_nodes.pick_random()
+	current_node = path_graph.get_nodes_by_role(PathNode.Role.ENTRANCE).pick_random()
 	global_position = current_node.global_position
 	target_node = current_node.neighbors.pick_random()
 	states.initial_state = InvaderBaseState.State.Moving
