@@ -161,3 +161,4 @@ anchor_bottom = 0.5
 [connection signal="timeout" from="LoadingTimer" to="." method="_on_loading_timer_timeout"]
 [connection signal="timeout" from="PlanningTimer" to="." method="_on_planning_timer_timeout"]
 [connection signal="timeout" from="PlanToInvadeTimer" to="." method="_on_plan_to_invade_timer_timeout"]
+[connection signal="timeout" from="InvadingTimer" to="." method="_on_invading_timer_timeout"]

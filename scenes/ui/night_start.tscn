@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cecg0rv3tntcx"]
+[gd_scene load_steps=4 format=3 uid="uid://cecg0rv3tntcx"]
 
 [ext_resource type="FontFile" uid="uid://bqjj85gpm6r88" path="res://assets/main_assets/Fonts/Handwritten Font/Kevin-Regular.ttf" id="1_gchie"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mjqmx"]
 font = ExtResource("1_gchie")
 font_size = 67
+
+[sub_resource type="LabelSettings" id="LabelSettings_gchie"]
+font = ExtResource("1_gchie")
 
 [node name="NightStart" type="Control"]
 layout_mode = 3
@@ -14,23 +17,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Screen" type="CanvasLayer" parent="."]
 
-[node name="Panel" type="Panel" parent="CanvasLayer"]
-modulate = Color(1, 1, 1, 0.49411765)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -324.0
-offset_right = 576.0
-offset_bottom = 324.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="ColorRect" type="ColorRect" parent="Screen"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="CanvasLayer"]
+[node name="Label" type="Label" parent="Screen"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -46,3 +40,33 @@ text = "Invaders are now approaching..."
 label_settings = SubResource("LabelSettings_mjqmx")
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="Timer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="Timer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -57.0
+offset_top = -40.0
+offset_right = 57.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Timer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "00:00"
+label_settings = SubResource("LabelSettings_gchie")
