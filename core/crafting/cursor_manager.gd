@@ -19,7 +19,6 @@ enum STATE {
 }
 
 func _process(_delta: float) -> void:
-	print(state)
 	match state:
 		STATE.default:
 			if Input.is_action_just_pressed("ui_left_click"):

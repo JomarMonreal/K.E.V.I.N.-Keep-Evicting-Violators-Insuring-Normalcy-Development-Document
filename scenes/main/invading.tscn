@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1w0osl1efdju"]
+[gd_scene load_steps=8 format=3 uid="uid://c1w0osl1efdju"]
 
 [ext_resource type="Script" uid="uid://j43vlokslkrl" path="res://core/movement/array_target_camera_2d.gd" id="1_bti8c"]
 [ext_resource type="PackedScene" uid="uid://by3yaeckrtk5d" path="res://entities/player/player.tscn" id="2_bti8c"]
 [ext_resource type="PackedScene" uid="uid://do2s031gtn5hu" path="res://core/path_graph/main_path_graph.tscn" id="3_0bch8"]
 [ext_resource type="PackedScene" uid="uid://c3ifr4bjdss33" path="res://core/crafting/crafting_ui.tscn" id="3_cotca"]
 [ext_resource type="PackedScene" uid="uid://mxui41ovhubs" path="res://entities/invader/base_invader.tscn" id="3_hovik"]
+[ext_resource type="PackedScene" uid="uid://d2keaqdk6ymbf" path="res://entities/trap/trap.tscn" id="6_cotca"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hovik"]
 radius = 214.93254
@@ -25,6 +26,8 @@ targets = Array[NodePath]([NodePath("../Player"), NodePath("../Invader2")])
 
 [node name="Invader2" parent="." node_paths=PackedStringArray("path_graph") instance=ExtResource("3_hovik")]
 position = Vector2(739, -276)
+freeze = true
+freeze_mode = 1
 path_graph = NodePath("../PathGraph")
 speed = 670.0
 
@@ -134,3 +137,10 @@ polygon = PackedVector2Array(-2016, 4388, -1192, 4388, -1187, 4585, -2011, 4595)
 
 [node name="CollisionPolygon2D18" type="CollisionPolygon2D" parent="FurnitureColliders"]
 polygon = PackedVector2Array(-1077, 3320, -1071, 3665, -1994, 3693, -2027, 3287)
+
+[node name="Traps" type="Node2D" parent="."]
+
+[node name="Trap" parent="Traps" instance=ExtResource("6_cotca")]
+position = Vector2(566, 172)
+scare_direction = Vector2(0, 1)
+scare_distance = 800.0

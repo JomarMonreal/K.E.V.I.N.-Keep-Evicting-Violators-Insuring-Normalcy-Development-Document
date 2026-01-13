@@ -3,6 +3,8 @@ extends InvaderBaseState
 const MAX_SPINS: int = 3
 const MAX_ANGLE_DEG: float = 270.0
 const PAUSE_SECONDS: float = 1.0
+const ROT_EPS: float = 0.001
+
 
 # Smoothness controls
 const MIN_SPIN_DURATION: float = 0.15
@@ -24,19 +26,21 @@ func enter() -> void:
 	_spins_left = randi_range(1, MAX_SPINS)
 	_start_next_spin()
 
-func process(_delta: float) -> int:
-	var invader = entity as Invader
+func process(delta: float) -> int:
+	var invader := entity as Invader
 	if not _rotating:
 		return InvaderBaseState.State.Scanning
 
-	# Move rotation toward target at a constant angular speed.
-	invader.rotation = move_toward(invader.rotation, _target_rotation, _ang_speed * _delta)
+	var diff := angle_difference(invader.rotation, _target_rotation)
+	var step := _ang_speed * delta
 
-	# Close enough: stop rotating and pause.
-	if is_equal_approx(invader.rotation, _target_rotation):
+	if absf(diff) <= maxf(step, ROT_EPS):
+		invader.rotation = _target_rotation
 		_rotating = false
 		timer.start()
-	
+	else:
+		invader.rotation = invader.rotation + signf(diff) * step
+
 	return InvaderBaseState.State.Scanning
 
 func _start_next_spin() -> void:

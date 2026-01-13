@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7dw643wc87he"
-path="res://.godot/imported/X.PNG-ef8398f9227d017376df91020f2c9414.ctex"
+uid="uid://dhxgpboch85m5"
+path="res://.godot/imported/Invader Symbol (No background).PNG-8ca6b5bad269dabdbbb3e6959bd68615.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/main_assets/Trap/Indicators/X.PNG"
-dest_files=["res://.godot/imported/X.PNG-ef8398f9227d017376df91020f2c9414.ctex"]
+source_file="res://assets/main_assets/Map/Blueprint Icons/Invader Symbol (No background).PNG"
+dest_files=["res://.godot/imported/Invader Symbol (No background).PNG-8ca6b5bad269dabdbbb3e6959bd68615.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends RigidBody2D
 class_name Invader
 
 @onready var states: InvaderStateManager = $StateManager

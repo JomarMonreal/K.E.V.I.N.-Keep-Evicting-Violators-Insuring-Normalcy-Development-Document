@@ -71,6 +71,7 @@ func _on_plan_to_invade_timer_timeout() -> void:
 	ui_timer_layer.visible = true
 	plan_to_invade_timer.stop()
 	invading_timer.start()
+	Global.is_night_planning = false
 	pass # Replace with function body.
 
 

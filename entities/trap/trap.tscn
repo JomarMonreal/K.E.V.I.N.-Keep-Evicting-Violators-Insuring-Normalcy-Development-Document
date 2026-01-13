@@ -1,3 +1,21 @@
-[gd_scene format=3 uid="uid://d2keaqdk6ymbf"]
+[gd_scene load_steps=4 format=3 uid="uid://d2keaqdk6ymbf"]
 
-[node name="Trap" type="Node2D"]
+[ext_resource type="Script" uid="uid://cw4ee7ta4vq41" path="res://entities/trap/trap.gd" id="1_thr4e"]
+[ext_resource type="Texture2D" uid="uid://bdha18fohj4un" path="res://assets/main_assets/Trap/Indicators/Outcome Ghost (Blue background).PNG" id="2_5c0b2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mtk8c"]
+radius = 120.0
+
+[node name="Trap" type="Area2D"]
+script = ExtResource("1_thr4e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mtk8c")
+
+[node name="ScareGhost" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.6156863)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_5c0b2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

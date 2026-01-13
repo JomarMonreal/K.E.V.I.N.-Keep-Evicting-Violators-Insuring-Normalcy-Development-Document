@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7dw643wc87he"
-path="res://.godot/imported/X.PNG-ef8398f9227d017376df91020f2c9414.ctex"
+uid="uid://dbp31ci2wwu01"
+path="res://.godot/imported/FILLER.png-70d75fa4f8d623770b670757bdfb9ff4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/main_assets/Trap/Indicators/X.PNG"
-dest_files=["res://.godot/imported/X.PNG-ef8398f9227d017376df91020f2c9414.ctex"]
+source_file="res://assets/main_assets/HUD/Scare Meter/FILLER.png"
+dest_files=["res://.godot/imported/FILLER.png-70d75fa4f8d623770b670757bdfb9ff4.ctex"]
 
 [params]
 

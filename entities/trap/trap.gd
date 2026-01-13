@@ -1,52 +1,60 @@
-extends CharacterBody2D
+extends Node
+class_name Trap
 
-const MAX_SPINS: int = 3
-const MAX_ANGLE_DEG: float = 270.0
-const PAUSE_SECONDS: float = 1.0
+@export var scare_factor: int = 5
+@export var scare_direction: Vector2 = Vector2.LEFT
+@export var scare_distance: float = 100.0
+@export var preview_speed: float = 250.0 # pixels per second
 
-@onready var timer: Timer = $ScanDelayTimer
+@onready var scare_ghost: Node2D = $ScareGhost
 
-var _spins_left: int = 0
-var _is_spinning: bool = false
+var start_ghost_preview: bool = false
+var _preview_running: bool = false
+var _ghost_start_pos: Vector2
+var _preview_tween: Tween
 
 func _ready() -> void:
-	randomize()
-
-	# Configure the timer once.
-	timer.one_shot = true
-	timer.wait_time = PAUSE_SECONDS
-
-	# Decide how many times to rotate (1..3).
-	_spins_left = randi_range(1, MAX_SPINS)
-
-	# Start the sequence immediately.
-	_is_spinning = true
-	_do_one_spin_then_pause()
+	scare_ghost.visible = false
+	_ghost_start_pos = scare_ghost.position
 
 func _process(_delta: float) -> void:
-	# Nothing to do per-frame; the timer drives the pauses.
-	pass
+	if start_ghost_preview and not _preview_running:
+		_start_preview()
 
-func _do_one_spin_then_pause() -> void:
-	if _spins_left <= 0:
-		_is_spinning = false
-		return
+func _start_preview() -> void:
+	_preview_running = true
+	scare_ghost.visible = true
+	scare_ghost.position = _ghost_start_pos
 
-	# Godot 2D: positive rotation is clockwise.
-	var angle_deg: float = randf_range(0.0, MAX_ANGLE_DEG)
-	global_rotation += deg_to_rad(angle_deg)
+	var dir := scare_direction
+	if dir.length_squared() == 0.0:
+		dir = Vector2.LEFT
+	dir = dir.normalized()
 
-	_spins_left -= 1
+	var target := _ghost_start_pos + dir * scare_distance
+	var duration := maxf(0.001, scare_distance / maxf(1.0, preview_speed))
 
-	# Pause 1 second before the next spin (if any).
-	timer.start()
+	if is_instance_valid(_preview_tween):
+		_preview_tween.kill()
 
-func _on_scan_delay_timeout() -> void:
-	if not _is_spinning:
-		return
+	_preview_tween = create_tween()
+	_preview_tween.tween_property(scare_ghost, "position", target, duration)
+	_preview_tween.finished.connect(func() -> void:
+		# Optional: reset/hide when done
+		scare_ghost.visible = false
+		scare_ghost.position = _ghost_start_pos
+		_preview_running = false
+		start_ghost_preview = false
+	)
 
-	if _spins_left > 0:
-		_do_one_spin_then_pause()
-	else:
-		_is_spinning = false
-		# Done. Put whatever comes next here (e.g., start scanning).
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is Player:
+		start_ghost_preview = true
+	pass # Replace with function body.
+
+
+func _on_body_exited(body: Node2D) -> void:
+	if body is Player:
+		start_ghost_preview = false
+	pass # Replace with function body.

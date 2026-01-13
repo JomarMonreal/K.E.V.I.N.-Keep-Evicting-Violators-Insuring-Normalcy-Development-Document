@@ -23,6 +23,11 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _process(delta: float) -> void:
+	if Global.is_night_planning:
+		animations.animation = "idle_blue"
+	else:
+		animations.animation = "idle_black"
+
 	state_manager.process(delta)
 
 
