@@ -16,7 +16,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sl14k")
-main_scene = "uid://k4u7e1uwv35g"
+main_scene = "uid://cdm3l21spj67o"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

@@ -29,5 +29,7 @@ func physics_process(delta: float) -> int:
 				candidates.append(n)
 
 		invader.target_node = candidates.pick_random()
+		if (randi_range(0,100) < 20):
+			return InvaderBaseState.State.Scanning
 
 	return InvaderBaseState.State.Moving

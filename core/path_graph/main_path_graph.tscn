@@ -844,23 +844,27 @@ metadata/_edit_group_ = true
 
 [node name="Node2D76" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
 process_mode = 3
+modulate = Color(1, 0, 1, 1)
 position = Vector2(-3910, 2275)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
 line_color = Color(1, 0, 0, 1)
 line_width = 18.0
+role = 3
 neighbors = [NodePath("../Node2D39"), NodePath("../Node2D78"), NodePath("../Node2D77")]
 metadata/_edit_group_ = true
 
 [node name="Node2D77" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
 process_mode = 3
+modulate = Color(1, 0, 1, 1)
 position = Vector2(-3814, 1540)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
 line_color = Color(1, 0, 0, 1)
 line_width = 18.0
+role = 3
 neighbors = [NodePath("../Node2D78"), NodePath("../Node2D39"), NodePath("../Node2D76")]
 metadata/_edit_group_ = true
 

@@ -2,6 +2,7 @@ extends StaticBody2D
 class_name Invader
 
 @onready var states: InvaderStateManager = $StateManager
+@onready var scanner: Area2D = $Scanner
 @export var path_graph: PathGraph
 @export var speed: float = 100
 @export var maxFear: int = 100

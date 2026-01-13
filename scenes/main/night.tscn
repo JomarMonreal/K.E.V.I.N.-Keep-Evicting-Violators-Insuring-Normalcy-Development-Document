@@ -152,7 +152,7 @@ polygon = PackedVector2Array(-1077, 3320, -1071, 3665, -1994, 3693, -2027, 3287)
 position = Vector2(2421, 2758)
 zoom = Vector2(0.25, 0.25)
 script = ExtResource("2_6xtx7")
-targets = Array[NodePath]([NodePath("../Player"), NodePath("")])
+targets = Array[NodePath]([NodePath("../Player"), NodePath("../Invader")])
 
 [node name="CraftingUI" parent="Camera2D" instance=ExtResource("3_vkvwu")]
 

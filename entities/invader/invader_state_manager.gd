@@ -3,6 +3,8 @@ class_name InvaderStateManager
 
 func _ready() -> void:
 	states = {
+		InvaderBaseState.State.Idle: $Idle,
+		InvaderBaseState.State.Scanning: $Scanning,
 		InvaderBaseState.State.Moving: $Moving,
 		InvaderBaseState.State.Trapped: $Trapped,
 		InvaderBaseState.State.Attacking: $Attacking,
