@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d2keaqdk6ymbf" path="res://entities/trap/trap.tscn" id="6_cotca"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hovik"]
-radius = 214.93254
+radius = 214.933
 
 [node name="Invading" type="Node2D"]
 

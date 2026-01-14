@@ -23,17 +23,18 @@ func _ready() -> void:
 	
 	EventListener.player_killed.connect(_on_player_killed)
 	EventListener.insanity_reached.connect(_on_player_insane)
+	EventListener.night_victory.connect(_advance_night)
 
 
 func change_world_scene(new_scene: String, delete: bool = true, keep_running: bool = false):
 	print("changing")
 	if current_world_scene:
 		if delete:
-			current_world_scene.queue_free() #delete scene in memory
+			current_world_scene.queue_free() # delete scene in memory
 		elif keep_running:
-			current_world_scene.visible = false #hide scene but keep in memory
+			current_world_scene.visible = false # hide scene but keep in memory
 		else:
-			world_scene.remove_child(current_world_scene) #sumunod lang ako sa tutorial idk what this is
+			world_scene.remove_child(current_world_scene) # sumunod lang ako sa tutorial idk what this is
 	
 	var new = load(new_scene).instantiate()
 	world_scene.add_child(new)
@@ -43,11 +44,11 @@ func change_world_scene(new_scene: String, delete: bool = true, keep_running: bo
 func change_ui_scene(new_scene: String, delete: bool = true, keep_running: bool = false):
 	if current_ui_scene:
 		if delete:
-			current_ui_scene.queue_free() #delete scene in memory
+			current_ui_scene.queue_free() # delete scene in memory
 		elif keep_running:
-			current_ui_scene.visible = false #hide scene but keep in memory
+			current_ui_scene.visible = false # hide scene but keep in memory
 		else:
-			gui.remove_child(current_ui_scene) #sumunod lang ako sa tutorial idk what this is
+			gui.remove_child(current_ui_scene) # sumunod lang ako sa tutorial idk what this is
 	
 	var new = load(new_scene).instantiate()
 	gui.add_child(new)
@@ -70,10 +71,12 @@ func end_game(condition: GameCondition) -> void:
 		pass
 
 
-func advance_night() -> void:
+func _advance_night() -> void:
 	Global.current_night += 1
-	if Global.current_night > MAX_NIGHTS:
+	if Global.current_night >= MAX_NIGHTS:
 		end_game(GameCondition.VICTORY)
+	
+	#Global.game_manager.change_world_scene() # next night
 
 
 func _on_player_killed() -> void:

@@ -5,10 +5,14 @@ class_name NightManager
 @export var invading_background: Texture2D
 
 @onready var path_graph: PathGraph = $PathGraph
+
+# timers
 @onready var loading_timer: Timer = $LoadingTimer
 @onready var planning_timer: Timer = $PlanningTimer
 @onready var plan_to_invade_timer: Timer = $PlanToInvadeTimer
 @onready var invading_timer: Timer = $InvadingTimer
+
+# ui
 @onready var night_start_layer: CanvasLayer = $Camera2D/NightStart/Screen
 @onready var night_label: Label = $Camera2D/NightStart/Screen/Label
 @onready var ui_timer_layer: CanvasLayer = $Camera2D/NightStart/Timer
@@ -81,4 +85,4 @@ func _on_invading_timer_timeout() -> void:
 	night_start_layer.visible = true
 	ui_timer_layer.visible = false
 	invading_timer.stop()
-	pass # Replace with function body.
+	EventListener.night_victory.emit()
