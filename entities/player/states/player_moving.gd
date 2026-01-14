@@ -13,7 +13,8 @@ func enter():
 
 
 func physics_process(_delta: float) -> BaseState:
-	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var direction := Vector2(Input.get_action_strength("move_right") - Input.get_action_strength("move_left"), 
+	Input.get_action_strength("move_down") - Input.get_action_strength("move_up"))
 	if direction == Vector2():
 		return idle_state
 	
