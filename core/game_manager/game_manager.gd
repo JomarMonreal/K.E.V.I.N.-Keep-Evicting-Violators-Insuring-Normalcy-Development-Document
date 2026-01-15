@@ -72,14 +72,14 @@ func end_game(condition: GameCondition) -> void:
 	if condition == null:
 		return
 	
-	Global.game_manager.change_ui_scene('')
+	Global.game_manager.change_world_scene('')
 	
 	if condition == GameCondition.VICTORY:
 		Global.game_manager.change_ui_scene("res://scenes/ui/victory_screen.tscn")
 	elif condition == GameCondition.KILLED:
-		pass
+		Global.game_manager.change_ui_scene("res://scenes/ui/death_screen.tscn")
 	elif condition == GameCondition.INSANE:
-		pass
+		Global.game_manager.change_ui_scene("res://scenes/ui/insane_screen.tscn")
 
 
 func _advance_night() -> void:

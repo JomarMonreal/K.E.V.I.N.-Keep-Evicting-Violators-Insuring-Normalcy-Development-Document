@@ -1,21 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbyp772858yh5"]
+[gd_scene load_steps=5 format=3 uid="uid://b218ej54v6rhf"]
 
-[ext_resource type="Script" uid="uid://by83okujtq5ec" path="res://scenes/ui/victory_screen.gd" id="1_mtfol"]
-[ext_resource type="FontFile" uid="uid://cdp1od0bik7ea" path="res://assets/main_assets/Fonts/Handwritten Font/Kevin-Regular.otf" id="2_lcvyk"]
-[ext_resource type="FontFile" uid="uid://bqjj85gpm6r88" path="res://assets/main_assets/Fonts/Handwritten Font/Kevin-Regular.ttf" id="2_mtfol"]
+[ext_resource type="Script" uid="uid://n7dqps70mp4v" path="res://scenes/ui/insane_screen.gd" id="1_hvecu"]
+[ext_resource type="FontFile" uid="uid://bqjj85gpm6r88" path="res://assets/main_assets/Fonts/Handwritten Font/Kevin-Regular.ttf" id="2_v0rse"]
+[ext_resource type="FontFile" uid="uid://cdp1od0bik7ea" path="res://assets/main_assets/Fonts/Handwritten Font/Kevin-Regular.otf" id="3_ml846"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mjqmx"]
-font = ExtResource("2_mtfol")
+font = ExtResource("2_v0rse")
 font_size = 92
 
-[node name="VictoryScreen" type="Control"]
+[node name="InsaneScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_mtfol")
+script = ExtResource("1_hvecu")
 
 [node name="Screen" type="CanvasLayer" parent="."]
 
@@ -36,8 +36,7 @@ offset_right = 296.0
 offset_bottom = 63.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Kevin! 
-Were you okay?"
+text = "mom. mom. mom. mom."
 label_settings = SubResource("LabelSettings_mjqmx")
 horizontal_alignment = 1
 autowrap_mode = 2
@@ -54,8 +53,8 @@ offset_right = 296.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0.47788018, 0.47788012, 0.47788012, 1)
-theme_override_fonts/font = ExtResource("2_lcvyk")
+theme_override_fonts/font = ExtResource("3_ml846")
 theme_override_font_sizes/font_size = 55
-text = "But we'll get you next time."
+text = "Insanity."
 horizontal_alignment = 1
 autowrap_mode = 2
