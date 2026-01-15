@@ -156,7 +156,7 @@ targets = Array[NodePath]([NodePath("../Player"), NodePath("../Invader")])
 
 [node name="CraftingUI" parent="Camera2D" instance=ExtResource("3_vkvwu")]
 
-[node name="NightStart" parent="Camera2D" instance=ExtResource("8_q0pdu")]
+[node name="NightUIManager" parent="Camera2D" instance=ExtResource("8_q0pdu")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
