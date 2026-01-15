@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cecg0rv3tntcx"]
 
 [ext_resource type="FontFile" uid="uid://bqjj85gpm6r88" path="res://assets/main_assets/Fonts/Handwritten Font/Kevin-Regular.ttf" id="1_gchie"]
-[ext_resource type="Script" uid="uid://b3ueft0g6cqqm" path="res://core/night_manager/night_ui_manager.gd" id="1_mjqmx"]
+[ext_resource type="Script" path="res://core/night_manager/night_ui_manager.gd" id="1_mjqmx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mjqmx"]
 font = ExtResource("1_gchie")
