@@ -9,10 +9,9 @@ extends Control
 
 func _on_play_pressed() -> void:
 	print("play!")
-	Global.game_manager.change_world_scene('')
-	Global.game_manager.change_ui_scene(main_scene, false) #insert scene to night 1
+	Global.game_manager.change_ui_scene('')
+	Global.game_manager.change_world_scene(main_scene) #insert scene to night
 	
-
 
 func _on_settings_pressed() -> void:
 	print("settings!")

@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbyp772858yh5"]
+
+[ext_resource type="Script" uid="uid://by83okujtq5ec" path="res://scenes/ui/victory_screen.gd" id="1_mtfol"]
+[ext_resource type="FontFile" uid="uid://cdp1od0bik7ea" path="res://assets/main_assets/Fonts/Handwritten Font/Kevin-Regular.otf" id="2_lcvyk"]
+[ext_resource type="FontFile" uid="uid://bqjj85gpm6r88" path="res://assets/main_assets/Fonts/Handwritten Font/Kevin-Regular.ttf" id="2_mtfol"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mjqmx"]
+font = ExtResource("2_mtfol")
+font_size = 92
+
+[node name="VictoryScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mtfol")
+
+[node name="Screen" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Screen"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Screen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = -63.5
+offset_right = 296.0
+offset_bottom = 63.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Kevin! 
+We're so sorry!"
+label_settings = SubResource("LabelSettings_mjqmx")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="Screen"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -296.0
+offset_top = -127.0
+offset_right = 296.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.47788018, 0.47788012, 0.47788012, 1)
+theme_override_fonts/font = ExtResource("2_lcvyk")
+theme_override_font_sizes/font_size = 55
+text = "Game Finished."
+horizontal_alignment = 1
+autowrap_mode = 2
