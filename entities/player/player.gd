@@ -6,6 +6,8 @@ extends CharacterBody2D
 @export var animations : AnimatedSprite2D
 @onready var state_manager : PlayerStateManager = $PlayerStateManager
 
+var is_blue = true
+
 
 func _ready() -> void:
 	state_manager.init(self)
@@ -23,7 +25,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _process(delta: float) -> void:
-	if Global.is_night_planning:
+	if is_blue:
 		animations.animation = "idle_blue"
 	else:
 		animations.animation = "idle_black"

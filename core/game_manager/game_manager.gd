@@ -14,7 +14,6 @@ enum OldSceneAction {
 }
 
 const MAX_NIGHTS: int = 7
-var current_night : int = 1
 
 @export var world_scene : Node2D
 @export var gui : Control
@@ -32,27 +31,29 @@ func _ready() -> void:
 	EventListener.insanity_reached.connect(_on_player_insane)
 	EventListener.night_victory.connect(_advance_night)
 
-
-func change_world_scene(new_scene: String, action : OldSceneAction = OldSceneAction.DELETE):
+func change_world_scene(new_scene: String, is_world_next_scene: bool = true, action : OldSceneAction = OldSceneAction.DELETE):
 	print("changing")
 	if is_instance_valid(current_world_scene):
 		match action:
 			OldSceneAction.DELETE:
 				current_world_scene.queue_free() # delete scene in memory
+				print("VALID")
+				print(current_world_scene)
 			OldSceneAction.HIDE:
 				current_world_scene.visible = false # hide scene but keep in memory
 			OldSceneAction.REMOVE:
 				world_scene.remove_child(current_world_scene) # hide scene and dont keep running
-	
-	var new = load(new_scene).instantiate()
-	world_scene.add_child(new)
-	current_world_scene = new
-	
-	if new.has_signal("night_victory"):
-		new.night_victory.connect(_advance_night)
+	if new_scene != '':
+		var new = load(new_scene).instantiate()
+		world_scene.add_child(new)
+		if is_world_next_scene:
+			current_world_scene = new
+		else:
+			current_ui_scene = new
+		
 
 
-func change_ui_scene(new_scene: String, action : OldSceneAction = OldSceneAction.DELETE):
+func change_ui_scene(new_scene: String, is_ui_next_scene: bool = true, action : OldSceneAction = OldSceneAction.DELETE):
 	if is_instance_valid(current_ui_scene):
 		match action:
 			OldSceneAction.DELETE:
@@ -61,10 +62,17 @@ func change_ui_scene(new_scene: String, action : OldSceneAction = OldSceneAction
 				current_ui_scene.visible = false # hide scene but keep in memory
 			OldSceneAction.REMOVE:
 				gui.remove_child(current_ui_scene) # hide scene and dont keep running
+
+	if new_scene != '':
+		print("CHANGED SCENE")
+		var new = load(new_scene).instantiate()
+		gui.add_child(new)
+		if is_ui_next_scene:
+			current_ui_scene = new
+		else:
+			current_world_scene = new
+		
 	
-	var new = load(new_scene).instantiate()
-	gui.add_child(new)
-	current_ui_scene = new
 
 
 func start_game() -> void:
@@ -85,11 +93,13 @@ func end_game(condition: GameCondition) -> void:
 
 func _advance_night() -> void:
 	print("next night!")
-	current_night += 1
-	if current_night >= MAX_NIGHTS:
+	Global.current_night += 1
+	if Global.current_night >= MAX_NIGHTS:
 		end_game(GameCondition.VICTORY)
 	
 	Global.game_manager.change_world_scene("res://scenes/main/night.tscn") # next night
+	Global.game_manager.change_ui_scene('')
+	
 
 
 func _on_player_killed() -> void:

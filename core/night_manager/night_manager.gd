@@ -5,13 +5,15 @@ class_name NightManager
 @export var invading_background: Texture2D
 
 @onready var path_graph: PathGraph = $PathGraph
-var night_number = 1
+@onready var player: Player = $Player
 
 # timers
 @onready var loading_timer: Timer = $LoadingTimer
 @onready var planning_timer: Timer = $PlanningTimer
 @onready var plan_to_invade_timer: Timer = $PlanToInvadeTimer
 @onready var invading_timer: Timer = $InvadingTimer
+@onready var results_timer: Timer = $ResultsTimer
+
 
 # ui
 @onready var ui_manager: NightUIManager = $Camera2D/NightUIManager
@@ -20,11 +22,12 @@ signal has_started_planning
 signal has_ended_planning
 signal has_started_invading
 signal has_ended_invading
+signal night_victory
 
 # Called when the node enters "res://assets/main_assets/Map/Map_Planning.png"the scene tree for the first time.
 func _ready() -> void:
 	path_graph.background_sprite.texture = planning_background
-	ui_manager.show_night(night_number)
+	ui_manager.show_night(Global.current_night)
 	loading_timer.start()
 	pass # Replace with function body.
 
@@ -46,6 +49,8 @@ func _process(_delta: float) -> void:
 
 func _on_loading_timer_timeout() -> void:
 	has_started_planning.emit()
+	player.is_blue = true
+	path_graph.background_sprite.texture = planning_background
 	ui_manager.show_planning_ui()
 	loading_timer.stop()
 	planning_timer.start()
@@ -61,14 +66,19 @@ func _on_planning_timer_timeout() -> void:
 
 func _on_plan_to_invade_timer_timeout() -> void:
 	has_started_invading.emit()
+	player.is_blue = false
 	path_graph.background_sprite.texture = invading_background
 	ui_manager.show_invading_ui()
 	plan_to_invade_timer.stop()
 	invading_timer.start()
-	Global.is_night_planning = false
 
 func _on_invading_timer_timeout() -> void:
 	has_ended_invading.emit()
 	ui_manager.show_victory_ui()
+	results_timer.start()
 	invading_timer.stop()
+
+func _on_results_timer_timeout() -> void:
+	night_victory.emit()
 	EventListener.night_victory.emit()
+	results_timer.stop()
