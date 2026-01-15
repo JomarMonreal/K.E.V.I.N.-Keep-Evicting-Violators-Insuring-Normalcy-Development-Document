@@ -20,6 +20,9 @@ func input(_event: InputEvent) -> BaseState:
 		or Input.is_action_just_pressed("move_down")
 	):
 		return moving_state
+	
+	#if parent.night_manager
+	
 	return null
 
 
