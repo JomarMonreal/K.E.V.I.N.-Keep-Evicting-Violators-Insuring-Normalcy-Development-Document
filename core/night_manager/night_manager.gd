@@ -22,15 +22,19 @@ signal has_started_planning
 signal has_ended_planning
 signal has_started_invading
 signal has_ended_invading
+signal night_victory
 
 # Called when the node enters "res://assets/main_assets/Map/Map_Planning.png"the scene tree for the first time.
 func _ready() -> void:
 	path_graph.background_sprite.texture = planning_background
-	night_label.text = 'Night ' + str(Global.current_night) 
+	
+	night_label.text = 'Night ' + str(Global.game_manager.current_night) 
 	night_start_layer.visible = true
 	ui_timer_layer.visible = false
+	
 	loading_timer.start()
-	pass # Replace with function body.
+	
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -80,9 +84,12 @@ func _on_plan_to_invade_timer_timeout() -> void:
 
 
 func _on_invading_timer_timeout() -> void:
+	print('Kevin survived the night!')
 	has_ended_invading.emit()
 	night_label.text = 'Kevin survived the night!'
 	night_start_layer.visible = true
 	ui_timer_layer.visible = false
 	invading_timer.stop()
-	EventListener.night_victory.emit()
+	
+	night_start_layer.visible = false
+	night_victory.emit()

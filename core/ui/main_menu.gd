@@ -9,7 +9,7 @@ extends Control
 
 func _on_play_pressed() -> void:
 	print("play!")
-	Global.game_manager.change_ui_scene(main_scene, true, true) #insert scene to night 1
+	Global.game_manager.change_ui_scene(main_scene) #insert scene to night 1
 	
 
 

@@ -7,7 +7,14 @@ enum GameCondition {
 	INSANE,
 }
 
+enum OldSceneAction {
+	DELETE,
+	HIDE,
+	REMOVE,
+}
+
 const MAX_NIGHTS: int = 7
+var current_night : int = 1
 
 @export var world_scene : Node2D
 @export var gui : Control
@@ -26,29 +33,34 @@ func _ready() -> void:
 	EventListener.night_victory.connect(_advance_night)
 
 
-func change_world_scene(new_scene: String, delete: bool = true, keep_running: bool = false):
+func change_world_scene(new_scene: String, action : OldSceneAction = OldSceneAction.DELETE):
 	print("changing")
-	if current_world_scene:
-		if delete:
-			current_world_scene.queue_free() # delete scene in memory
-		elif keep_running:
-			current_world_scene.visible = false # hide scene but keep in memory
-		else:
-			world_scene.remove_child(current_world_scene) # sumunod lang ako sa tutorial idk what this is
+	if is_instance_valid(current_world_scene):
+		match action:
+			OldSceneAction.DELETE:
+				current_world_scene.queue_free() # delete scene in memory
+			OldSceneAction.HIDE:
+				current_world_scene.visible = false # hide scene but keep in memory
+			OldSceneAction.REMOVE:
+				world_scene.remove_child(current_world_scene) # hide scene and dont keep running
 	
 	var new = load(new_scene).instantiate()
 	world_scene.add_child(new)
 	current_world_scene = new
+	
+	if new.has_signal("night_victory"):
+		new.night_victory.connect(_advance_night)
 
 
-func change_ui_scene(new_scene: String, delete: bool = true, keep_running: bool = false):
-	if current_ui_scene:
-		if delete:
-			current_ui_scene.queue_free() # delete scene in memory
-		elif keep_running:
-			current_ui_scene.visible = false # hide scene but keep in memory
-		else:
-			gui.remove_child(current_ui_scene) # sumunod lang ako sa tutorial idk what this is
+func change_ui_scene(new_scene: String, action : OldSceneAction = OldSceneAction.DELETE):
+	if is_instance_valid(current_ui_scene):
+		match action:
+			OldSceneAction.DELETE:
+				current_ui_scene.queue_free() # delete scene in memory
+			OldSceneAction.HIDE:
+				current_ui_scene.visible = false # hide scene but keep in memory
+			OldSceneAction.REMOVE:
+				gui.remove_child(current_ui_scene) # hide scene and dont keep running
 	
 	var new = load(new_scene).instantiate()
 	gui.add_child(new)
@@ -72,11 +84,12 @@ func end_game(condition: GameCondition) -> void:
 
 
 func _advance_night() -> void:
-	Global.current_night += 1
-	if Global.current_night >= MAX_NIGHTS:
+	print("next night!")
+	current_night += 1
+	if current_night >= MAX_NIGHTS:
 		end_game(GameCondition.VICTORY)
 	
-	#Global.game_manager.change_world_scene() # next night
+	Global.game_manager.change_world_scene("res://scenes/main/night.tscn") # next night
 
 
 func _on_player_killed() -> void:
