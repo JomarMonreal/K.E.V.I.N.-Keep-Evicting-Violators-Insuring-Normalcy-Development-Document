@@ -90,9 +90,8 @@ func _advance_night() -> void:
 		Global.current_night = 1
 		return
 	
-	Global.game_manager.change_world_scene("res://scenes/main/night.tscn") # next night
+	Global.game_manager.change_world_scene("res://scenes/main/night.tscn") # start night
 	Global.game_manager.change_ui_scene('')
-	
 
 
 func _on_player_killed() -> void:

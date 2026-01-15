@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://by3yaeckrtk5d"]
+[gd_scene load_steps=17 format=3 uid="uid://by3yaeckrtk5d"]
 
 [ext_resource type="Script" uid="uid://cas4qy1d4k5la" path="res://entities/player/player.gd" id="1_sglur"]
 [ext_resource type="Texture2D" uid="uid://curx56m3ytu0x" path="res://assets/main_assets/Map/Blueprint Icons/Player Symbol.PNG" id="2_26q78"]
@@ -68,6 +68,12 @@ animations = [{
 radius = 41.0
 height = 114.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_a1qjk"]
+radius = 192.12756
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j3ovn"]
+radius = 118.258194
+
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animations")]
 script = ExtResource("1_sglur")
 animations = NodePath("AnimatedSprite2D")
@@ -86,6 +92,22 @@ shape = SubResource("CapsuleShape2D_wvtmh")
 
 [node name="SanityComponent" type="Node" parent="."]
 script = ExtResource("5_7thud")
+
+[node name="SanityHurtbox" type="Area2D" parent="."]
+collision_layer = 1024
+collision_mask = 1024
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SanityHurtbox"]
+shape = SubResource("CircleShape2D_a1qjk")
+debug_color = Color(0.7119203, 0.4853844, 0, 0.41960785)
+
+[node name="KilledHurtbox" type="Area2D" parent="."]
+collision_layer = 512
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KilledHurtbox"]
+shape = SubResource("CircleShape2D_j3ovn")
+debug_color = Color(0.9999998, 0.00996061, 0.06236475, 0.41960785)
 
 [node name="TopDownMovement" type="Node" parent="."]
 script = ExtResource("6_a1qjk")

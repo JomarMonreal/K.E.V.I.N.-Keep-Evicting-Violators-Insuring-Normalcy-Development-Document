@@ -64,6 +64,11 @@ switch_camera={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_10="KillingLayer"
+2d_physics/layer_11="SanityLayer"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
