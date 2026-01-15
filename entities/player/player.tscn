@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://by3yaeckrtk5d"]
+[gd_scene load_steps=15 format=3 uid="uid://by3yaeckrtk5d"]
 
 [ext_resource type="Script" uid="uid://cas4qy1d4k5la" path="res://entities/player/player.gd" id="1_sglur"]
 [ext_resource type="Texture2D" uid="uid://curx56m3ytu0x" path="res://assets/main_assets/Map/Blueprint Icons/Player Symbol.PNG" id="2_26q78"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://bdyoilcqx54ge" path="res://entities/player/sanity_component.gd" id="5_7thud"]
 [ext_resource type="Script" uid="uid://cs5slhuf0pcwt" path="res://entities/player/states/player_frozen.gd" id="5_8fjmc"]
 [ext_resource type="Script" uid="uid://dxukf8pk6j87b" path="res://entities/player/states/player_interacting.gd" id="6_26q78"]
+[ext_resource type="Script" uid="uid://cvmwq3at1cxss" path="res://entities/player/top_down_movement.gd" id="6_a1qjk"]
 [ext_resource type="Script" uid="uid://b1rsyx47w3igk" path="res://entities/player/states/player_dead.gd" id="6_qiwj3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wq0jh"]
@@ -87,6 +88,7 @@ shape = SubResource("CapsuleShape2D_wvtmh")
 script = ExtResource("5_7thud")
 
 [node name="TopDownMovement" type="Node" parent="."]
+script = ExtResource("6_a1qjk")
 
 [node name="PlayerStateManager" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("2_bls4j")
@@ -101,7 +103,6 @@ animation_name = "idle"
 [node name="Moving" type="Node" parent="PlayerStateManager" node_paths=PackedStringArray("idle_state")]
 script = ExtResource("4_bls4j")
 idle_state = NodePath("../Idle")
-move_speed = 600.0
 animation_name = "moving"
 
 [node name="Interacting" type="Node" parent="PlayerStateManager"]

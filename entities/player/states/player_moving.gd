@@ -6,7 +6,6 @@ extends PlayerBaseState
 #@export var hide_state : PlayerBaseState
 #@export var die_state : PlayerBaseState
 
-@export var move_speed : float = 300
 
 func enter():
 	super()
@@ -20,8 +19,5 @@ func physics_process(_delta: float) -> BaseState:
 	
 	if direction.x != 0:
 		parent.animations.flip_h = direction.x < 0
-	
-	parent.velocity = direction.normalized() * move_speed
-	parent.move_and_slide()
 	
 	return null
