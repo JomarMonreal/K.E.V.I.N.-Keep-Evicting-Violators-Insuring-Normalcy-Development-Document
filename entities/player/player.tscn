@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://by3yaeckrtk5d"]
+[gd_scene load_steps=18 format=3 uid="uid://by3yaeckrtk5d"]
 
 [ext_resource type="Script" uid="uid://cas4qy1d4k5la" path="res://entities/player/player.gd" id="1_sglur"]
 [ext_resource type="Script" uid="uid://q0c5t8psmc7i" path="res://entities/player/player_state_manager.gd" id="2_bls4j"]
@@ -8,8 +8,10 @@
 [ext_resource type="Script" uid="uid://xiprp7egc8ii" path="res://entities/player/states/player_moving.gd" id="4_bls4j"]
 [ext_resource type="Script" uid="uid://bdyoilcqx54ge" path="res://entities/player/sanity_component.gd" id="5_7thud"]
 [ext_resource type="Script" uid="uid://cs5slhuf0pcwt" path="res://entities/player/states/player_hiding.gd" id="5_8fjmc"]
+[ext_resource type="Script" uid="uid://cdsfq3dle6oly" path="res://entities/player/killed_component.gd" id="5_j3ovn"]
 [ext_resource type="Script" uid="uid://dxukf8pk6j87b" path="res://entities/player/states/player_interacting.gd" id="6_26q78"]
 [ext_resource type="Script" uid="uid://cvmwq3at1cxss" path="res://entities/player/top_down_movement.gd" id="6_a1qjk"]
+[ext_resource type="Script" uid="uid://bymn015pedw6" path="res://entities/player/killed_hurtbox.gd" id="6_afbqv"]
 [ext_resource type="Script" uid="uid://b1rsyx47w3igk" path="res://entities/player/states/player_dead.gd" id="6_qiwj3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wq0jh"]
@@ -68,6 +70,9 @@ shape = SubResource("CapsuleShape2D_wvtmh")
 [node name="SanityComponent" type="Node" parent="."]
 script = ExtResource("5_7thud")
 
+[node name="KilledComponent" type="Node" parent="."]
+script = ExtResource("5_j3ovn")
+
 [node name="SanityHurtbox" type="Area2D" parent="."]
 collision_layer = 1024
 collision_mask = 1024
@@ -77,8 +82,9 @@ shape = SubResource("CircleShape2D_a1qjk")
 debug_color = Color(0.7119203, 0.4853844, 0, 0.41960785)
 
 [node name="KilledHurtbox" type="Area2D" parent="."]
-collision_layer = 512
+collision_layer = 0
 collision_mask = 512
+script = ExtResource("6_afbqv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KilledHurtbox"]
 shape = SubResource("CircleShape2D_j3ovn")
@@ -107,10 +113,13 @@ animation_name = "moving"
 [node name="Interacting" type="Node" parent="PlayerStateManager"]
 script = ExtResource("6_26q78")
 
-[node name="Hiding" type="Node" parent="PlayerStateManager" node_paths=PackedStringArray("idle_state")]
+[node name="Hiding" type="Node" parent="PlayerStateManager" node_paths=PackedStringArray("idle_state", "dead_state")]
 script = ExtResource("5_8fjmc")
 idle_state = NodePath("../Idle")
+dead_state = NodePath("../Dead")
 animation_name = "hiding"
 
 [node name="Dead" type="Node" parent="PlayerStateManager"]
 script = ExtResource("6_qiwj3")
+
+[connection signal="area_entered" from="KilledHurtbox" to="KilledHurtbox" method="_on_area_entered"]
