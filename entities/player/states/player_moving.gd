@@ -14,12 +14,13 @@ func physics_process(_delta: float) -> BaseState:
 	if not parent.is_planning:
 		return hiding_state
 	
-	var direction := Vector2(Input.get_action_strength("move_right") - Input.get_action_strength("move_left"), 
-	Input.get_action_strength("move_down") - Input.get_action_strength("move_up"))
-	if direction == Vector2():
+	#var direction := Vector2(Input.get_action_strength("move_right") - Input.get_action_strength("move_left"), 
+	#Input.get_action_strength("move_down") - Input.get_action_strength("move_up")).normalized()
+	
+	if parent.velocity == Vector2.ZERO:
 		return idle_state
 	
-	if direction.x != 0:
-		parent.animations.flip_h = direction.x < 0
+	if parent.velocity.x != 0:
+		parent.animations.flip_h = parent.velocity.x < 0
 	
 	return null

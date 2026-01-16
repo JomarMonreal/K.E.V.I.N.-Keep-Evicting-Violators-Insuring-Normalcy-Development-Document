@@ -86,7 +86,6 @@ debug_color = Color(0.9999998, 0.00996061, 0.06236475, 0.41960785)
 
 [node name="TopDownMovement" type="Node" parent="."]
 script = ExtResource("6_a1qjk")
-move_speed = 400.0
 
 [node name="PlayerStateManager" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("2_bls4j")

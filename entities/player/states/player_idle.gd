@@ -12,12 +12,13 @@ func enter():
 
 
 func input(_event: InputEvent) -> BaseState:
-	if (
-		Input.is_action_just_pressed("move_left")
-		or Input.is_action_just_pressed("move_right")
-		or Input.is_action_just_pressed("move_up")
-		or Input.is_action_just_pressed("move_down")
-	):
+	#if (
+		#Input.is_action_just_pressed("move_left")
+		#or Input.is_action_just_pressed("move_right")
+		#or Input.is_action_just_pressed("move_up")
+		#or Input.is_action_just_pressed("move_down")
+	#):
+	if parent.velocity != Vector2.ZERO:
 		return moving_state
 
 	
