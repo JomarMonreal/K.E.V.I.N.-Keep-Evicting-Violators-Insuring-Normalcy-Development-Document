@@ -19,8 +19,6 @@ class_name NightManager
 # ui
 @onready var ui_manager: NightUIManager = $Camera2D/NightUIManager
 
-var is_planning : bool = true
-
 # phases
 signal has_started_planning
 signal has_ended_planning
@@ -33,7 +31,6 @@ func _ready() -> void:
 	path_graph.background_sprite.texture = planning_background
 	ui_manager.show_night(Global.current_night)
 	loading_timer.start()
-	pass # Replace with function body.
 
 
 func _process(_delta: float) -> void:
@@ -52,36 +49,43 @@ func _process(_delta: float) -> void:
 
 func _on_loading_timer_timeout() -> void:
 	has_started_planning.emit()
-	is_planning = true
+	
 	path_graph.background_sprite.texture = planning_background
 	ui_manager.show_planning_ui()
+	
 	loading_timer.stop()
 	planning_timer.start()
 
 
 func _on_planning_timer_timeout() -> void:
 	has_ended_planning.emit()
+	
 	ui_manager.show_invader_warning_ui()
+	
 	planning_timer.stop()
 	plan_to_invade_timer.start()
 
 
 func _on_plan_to_invade_timer_timeout() -> void:
 	has_started_invading.emit()
-	is_planning = false
+	
 	path_graph.background_sprite.texture = invading_background
 	ui_manager.show_invading_ui()
+	
 	plan_to_invade_timer.stop()
 	invading_timer.start()
 
 
 func _on_invading_timer_timeout() -> void:
 	has_ended_invading.emit()
+	
 	ui_manager.show_victory_ui()
+	
 	results_timer.start()
 	invading_timer.stop()
 
 
 func _on_results_timer_timeout() -> void:
 	EventListener.night_victory.emit()
+	
 	results_timer.stop()

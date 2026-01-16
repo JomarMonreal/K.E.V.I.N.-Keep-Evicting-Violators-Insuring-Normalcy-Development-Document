@@ -1,14 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://by3yaeckrtk5d"]
+[gd_scene load_steps=16 format=3 uid="uid://by3yaeckrtk5d"]
 
 [ext_resource type="Script" uid="uid://cas4qy1d4k5la" path="res://entities/player/player.gd" id="1_sglur"]
-[ext_resource type="Texture2D" uid="uid://curx56m3ytu0x" path="res://assets/main_assets/Map/Blueprint Icons/Player Symbol.PNG" id="2_26q78"]
 [ext_resource type="Script" uid="uid://q0c5t8psmc7i" path="res://entities/player/player_state_manager.gd" id="2_bls4j"]
 [ext_resource type="Script" uid="uid://b35lwsjswdvw6" path="res://entities/player/states/player_idle.gd" id="3_fkugw"]
 [ext_resource type="Texture2D" uid="uid://i66hnmithx1" path="res://assets/main_assets/Map/Blueprint Icons/Player Symbol (Black background).PNG" id="3_wvtmh"]
 [ext_resource type="Texture2D" uid="uid://b3vph4qrvm355" path="res://assets/main_assets/Map/Blueprint Icons/Player Symbol (Blue background).PNG" id="4_7thud"]
 [ext_resource type="Script" uid="uid://xiprp7egc8ii" path="res://entities/player/states/player_moving.gd" id="4_bls4j"]
 [ext_resource type="Script" uid="uid://bdyoilcqx54ge" path="res://entities/player/sanity_component.gd" id="5_7thud"]
-[ext_resource type="Script" uid="uid://cs5slhuf0pcwt" path="res://entities/player/states/player_frozen.gd" id="5_8fjmc"]
+[ext_resource type="Script" uid="uid://cs5slhuf0pcwt" path="res://entities/player/states/player_hiding.gd" id="5_8fjmc"]
 [ext_resource type="Script" uid="uid://dxukf8pk6j87b" path="res://entities/player/states/player_interacting.gd" id="6_26q78"]
 [ext_resource type="Script" uid="uid://cvmwq3at1cxss" path="res://entities/player/top_down_movement.gd" id="6_a1qjk"]
 [ext_resource type="Script" uid="uid://b1rsyx47w3igk" path="res://entities/player/states/player_dead.gd" id="6_qiwj3"]
@@ -17,50 +16,26 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_26q78")
+"texture": ExtResource("3_wvtmh")
+}],
+"loop": true,
+"name": &"hiding",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_7thud")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_wvtmh")
-}],
-"loop": true,
-"name": &"idle_black",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("4_7thud")
-}],
-"loop": true,
-"name": &"idle_blue",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_26q78")
 }],
 "loop": true,
 "name": &"moving",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_wvtmh")
-}],
-"loop": true,
-"name": &"moving_black",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_7thud")
-}],
-"loop": true,
-"name": &"moving_blue",
 "speed": 5.0
 }]
 
@@ -82,8 +57,8 @@ animations = NodePath("AnimatedSprite2D")
 texture_filter = 1
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_wq0jh")
-animation = &"idle_black"
-autoplay = "idle_blue"
+animation = &"hiding"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)
@@ -111,27 +86,32 @@ debug_color = Color(0.9999998, 0.00996061, 0.06236475, 0.41960785)
 
 [node name="TopDownMovement" type="Node" parent="."]
 script = ExtResource("6_a1qjk")
+move_speed = 400.0
 
 [node name="PlayerStateManager" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("2_bls4j")
 starting_state = NodePath("Idle")
 metadata/_custom_type_script = "uid://q0c5t8psmc7i"
 
-[node name="Idle" type="Node" parent="PlayerStateManager" node_paths=PackedStringArray("moving_state")]
+[node name="Idle" type="Node" parent="PlayerStateManager" node_paths=PackedStringArray("moving_state", "hiding_state")]
 script = ExtResource("3_fkugw")
 moving_state = NodePath("../Moving")
+hiding_state = NodePath("../Hiding")
 animation_name = "idle"
 
-[node name="Moving" type="Node" parent="PlayerStateManager" node_paths=PackedStringArray("idle_state")]
+[node name="Moving" type="Node" parent="PlayerStateManager" node_paths=PackedStringArray("idle_state", "hiding_state")]
 script = ExtResource("4_bls4j")
 idle_state = NodePath("../Idle")
+hiding_state = NodePath("../Hiding")
 animation_name = "moving"
 
 [node name="Interacting" type="Node" parent="PlayerStateManager"]
 script = ExtResource("6_26q78")
 
-[node name="Frozen" type="Node" parent="PlayerStateManager"]
+[node name="Hiding" type="Node" parent="PlayerStateManager" node_paths=PackedStringArray("idle_state")]
 script = ExtResource("5_8fjmc")
+idle_state = NodePath("../Idle")
+animation_name = "hiding"
 
 [node name="Dead" type="Node" parent="PlayerStateManager"]
 script = ExtResource("6_qiwj3")

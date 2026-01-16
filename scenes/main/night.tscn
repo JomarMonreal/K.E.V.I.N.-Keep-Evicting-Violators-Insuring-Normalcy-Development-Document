@@ -19,7 +19,6 @@ planning_background = ExtResource("2_q0pdu")
 invading_background = ExtResource("3_b440g")
 
 [node name="LoadingTimer" type="Timer" parent="."]
-wait_time = 3.0
 one_shot = true
 
 [node name="PlanningTimer" type="Timer" parent="."]
@@ -43,8 +42,9 @@ metadata/_edit_lock_ = true
 path_graph = NodePath("../PathGraph")
 speed = 1000.0
 
-[node name="Player" parent="." instance=ExtResource("4_avkg3")]
+[node name="Player" parent="." node_paths=PackedStringArray("night_manager") instance=ExtResource("4_avkg3")]
 position = Vector2(-1120, 1423)
+night_manager = NodePath("..")
 
 [node name="OutsideColliders" type="StaticBody2D" parent="."]
 metadata/_edit_lock_ = true

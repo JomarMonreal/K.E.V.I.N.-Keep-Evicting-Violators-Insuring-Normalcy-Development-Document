@@ -47,8 +47,6 @@ func change_world_scene(new_scene: String, action : OldSceneAction = OldSceneAct
 		var new = load(new_scene).instantiate()
 		world_scene.add_child(new)
 		current_world_scene = new
-	
-	print_tree_pretty()
 
 
 func change_ui_scene(new_scene: String, action : OldSceneAction = OldSceneAction.DELETE):

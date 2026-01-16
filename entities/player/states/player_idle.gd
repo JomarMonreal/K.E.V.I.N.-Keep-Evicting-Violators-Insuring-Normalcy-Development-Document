@@ -3,7 +3,7 @@ extends PlayerBaseState
 
 @export var moving_state : PlayerBaseState
 #@export var interact_state : PlayerBaseState
-#@export var hide_state : PlayerBaseState
+@export var hiding_state : PlayerBaseState
 #@export var die_state : PlayerBaseState
 
 
@@ -21,7 +21,8 @@ func input(_event: InputEvent) -> BaseState:
 	):
 		return moving_state
 	
-	#if parent.night_manager
+	if not parent.is_planning:
+		return hiding_state
 	
 	return null
 

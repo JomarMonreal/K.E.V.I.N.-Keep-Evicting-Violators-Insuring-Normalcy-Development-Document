@@ -2,15 +2,16 @@ class_name Player
 extends CharacterBody2D
 
 @export var animations : AnimatedSprite2D
-@onready var state_manager : PlayerStateManager = $PlayerStateManager
 @export var night_manager : NightManager
+@onready var state_manager : PlayerStateManager = $PlayerStateManager
 
+@onready var is_planning : bool = true
 
 func _ready() -> void:
 	state_manager.init(self)
 	
 	night_manager.has_started_planning.connect(_on_planning)
-	night_manager.has_started_invading.connect(_on_hiding)
+	night_manager.has_started_invading.connect(_on_invading)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -26,8 +27,10 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_planning():
-	animations.animation = "idle_blue"
+	is_planning = true
+	print("planning!")
 
 
-func _on_hiding():
-	animations.animation = "idle_black"
+func _on_invading():
+	is_planning = false
+	print("hiding!")
