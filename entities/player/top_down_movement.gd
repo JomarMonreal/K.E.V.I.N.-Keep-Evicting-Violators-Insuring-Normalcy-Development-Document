@@ -8,7 +8,7 @@ extends Node
 
 func _physics_process(delta: float) -> void:
 	if not player.is_planning:
-		return
+		return # do not move/take input on hiding state
 	
 	var direction := Vector2(Input.get_action_strength("move_right") - Input.get_action_strength("move_left"), 
 	Input.get_action_strength("move_down") - Input.get_action_strength("move_up"))

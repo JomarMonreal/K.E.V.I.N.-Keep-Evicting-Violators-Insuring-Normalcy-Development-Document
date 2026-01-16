@@ -4,7 +4,6 @@ extends PlayerBaseState
 @export var moving_state : PlayerBaseState
 #@export var interact_state : PlayerBaseState
 @export var hiding_state : PlayerBaseState
-#@export var die_state : PlayerBaseState
 
 
 func enter():
@@ -20,13 +19,18 @@ func input(_event: InputEvent) -> BaseState:
 		or Input.is_action_just_pressed("move_down")
 	):
 		return moving_state
+
 	
+	return null
+
+
+func process(_delta: float) -> BaseState:
 	if not parent.is_planning:
 		return hiding_state
 	
 	return null
 
-
 func physics_process(_delta: float) -> BaseState:
 	parent.move_and_slide()
+	
 	return null
