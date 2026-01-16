@@ -8,6 +8,7 @@ class_name NightManager
 # pathing
 @onready var path_graph: PathGraph = $PathGraph
 @onready var player: Player = $Player
+@onready var invader: Invader = $Invader
 
 # timers
 @onready var loading_timer: Timer = $LoadingTimer
@@ -29,6 +30,7 @@ signal has_ended_invading
 # Called when the node enters "res://assets/main_assets/Map/Map_Planning.png"the scene tree for the first time.
 func _ready() -> void:
 	path_graph.background_sprite.texture = planning_background
+	invader.visible = false
 	ui_manager.show_night(Global.current_night)
 	loading_timer.start()
 
@@ -61,6 +63,7 @@ func _on_planning_timer_timeout() -> void:
 	has_ended_planning.emit()
 	
 	ui_manager.show_invader_warning_ui()
+	invader.visible = true
 	
 	planning_timer.stop()
 	plan_to_invade_timer.start()
@@ -71,6 +74,7 @@ func _on_plan_to_invade_timer_timeout() -> void:
 	
 	path_graph.background_sprite.texture = invading_background
 	ui_manager.show_invading_ui()
+	invader.states.change_state(InvaderBaseState.State.Moving)
 	
 	plan_to_invade_timer.stop()
 	invading_timer.start()

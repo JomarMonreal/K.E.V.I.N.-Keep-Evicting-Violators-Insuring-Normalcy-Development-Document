@@ -589,7 +589,7 @@ metadata/_edit_group_ = true
 
 [node name="Node2D8" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
 process_mode = 3
-position = Vector2(-2068, -1714)
+position = Vector2(-2027, -1696)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")

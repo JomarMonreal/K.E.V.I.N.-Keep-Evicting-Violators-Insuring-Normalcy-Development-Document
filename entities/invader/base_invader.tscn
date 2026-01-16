@@ -1,16 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://mxui41ovhubs"]
+[gd_scene load_steps=10 format=3 uid="uid://mxui41ovhubs"]
 
 [ext_resource type="Script" uid="uid://clfhyk11p2wkd" path="res://entities/invader/invader.gd" id="1_gts6a"]
-[ext_resource type="Texture2D" uid="uid://dhxgpboch85m5" path="res://assets/main_assets/Map/Blueprint Icons/Invader Symbol (No background).PNG" id="2_olecl"]
+[ext_resource type="Texture2D" uid="uid://mrs3lder6t4l" path="res://assets/main_assets/Map/Blueprint Icons/Invader Symbol (Black background).PNG" id="2_olecl"]
 [ext_resource type="Script" uid="uid://dt2ejicc2qmum" path="res://entities/invader/invader_state_manager.gd" id="3_fmxwh"]
 [ext_resource type="Script" uid="uid://ryiekkqcb3ji" path="res://entities/invader/states/invader_idle.gd" id="4_k3o2c"]
 [ext_resource type="Script" uid="uid://b6aqbw2sf58nc" path="res://entities/invader/states/invader_moving.gd" id="4_mwhei"]
 [ext_resource type="Script" uid="uid://dcddn1rx8tu57" path="res://entities/invader/states/invader_scanning.gd" id="5_olecl"]
 [ext_resource type="Script" uid="uid://bqoonqv52oby2" path="res://entities/invader/states/invader_leaving.gd" id="5_qn62y"]
+[ext_resource type="Script" uid="uid://dpmqncwrsnhae" path="res://entities/invader/states/invader_trapped.gd" id="7_uefs2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mwhei"]
-radius = 43.0
-height = 100.0
+radius = 84.0
+height = 300.0
 
 [node name="Invader" type="RigidBody2D"]
 mass = 1000.0
@@ -18,6 +19,7 @@ gravity_scale = 0.0
 script = ExtResource("1_gts6a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_mwhei")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -40,6 +42,7 @@ script = ExtResource("5_olecl")
 script = ExtResource("4_mwhei")
 
 [node name="Trapped" type="Node2D" parent="StateManager"]
+script = ExtResource("7_uefs2")
 
 [node name="Attacking" type="Node2D" parent="StateManager"]
 
@@ -47,10 +50,5 @@ script = ExtResource("4_mwhei")
 
 [node name="Leaving" type="Node2D" parent="StateManager"]
 script = ExtResource("5_qn62y")
-
-[node name="Scanner" type="Area2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Scanner"]
-polygon = PackedVector2Array(129, 6, 1127, -232, 1132, 196)
 
 [connection signal="timeout" from="StateManager/Scanning/ScanDelayTimer" to="StateManager/Scanning" method="_on_scan_delay_timer_timeout"]
