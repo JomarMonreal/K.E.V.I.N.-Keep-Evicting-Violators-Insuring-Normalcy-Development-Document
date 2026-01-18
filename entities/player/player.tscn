@@ -142,19 +142,21 @@ animation_name = "moving"
 script = ExtResource("6_26q78")
 animation_name = "interacting"
 
-[node name="Hiding" type="Node" parent="PlayerStateManager" node_paths=PackedStringArray("idle_state", "dead_state")]
+[node name="Hiding" type="Node" parent="PlayerStateManager" node_paths=PackedStringArray("idle_state", "dead_state", "scared_state")]
 script = ExtResource("5_8fjmc")
 idle_state = NodePath("../Idle")
 dead_state = NodePath("../Dead")
+scared_state = NodePath("../Scared")
 animation_name = "hiding"
 
 [node name="Dead" type="Node" parent="PlayerStateManager"]
 script = ExtResource("6_qiwj3")
 
-[node name="Scared" type="Node" parent="PlayerStateManager" node_paths=PackedStringArray("hide_state", "dead_state")]
+[node name="Scared" type="Node" parent="PlayerStateManager" node_paths=PackedStringArray("hide_state", "dead_state", "flash_timer")]
 script = ExtResource("15_gx6sm")
 hide_state = NodePath("../Hiding")
 dead_state = NodePath("../Dead")
+flash_timer = NodePath("FlashTimer")
 animation_name = "scared"
 
 [node name="FlashTimer" type="Timer" parent="PlayerStateManager/Scared"]
