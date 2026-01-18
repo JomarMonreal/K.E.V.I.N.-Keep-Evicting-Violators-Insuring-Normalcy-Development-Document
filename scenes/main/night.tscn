@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cdm3l21spj67o"]
+[gd_scene load_steps=13 format=3 uid="uid://cdm3l21spj67o"]
 
 [ext_resource type="Script" uid="uid://cyugpt4ebl116" path="res://core/night_manager/night_manager.gd" id="1_avkg3"]
 [ext_resource type="PackedScene" uid="uid://do2s031gtn5hu" path="res://core/path_graph/main_path_graph.tscn" id="1_rl6em"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://by3yaeckrtk5d" path="res://entities/player/player.tscn" id="4_avkg3"]
 [ext_resource type="PackedScene" uid="uid://mxui41ovhubs" path="res://entities/invader/base_invader.tscn" id="5_b440g"]
 [ext_resource type="PackedScene" uid="uid://cecg0rv3tntcx" path="res://scenes/ui/night_start.tscn" id="8_q0pdu"]
-[ext_resource type="PackedScene" uid="uid://d2keaqdk6ymbf" path="res://entities/trap/trap_area.tscn" id="10_o7mr4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hovik"]
 radius = 214.933
@@ -176,164 +175,83 @@ anchor_bottom = 0.5
 [node name="TrapAreas" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
-[node name="TrapArea" parent="TrapAreas" instance=ExtResource("10_o7mr4")]
-position = Vector2(582, 168)
-has_trap = true
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TrapAreas/TrapArea"]
+[node name="TrapAreas_TrapArea#CollisionShape2D" type="CollisionShape2D" parent="TrapAreas"]
 position = Vector2(-18.5, 9)
 shape = SubResource("RectangleShape2D_mixr2")
 
-[node name="TrapArea2" parent="TrapAreas" instance=ExtResource("10_o7mr4")]
-position = Vector2(-641, 814)
-has_trap = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TrapAreas/TrapArea2"]
+[node name="TrapAreas_TrapArea2#CollisionShape2D" type="CollisionShape2D" parent="TrapAreas"]
 position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_o7mr4")
 
-[node name="TrapArea3" parent="TrapAreas" instance=ExtResource("10_o7mr4")]
-position = Vector2(-656, 1342)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TrapAreas/TrapArea3"]
+[node name="TrapAreas_TrapArea3#CollisionShape2D" type="CollisionShape2D" parent="TrapAreas"]
 position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_o7mr4")
 
-[node name="TrapArea8" parent="TrapAreas" instance=ExtResource("10_o7mr4")]
-position = Vector2(-649, 2889)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TrapAreas/TrapArea8"]
+[node name="TrapAreas_TrapArea8#CollisionShape2D" type="CollisionShape2D" parent="TrapAreas"]
 position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_o7mr4")
 
-[node name="TrapArea9" parent="TrapAreas" instance=ExtResource("10_o7mr4")]
-position = Vector2(-2647, 3311)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TrapAreas/TrapArea9"]
+[node name="TrapAreas_TrapArea9#CollisionShape2D" type="CollisionShape2D" parent="TrapAreas"]
 position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_o7mr4")
 
-[node name="TrapArea10" parent="TrapAreas" instance=ExtResource("10_o7mr4")]
-position = Vector2(-1663, 4014)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TrapAreas/TrapArea10"]
+[node name="TrapAreas_TrapArea10#CollisionShape2D" type="CollisionShape2D" parent="TrapAreas"]
 position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_o7mr4")
 
-[node name="TrapArea11" parent="TrapAreas" instance=ExtResource("10_o7mr4")]
-position = Vector2(-664, 3644)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TrapAreas/TrapArea11"]
+[node name="TrapAreas_TrapArea11#CollisionShape2D" type="CollisionShape2D" parent="TrapAreas"]
 position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_o7mr4")
 
-[node name="TrapArea12" parent="TrapAreas" instance=ExtResource("10_o7mr4")]
-position = Vector2(231, 5191)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TrapAreas/TrapArea12"]
+[node name="TrapAreas_TrapArea12#CollisionShape2D" type="CollisionShape2D" parent="TrapAreas"]
 position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_o7mr4")
 
-[node name="TrapArea13" parent="TrapAreas" instance=ExtResource("10_o7mr4")]
-position = Vector2(2673, 5175)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TrapAreas/TrapArea13"]
+[node name="TrapAreas_TrapArea13#CollisionShape2D" type="CollisionShape2D" parent="TrapAreas"]
 position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_o7mr4")
 
-[node name="TrapArea14" parent="TrapAreas" instance=ExtResource("10_o7mr4")]
-position = Vector2(3300, 5045)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TrapAreas/TrapArea14"]
+[node name="TrapAreas_TrapArea14#CollisionShape2D" type="CollisionShape2D" parent="TrapAreas"]
 position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_o7mr4")
 
-[node name="TrapArea15" parent="TrapAreas" instance=ExtResource("10_o7mr4")]
-position = Vector2(3300, 4076)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TrapAreas/TrapArea15"]
+[node name="TrapAreas_TrapArea15#CollisionShape2D" type="CollisionShape2D" parent="TrapAreas"]
 position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_o7mr4")
 
-[node name="TrapArea16" parent="TrapAreas" instance=ExtResource("10_o7mr4")]
-position = Vector2(3259, 3042)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TrapAreas/TrapArea16"]
+[node name="TrapAreas_TrapArea16#CollisionShape2D" type="CollisionShape2D" parent="TrapAreas"]
 position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_o7mr4")
 
-[node name="TrapArea17" parent="TrapAreas" instance=ExtResource("10_o7mr4")]
-position = Vector2(2103, 2708)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TrapAreas/TrapArea17"]
+[node name="TrapAreas_TrapArea17#CollisionShape2D" type="CollisionShape2D" parent="TrapAreas"]
 position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_o7mr4")
 
-[node name="TrapArea18" parent="TrapAreas" instance=ExtResource("10_o7mr4")]
-position = Vector2(4057, 1430)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TrapAreas/TrapArea18"]
+[node name="TrapAreas_TrapArea18#CollisionShape2D" type="CollisionShape2D" parent="TrapAreas"]
 position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_o7mr4")
 
-[node name="TrapArea19" parent="TrapAreas" instance=ExtResource("10_o7mr4")]
-position = Vector2(411, 1658)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TrapAreas/TrapArea19"]
+[node name="TrapAreas_TrapArea19#CollisionShape2D" type="CollisionShape2D" parent="TrapAreas"]
 position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_o7mr4")
 
-[node name="TrapArea20" parent="TrapAreas" instance=ExtResource("10_o7mr4")]
-position = Vector2(728, 1658)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TrapAreas/TrapArea20"]
+[node name="TrapAreas_TrapArea20#CollisionShape2D" type="CollisionShape2D" parent="TrapAreas"]
 position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_o7mr4")
 
-[node name="TrapArea4" parent="TrapAreas" instance=ExtResource("10_o7mr4")]
-position = Vector2(-1975, 1066)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TrapAreas/TrapArea4"]
+[node name="TrapAreas_TrapArea4#CollisionShape2D" type="CollisionShape2D" parent="TrapAreas"]
 position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_o7mr4")
 
-[node name="TrapArea5" parent="TrapAreas" instance=ExtResource("10_o7mr4")]
-position = Vector2(-1666, 1072)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TrapAreas/TrapArea5"]
+[node name="TrapAreas_TrapArea5#CollisionShape2D" type="CollisionShape2D" parent="TrapAreas"]
 position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_o7mr4")
 
-[node name="TrapArea6" parent="TrapAreas" instance=ExtResource("10_o7mr4")]
-position = Vector2(1712, 511)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TrapAreas/TrapArea6"]
+[node name="TrapAreas_TrapArea6#CollisionShape2D" type="CollisionShape2D" parent="TrapAreas"]
 position = Vector2(0, 47)
 shape = SubResource("RectangleShape2D_o7mr4")
 
-[node name="TrapArea7" parent="TrapAreas" instance=ExtResource("10_o7mr4")]
-position = Vector2(1712, 904)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TrapAreas/TrapArea7"]
+[node name="TrapAreas_TrapArea7#CollisionShape2D" type="CollisionShape2D" parent="TrapAreas"]
 position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_o7mr4")
 
