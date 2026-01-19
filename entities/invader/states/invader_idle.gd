@@ -1,4 +1,4 @@
 extends InvaderBaseState
 
-func physics_process(delta: float) -> int:
+func physics_process(_delta: float) -> int:
 	return InvaderBaseState.State.Idle

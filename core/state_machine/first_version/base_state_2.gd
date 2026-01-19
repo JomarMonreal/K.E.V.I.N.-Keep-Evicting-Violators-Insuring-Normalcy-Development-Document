@@ -17,5 +17,5 @@ func input(_event: InputEvent) -> int:
 func process(_delta: float) -> int:
 	return STATE_NULL
 		
-func physics_process(delta: float) -> int:
+func physics_process(_delta: float) -> int:
 	return STATE_NULL

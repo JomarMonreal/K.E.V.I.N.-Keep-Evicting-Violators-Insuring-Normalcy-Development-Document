@@ -25,6 +25,7 @@ planning_background = ExtResource("2_q0pdu")
 invading_background = ExtResource("3_b440g")
 
 [node name="LoadingTimer" type="Timer" parent="."]
+wait_time = 0.2
 one_shot = true
 
 [node name="PlanningTimer" type="Timer" parent="."]
@@ -52,6 +53,21 @@ speed = 1000.0
 [node name="Player" parent="." node_paths=PackedStringArray("night_manager") instance=ExtResource("4_avkg3")]
 position = Vector2(581, 946)
 night_manager = NodePath("..")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(2421, 2758)
+zoom = Vector2(0.25, 0.25)
+script = ExtResource("2_6xtx7")
+targets = Array[NodePath]([NodePath("../Player"), NodePath("../Invader")])
+
+[node name="CraftingUI" parent="Camera2D" instance=ExtResource("3_vkvwu")]
+
+[node name="NightUIManager" parent="Camera2D" instance=ExtResource("8_q0pdu")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 
 [node name="OutsideColliders" type="StaticBody2D" parent="."]
 metadata/_edit_lock_ = true
@@ -156,21 +172,6 @@ polygon = PackedVector2Array(-2016, 4388, -1192, 4388, -1187, 4585, -2011, 4595)
 
 [node name="CollisionPolygon2D18" type="CollisionPolygon2D" parent="FurnitureColliders"]
 polygon = PackedVector2Array(-1077, 3320, -1071, 3665, -1994, 3693, -2027, 3287)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(2421, 2758)
-zoom = Vector2(0.25, 0.25)
-script = ExtResource("2_6xtx7")
-targets = Array[NodePath]([NodePath("../Player"), NodePath("../Invader")])
-
-[node name="CraftingUI" parent="Camera2D" instance=ExtResource("3_vkvwu")]
-
-[node name="NightUIManager" parent="Camera2D" instance=ExtResource("8_q0pdu")]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
 
 [node name="TrapAreas" type="Node2D" parent="."]
 metadata/_edit_lock_ = true

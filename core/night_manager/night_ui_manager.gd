@@ -10,7 +10,7 @@ class_name NightUIManager
 var timer_text := '00:00'
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	ui_timer_label.text = timer_text
 
 
