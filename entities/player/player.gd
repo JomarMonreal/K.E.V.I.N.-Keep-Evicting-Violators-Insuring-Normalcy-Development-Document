@@ -5,7 +5,8 @@ extends CharacterBody2D
 
 @export_group("Shader Parameters")
 @export var scared_flash_color : Color
-@export var scared_flash_modifier : float
+
+@onready var scared_flash_modifier : float = 0.0
 
 @export_group("")
 @export var night_manager : NightManager
@@ -13,9 +14,11 @@ extends CharacterBody2D
 
 @onready var is_planning : bool = true
 
+
 func _ready() -> void:
 	state_manager.init(self)
 	
+	animations.material.set_shader_parameter("flash_color", scared_flash_color)
 	animations.material.set_shader_parameter("flash_modifier", 0.0)
 	
 	night_manager.has_started_planning.connect(_on_planning)
@@ -36,12 +39,10 @@ func _physics_process(delta: float) -> void:
 
 func _on_planning():
 	is_planning = true
-	print("planning!")
 
 
 func _on_invading():
 	is_planning = false
-	print("hiding!")
 
 
 #TODO: SFX - moving, interacting, hiding, dead

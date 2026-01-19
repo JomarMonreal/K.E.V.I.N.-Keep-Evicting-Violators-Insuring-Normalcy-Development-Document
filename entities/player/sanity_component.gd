@@ -1,22 +1,22 @@
 extends Node
 
-@export var max_sanity : float = 100
-var sanity : float = 0
+@onready var player : Player = get_owner()
+
+const MAX_SANITY : float = 100.0
+@onready var sanity : float = 0
 
 
 func _ready() -> void:
-	sanity = 0
-	
 	EventListener.insanity_increased.connect(_on_insanity_increased)
 	EventListener.insanity_reached.connect(_on_insanity_reached)
 
 
 func damage_sanity(sanity_damage: float):
 	sanity += sanity_damage
-	sanity = max(sanity, max_sanity)
-	EventListener.insanity_increased.emit()
+	sanity = clamp(sanity, 0, MAX_SANITY)
+	player.scared_flash_modifier = sanity / MAX_SANITY
 	
-	if sanity >= max_sanity:
+	if sanity >= MAX_SANITY:
 		EventListener.insanity_reached.emit()
 
 

@@ -4,6 +4,6 @@ signal trap_triggered
 signal invader_scared
 signal item_stolen
 signal player_killed
-signal insanity_increased
+signal insanity_increased(damage: float)
 signal insanity_reached
 signal night_victory

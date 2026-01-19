@@ -16,6 +16,7 @@ func enter():
 # DEBUG
 func input(_event: InputEvent) -> BaseState:
 	if _event.is_action_pressed("ui_accept"):
+		EventListener.insanity_increased.emit(10.0)
 		return scared_state
 	
 	return null
