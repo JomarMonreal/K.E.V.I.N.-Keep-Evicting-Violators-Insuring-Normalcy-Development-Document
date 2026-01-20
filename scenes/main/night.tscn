@@ -45,9 +45,16 @@ one_shot = true
 position = Vector2(1593, 2090)
 metadata/_edit_lock_ = true
 
-[node name="Invader" parent="." node_paths=PackedStringArray("path_graph") instance=ExtResource("5_b440g")]
+[node name="InvaderHandler" type="Node2D" parent="."]
+
+[node name="Invader" parent="InvaderHandler" node_paths=PackedStringArray("path_graph") instance=ExtResource("5_b440g")]
 position = Vector2(373, -899)
-path_graph = NodePath("../PathGraph")
+path_graph = NodePath("../../PathGraph")
+speed = 1000.0
+
+[node name="Invader2" parent="InvaderHandler" node_paths=PackedStringArray("path_graph") instance=ExtResource("5_b440g")]
+position = Vector2(2270, -659)
+path_graph = NodePath("../../PathGraph")
 speed = 1000.0
 
 [node name="Player" parent="." node_paths=PackedStringArray("night_manager") instance=ExtResource("4_avkg3")]
@@ -58,7 +65,7 @@ night_manager = NodePath("..")
 position = Vector2(2421, 2758)
 zoom = Vector2(0.25, 0.25)
 script = ExtResource("2_6xtx7")
-targets = Array[NodePath]([NodePath("../Player"), NodePath("../Invader")])
+targets = Array[NodePath]([NodePath("../Player"), NodePath("../InvaderHandler/Invader")])
 
 [node name="CraftingUI" parent="Camera2D" instance=ExtResource("3_vkvwu")]
 
