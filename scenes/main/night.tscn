@@ -53,7 +53,7 @@ path_graph = NodePath("../../PathGraph")
 speed = 1000.0
 
 [node name="Invader2" parent="InvaderHandler" node_paths=PackedStringArray("path_graph") instance=ExtResource("5_b440g")]
-position = Vector2(2270, -659)
+position = Vector2(-5163, 2710)
 path_graph = NodePath("../../PathGraph")
 speed = 1000.0
 
