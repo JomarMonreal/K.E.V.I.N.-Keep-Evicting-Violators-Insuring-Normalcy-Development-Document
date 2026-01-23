@@ -1,6 +1,9 @@
 class_name Player
 extends CharacterBody2D
 
+const MAX_SANITY : float = 100.0
+@onready var sanity : float = 0
+
 @export var animations : AnimatedSprite2D
 
 @export_group("Shader Parameters")
@@ -12,12 +15,6 @@ extends CharacterBody2D
 @export var night_manager : NightManager
 
 @onready var state_manager : PlayerStateManager = $PlayerStateManager
-
-# vignette effect on camera
-#@onready var camera_rect := get_viewport().get_camera_2d()
-#@onready var screen_dim := get_viewport_rect().size
-#@onready var vignette : ColorRect = $CanvasLayer/ColorRect
-
 @onready var is_planning : bool = true
 
 
@@ -37,12 +34,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	state_manager.process(delta)
-	
-	# vignette effect on camera
-	#var screen_pos = camera_rect.unproject_position(global_position)
-	#
-	#var player_position_uv = screen_pos / screen_dim
-	#vignette.material.set_shader_parameter("player_position", player_position_uv)
 
 
 func _physics_process(delta: float) -> void:

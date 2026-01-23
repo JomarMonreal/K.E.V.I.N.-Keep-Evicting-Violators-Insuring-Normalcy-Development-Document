@@ -33,5 +33,5 @@ func _on_player_died():
 	return dead_state
 
 
-func _on_player_scared():
+func _on_player_scared(_sanity_damage: float):
 	return scared_state

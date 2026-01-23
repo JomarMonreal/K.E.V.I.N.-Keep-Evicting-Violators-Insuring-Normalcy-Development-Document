@@ -18,6 +18,7 @@ func process(_delta: float) -> BaseState:
 
 
 func change_color():
+	print("DEBUG input heard")
 	parent.animations.material.set_shader_parameter("flash_modifier", parent.scared_flash_modifier)
 	parent.animations.material.set_shader_parameter("flash_color", parent.scared_flash_color)
 

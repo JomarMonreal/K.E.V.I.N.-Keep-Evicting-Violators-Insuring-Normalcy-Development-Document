@@ -8,7 +8,7 @@ class_name NightManager
 # pathing
 @onready var path_graph: PathGraph = $PathGraph
 @onready var player: Player = $Player
-@onready var invader: Invader = $Invader
+@onready var invader: Invader = $InvaderHandler/Invader
 
 # timers
 @onready var loading_timer: Timer = $LoadingTimer
@@ -19,6 +19,7 @@ class_name NightManager
 
 # ui
 @onready var ui_manager: NightUIManager = $Camera2D/NightUIManager
+@onready var post_processing : CanvasLayer = $Camera2D/PostProcessing
 
 # phases
 signal has_started_planning
@@ -31,6 +32,7 @@ signal has_ended_invading
 func _ready() -> void:
 	path_graph.background_sprite.texture = planning_background
 	invader.visible = false
+	post_processing.visible = false
 	ui_manager.show_night(Global.current_night)
 	loading_timer.start()
 
@@ -74,6 +76,7 @@ func _on_plan_to_invade_timer_timeout() -> void:
 	
 	path_graph.background_sprite.texture = invading_background
 	ui_manager.show_invading_ui()
+	post_processing.visible = true
 	invader.states.change_state(InvaderBaseState.State.Moving)
 	
 	plan_to_invade_timer.stop()
@@ -83,6 +86,7 @@ func _on_plan_to_invade_timer_timeout() -> void:
 func _on_invading_timer_timeout() -> void:
 	has_ended_invading.emit()
 	
+	post_processing.visible = false
 	ui_manager.show_victory_ui()
 	
 	results_timer.start()

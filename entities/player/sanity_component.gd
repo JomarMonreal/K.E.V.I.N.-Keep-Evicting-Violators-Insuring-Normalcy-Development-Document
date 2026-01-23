@@ -2,9 +2,6 @@ extends Node
 
 @onready var player : Player = get_owner()
 
-const MAX_SANITY : float = 100.0
-@onready var sanity : float = 0
-
 
 func _ready() -> void:
 	EventListener.insanity_increased.connect(_on_insanity_increased)
@@ -12,11 +9,11 @@ func _ready() -> void:
 
 
 func damage_sanity(sanity_damage: float):
-	sanity += sanity_damage
-	sanity = clamp(sanity, 0, MAX_SANITY)
-	player.scared_flash_modifier = sanity / MAX_SANITY
+	player.sanity += sanity_damage
+	player.sanity = clamp(player.sanity, 0, player.MAX_SANITY)
+	player.scared_flash_modifier = player.sanity / player.MAX_SANITY
 	
-	if sanity >= MAX_SANITY:
+	if player.sanity >= player.MAX_SANITY:
 		EventListener.insanity_reached.emit()
 
 

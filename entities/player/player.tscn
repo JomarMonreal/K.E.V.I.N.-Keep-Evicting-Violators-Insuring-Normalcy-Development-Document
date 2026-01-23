@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://by3yaeckrtk5d"]
+[gd_scene load_steps=22 format=3 uid="uid://by3yaeckrtk5d"]
 
 [ext_resource type="Script" uid="uid://cas4qy1d4k5la" path="res://entities/player/player.gd" id="1_sglur"]
 [ext_resource type="Texture2D" uid="uid://b547espuorehn" path="res://assets/main_assets/Characters/Kevin.png" id="2_afbqv"]
@@ -16,15 +16,6 @@
 [ext_resource type="Script" uid="uid://bymn015pedw6" path="res://entities/player/killed_hurtbox.gd" id="6_afbqv"]
 [ext_resource type="Script" uid="uid://b1rsyx47w3igk" path="res://entities/player/states/player_dead.gd" id="6_qiwj3"]
 [ext_resource type="Script" uid="uid://dacnrvobuvkiv" path="res://entities/player/states/player_scared.gd" id="15_gx6sm"]
-[ext_resource type="Shader" uid="uid://btlqatsbyagmh" path="res://assets/main_assets/Shaders/camera_vignette.gdshader" id="17_3wlsy"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_b2kln"]
-shader = ExtResource("17_3wlsy")
-shader_parameter/player_position = Vector2(0, 0)
-shader_parameter/color = Color(0.305, 0.298, 0.341, 1)
-shader_parameter/MULTIPLIER = 0.56
-shader_parameter/SCALE = 0.5
-shader_parameter/SOFTNESS = 0.45
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gx6sm"]
 resource_local_to_scene = true
@@ -89,15 +80,6 @@ radius = 118.258194
 script = ExtResource("1_sglur")
 animations = NodePath("AnimatedSprite2D")
 scared_flash_color = Color(0.8864921, 0.12058664, 9.62615e-08, 1)
-
-[node name="SanityVignette" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="ColorRect" type="ColorRect" parent="SanityVignette"]
-material = SubResource("ShaderMaterial_b2kln")
-custom_minimum_size = Vector2(1152, 648)
-offset_right = 1152.0
-offset_bottom = 648.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
