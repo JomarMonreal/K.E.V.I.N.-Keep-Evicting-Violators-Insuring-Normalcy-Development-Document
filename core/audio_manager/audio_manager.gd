@@ -2,7 +2,7 @@ extends Node2D
 
 var sound_effect_dict : Dictionary = {}
 
-@export var sound_effect_settings = Array[SoundEffectSettings] 
+@export var sound_effect_settings : Array[SoundEffectSettings]
 
 
 func _ready() -> void:

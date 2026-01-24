@@ -1,7 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgh1j2nml4nex"]
+[gd_scene load_steps=4 format=3 uid="uid://bgh1j2nml4nex"]
 
 [ext_resource type="Script" uid="uid://d4grpd70pymnf" path="res://core/audio_manager/audio_manager.gd" id="1_lsvw8"]
+[ext_resource type="Script" uid="uid://cdbx160m6ieqe" path="res://core/audio_manager/SoundEffectSettings.gd" id="2_nqpyc"]
+
+[sub_resource type="Resource" id="Resource_n4xgn"]
+script = ExtResource("2_nqpyc")
+metadata/_custom_type_script = "uid://cdbx160m6ieqe"
 
 [node name="AudioManager" type="Node2D"]
 script = ExtResource("1_lsvw8")
-sound_effect_settings = Array[Object]([])
+sound_effect_settings = Array[ExtResource("2_nqpyc")]([SubResource("Resource_n4xgn")])

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://k4u7e1uwv35g"]
 
 [ext_resource type="PackedScene" uid="uid://by3yaeckrtk5d" path="res://entities/player/player.tscn" id="1_i1vr1"]
-[ext_resource type="Texture2D" uid="uid://dcgo4ch3rukki" path="res://assets/prototype/icon.svg" id="2_w1m8s"]
+[ext_resource type="Texture2D" uid="uid://dcgo4ch3rukki" path="res://icon.svg" id="2_w1m8s"]
 [ext_resource type="PackedScene" uid="uid://c3ifr4bjdss33" path="res://core/crafting/crafting_ui.tscn" id="3_77qoa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1vr1"]

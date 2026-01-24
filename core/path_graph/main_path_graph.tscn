@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dvs7b3obhk67y" path="res://core/path_graph/path_graph.gd" id="1_4635n"]
 [ext_resource type="Texture2D" uid="uid://bxpl7d6ityfih" path="res://assets/main_assets/Map/Map_Invasion.png" id="2_5axlx"]
-[ext_resource type="Texture2D" uid="uid://dcgo4ch3rukki" path="res://assets/prototype/icon.svg" id="2_frbf0"]
+[ext_resource type="Texture2D" uid="uid://dcgo4ch3rukki" path="res://icon.svg" id="2_frbf0"]
 [ext_resource type="Script" uid="uid://snm604eis1go" path="res://core/path_graph/path_node.gd" id="3_5axlx"]
 
 [node name="PathGraph" type="Node2D"]

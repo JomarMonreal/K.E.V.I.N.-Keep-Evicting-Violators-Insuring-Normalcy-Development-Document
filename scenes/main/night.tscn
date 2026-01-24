@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cdm3l21spj67o"]
+[gd_scene load_steps=19 format=3 uid="uid://cdm3l21spj67o"]
 
 [ext_resource type="Script" uid="uid://cyugpt4ebl116" path="res://core/night_manager/night_manager.gd" id="1_avkg3"]
 [ext_resource type="PackedScene" uid="uid://do2s031gtn5hu" path="res://core/path_graph/main_path_graph.tscn" id="1_rl6em"]
@@ -12,6 +12,25 @@
 [ext_resource type="Script" uid="uid://b37fq0nliyg73" path="res://scenes/main/post_processing.gd" id="10_mixr2"]
 [ext_resource type="Shader" uid="uid://btlqatsbyagmh" path="res://assets/main_assets/Shaders/camera_vignette.gdshader" id="10_o7mr4"]
 [ext_resource type="Shader" uid="uid://ce5doeq28ujcu" path="res://assets/main_assets/Shaders/fog.gdshader" id="12_jyycq"]
+
+[sub_resource type="Environment" id="Environment_jyycq"]
+background_mode = 3
+tonemap_mode = 1
+tonemap_exposure = 0.0
+tonemap_white = 16.0
+glow_intensity = 0.15
+fog_mode = 1
+fog_density = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jm8a5"]
+shader = ExtResource("12_jyycq")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/OCTAVES = 2
+shader_parameter/enable_pixelation = false
+shader_parameter/pixelation_amount = 150
+shader_parameter/fog_direction = Vector2(0.905, 0.3)
+shader_parameter/scroll_noise_tex = true
+shader_parameter/noise_scroll_direction = Vector2(0.05, 0.475)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mixr2"]
 shader = ExtResource("10_o7mr4")
@@ -30,20 +49,23 @@ size = Vector2(791, 172)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o7mr4"]
 size = Vector2(294, 320)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jm8a5"]
-shader = ExtResource("12_jyycq")
-shader_parameter/color = Color(0, 0, 0, 1)
-shader_parameter/OCTAVES = 2
-shader_parameter/enable_pixelation = false
-shader_parameter/pixelation_amount = 150
-shader_parameter/fog_direction = Vector2(0.905, 0.3)
-shader_parameter/scroll_noise_tex = true
-shader_parameter/noise_scroll_direction = Vector2(0.05, 0.475)
-
 [node name="Night" type="Node2D"]
 script = ExtResource("1_avkg3")
 planning_background = ExtResource("2_q0pdu")
 invading_background = ExtResource("3_b440g")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jyycq")
+
+[node name="FogBackground" type="ColorRect" parent="."]
+z_index = -20
+material = SubResource("ShaderMaterial_jm8a5")
+offset_left = -9745.0
+offset_top = -4830.0
+offset_right = 13178.0
+offset_bottom = 9333.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
 
 [node name="LoadingTimer" type="Timer" parent="."]
 wait_time = 0.1
@@ -295,15 +317,6 @@ shape = SubResource("RectangleShape2D_o7mr4")
 [node name="TrapAreas_TrapArea7#CollisionShape2D" type="CollisionShape2D" parent="TrapAreas"]
 position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_o7mr4")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-z_index = -20
-material = SubResource("ShaderMaterial_jm8a5")
-offset_left = -9745.0
-offset_top = -4830.0
-offset_right = 13178.0
-offset_bottom = 9333.0
-color = Color(0, 0, 0, 1)
 
 [connection signal="timeout" from="LoadingTimer" to="." method="_on_loading_timer_timeout"]
 [connection signal="timeout" from="PlanningTimer" to="." method="_on_planning_timer_timeout"]
