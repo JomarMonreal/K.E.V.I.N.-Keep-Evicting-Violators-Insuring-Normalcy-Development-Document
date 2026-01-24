@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cdm3l21spj67o"]
+[gd_scene load_steps=43 format=3 uid="uid://cdm3l21spj67o"]
 
 [ext_resource type="Script" uid="uid://cyugpt4ebl116" path="res://core/night_manager/night_manager.gd" id="1_avkg3"]
 [ext_resource type="PackedScene" uid="uid://do2s031gtn5hu" path="res://core/path_graph/main_path_graph.tscn" id="1_rl6em"]
@@ -15,12 +15,16 @@
 
 [sub_resource type="Environment" id="Environment_jyycq"]
 background_mode = 3
+ambient_light_energy = 0.0
 tonemap_mode = 1
 tonemap_exposure = 0.0
 tonemap_white = 16.0
 glow_intensity = 0.15
 fog_mode = 1
 fog_density = 1.0
+adjustment_enabled = true
+adjustment_brightness = 0.54
+adjustment_saturation = 1.61
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jm8a5"]
 shader = ExtResource("12_jyycq")
@@ -48,6 +52,78 @@ size = Vector2(791, 172)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o7mr4"]
 size = Vector2(294, 320)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jyycq"]
+polygon = PackedVector2Array(-2245, 1682, -2256, 2828, -1433, 2856, -1444, 1694)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jm8a5"]
+polygon = PackedVector2Array(-1362, 14, -1688, 10, -1688, 136, -2488, 141, -2483, 1047, -3178, 1058, -3178, -343, -1348, -349)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_pqacy"]
+polygon = PackedVector2Array(-1101, 112, -1156, 121, -1204, 140, -1247, 165, -1277, 193, -1301, 227, -1310, 260, -1323, 308, -1329, 338, -1325, 380, -1321, 406, -1306, 445, -1287, 467, -1247, 514, -1184, 553, -1110, 565, -1032, 554, -975, 522, -929, 477, -900, 434, -887, 384, -883, 322, -891, 270, -911, 229, -929, 195, -961, 159, -1000, 136, -1042, 119, -1077, 112)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_8oi8u"]
+polygon = PackedVector2Array(2954, 342, 2956, 584, 3675, 580, 3678, 339)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_a3rsk"]
+polygon = PackedVector2Array(2791, -135, 2791, 226, 3848, 229, 3855, -139)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_t1y7u"]
+polygon = PackedVector2Array(4196, -1202, 4208, -1092, 2092, -1092, 2098, -1208)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_gwtw3"]
+polygon = PackedVector2Array(4052, -2688, 4046, -1092, 4209, -1086, 4260, -2695)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_umrpa"]
+polygon = PackedVector2Array(4040, -2701, 4279, -2701, 4272, -2334, 4040, -2346)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_mcgnu"]
+polygon = PackedVector2Array(4242, -2279, 3979, -2254, 3948, -2138, 3997, -2046, 4260, -2004)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fm4f5"]
+polygon = PackedVector2Array(3532, -2793, 3551, -1912, 3135, -1881, 3153, -2811)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_rmyss"]
+polygon = PackedVector2Array(1569, -2817, 1563, -2456, 2401, -2468, 2389, -2805)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ifdra"]
+polygon = PackedVector2Array(2266, -1514, 2260, -1857, 2432, -1998, 3153, -1979, 3129, -1490)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_i0smm"]
+polygon = PackedVector2Array(2444, -2811, 2456, -2719, 2493, -2523, 2609, -2444, 2725, -2523, 2756, -2731, 2756, -2823)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fdq54"]
+polygon = PackedVector2Array(3123, -1881, 3117, -1624, 3532, -1631, 3526, -1875)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xov0m"]
+polygon = PackedVector2Array(3110, -1881, 3459, -1875, 3453, -1606, 3104, -1594)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_s0gia"]
+polygon = PackedVector2Array(939, -2969, 939, -2603, 2486, -2596, 2474, -2969)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_crnfn"]
+polygon = PackedVector2Array(-241, -4266, -229, -3324, 951, -3312, 945, -4254)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qnvjw"]
+polygon = PackedVector2Array(-1287, -2969, -1281, -2609, -2223, -2609, -2217, -2492, -2584, -2474, -2571, -2878, -2235, -2890, -2235, -2963)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3c6d4"]
+polygon = PackedVector2Array(4266, -1331, 4272, -927, 4542, -927, 4536.24, -1106.0074, 4529, -1331)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0baly"]
+polygon = PackedVector2Array(4272, -1337, 4260, -835, 4511, -835, 4499, -1331)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_28507"]
+polygon = PackedVector2Array(-2651, -1661, -2651, -1777, -2584, -2004, -2473, -2065, -2370, -1979, -2327, -1765, -2327, -1661)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_i016o"]
+polygon = PackedVector2Array(-2174, -1906, -2162, -1679, -1348, -1673, -1354, -1887)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_wxs5i"]
+polygon = PackedVector2Array(-847, -1679, -828, -1319, 65, -1306, 52, -1673)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3rdmx"]
+polygon = PackedVector2Array(34, -2591, 340, -2597, 321, -2273, 34, -2266)
 
 [node name="Night" type="Node2D"]
 script = ExtResource("1_avkg3")
@@ -120,7 +196,6 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 
 [node name="PostProcessing" type="CanvasLayer" parent="Camera2D"]
-visible = false
 script = ExtResource("10_mixr2")
 
 [node name="Vignette" type="ColorRect" parent="Camera2D/PostProcessing"]
@@ -317,6 +392,116 @@ shape = SubResource("RectangleShape2D_o7mr4")
 [node name="TrapAreas_TrapArea7#CollisionShape2D" type="CollisionShape2D" parent="TrapAreas"]
 position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_o7mr4")
+
+[node name="FurnitureOccluders" type="Node2D" parent="."]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="FurnitureOccluders"]
+occluder = SubResource("OccluderPolygon2D_jyycq")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="FurnitureOccluders"]
+occluder = SubResource("OccluderPolygon2D_jm8a5")
+
+[node name="LightOccluder2D6" type="LightOccluder2D" parent="FurnitureOccluders"]
+occluder = SubResource("OccluderPolygon2D_pqacy")
+
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="FurnitureOccluders"]
+occluder = SubResource("OccluderPolygon2D_8oi8u")
+
+[node name="LightOccluder2D4" type="LightOccluder2D" parent="FurnitureOccluders"]
+occluder = SubResource("OccluderPolygon2D_a3rsk")
+
+[node name="LightOccluder2D5" type="LightOccluder2D" parent="FurnitureOccluders"]
+position = Vector2(-10, 849)
+occluder = SubResource("OccluderPolygon2D_a3rsk")
+
+[node name="LightOccluder2D7" type="LightOccluder2D" parent="FurnitureOccluders"]
+position = Vector2(-359, 2529)
+occluder = SubResource("OccluderPolygon2D_t1y7u")
+
+[node name="LightOccluder2D8" type="LightOccluder2D" parent="FurnitureOccluders"]
+position = Vector2(207, 2529)
+occluder = SubResource("OccluderPolygon2D_gwtw3")
+
+[node name="LightOccluder2D9" type="LightOccluder2D" parent="FurnitureOccluders"]
+position = Vector2(164, 4254)
+occluder = SubResource("OccluderPolygon2D_umrpa")
+
+[node name="LightOccluder2D10" type="LightOccluder2D" parent="FurnitureOccluders"]
+position = Vector2(164, 4254)
+occluder = SubResource("OccluderPolygon2D_mcgnu")
+
+[node name="LightOccluder2D11" type="LightOccluder2D" parent="FurnitureOccluders"]
+position = Vector2(164, 4254)
+occluder = SubResource("OccluderPolygon2D_fm4f5")
+
+[node name="LightOccluder2D12" type="LightOccluder2D" parent="FurnitureOccluders"]
+position = Vector2(164, 4254)
+occluder = SubResource("OccluderPolygon2D_rmyss")
+
+[node name="LightOccluder2D13" type="LightOccluder2D" parent="FurnitureOccluders"]
+position = Vector2(164, 4254)
+occluder = SubResource("OccluderPolygon2D_ifdra")
+
+[node name="LightOccluder2D14" type="LightOccluder2D" parent="FurnitureOccluders"]
+position = Vector2(164, 4254)
+occluder = SubResource("OccluderPolygon2D_i0smm")
+
+[node name="LightOccluder2D15" type="LightOccluder2D" parent="FurnitureOccluders"]
+position = Vector2(164, 4254)
+occluder = SubResource("OccluderPolygon2D_fdq54")
+
+[node name="LightOccluder2D19" type="LightOccluder2D" parent="FurnitureOccluders"]
+position = Vector2(195, 5263)
+occluder = SubResource("OccluderPolygon2D_xov0m")
+
+[node name="LightOccluder2D20" type="LightOccluder2D" parent="FurnitureOccluders"]
+position = Vector2(207, 6284)
+occluder = SubResource("OccluderPolygon2D_xov0m")
+
+[node name="LightOccluder2D21" type="LightOccluder2D" parent="FurnitureOccluders"]
+position = Vector2(207, 6284)
+occluder = SubResource("OccluderPolygon2D_s0gia")
+
+[node name="LightOccluder2D22" type="LightOccluder2D" parent="FurnitureOccluders"]
+position = Vector2(207, 6284)
+occluder = SubResource("OccluderPolygon2D_crnfn")
+
+[node name="LightOccluder2D23" type="LightOccluder2D" parent="FurnitureOccluders"]
+position = Vector2(207, 6284)
+occluder = SubResource("OccluderPolygon2D_qnvjw")
+
+[node name="LightOccluder2D16" type="LightOccluder2D" parent="FurnitureOccluders"]
+position = Vector2(164, 4254)
+occluder = SubResource("OccluderPolygon2D_3c6d4")
+
+[node name="LightOccluder2D17" type="LightOccluder2D" parent="FurnitureOccluders"]
+position = Vector2(152, 5245)
+occluder = SubResource("OccluderPolygon2D_3c6d4")
+
+[node name="LightOccluder2D18" type="LightOccluder2D" parent="FurnitureOccluders"]
+position = Vector2(158, 6266)
+occluder = SubResource("OccluderPolygon2D_0baly")
+
+[node name="LightOccluder2D24" type="LightOccluder2D" parent="FurnitureOccluders"]
+position = Vector2(158, 6266)
+occluder = SubResource("OccluderPolygon2D_28507")
+
+[node name="LightOccluder2D25" type="LightOccluder2D" parent="FurnitureOccluders"]
+position = Vector2(158, 6266)
+occluder = SubResource("OccluderPolygon2D_i016o")
+
+[node name="LightOccluder2D26" type="LightOccluder2D" parent="FurnitureOccluders"]
+position = Vector2(158, 6266)
+occluder = SubResource("OccluderPolygon2D_wxs5i")
+
+[node name="LightOccluder2D27" type="LightOccluder2D" parent="FurnitureOccluders"]
+position = Vector2(158, 6266)
+occluder = SubResource("OccluderPolygon2D_3rdmx")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+blend_mode = 2
+shadow_enabled = true
+metadata/_edit_group_ = true
 
 [connection signal="timeout" from="LoadingTimer" to="." method="_on_loading_timer_timeout"]
 [connection signal="timeout" from="PlanningTimer" to="." method="_on_planning_timer_timeout"]

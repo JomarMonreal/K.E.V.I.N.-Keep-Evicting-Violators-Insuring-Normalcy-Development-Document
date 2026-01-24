@@ -24,6 +24,10 @@ Global="*res://core/global.gd"
 Constants="*res://core/constants.gd"
 AudioManager="*res://core/audio_manager/audio_manager.tscn"
 
+[editor]
+
+movie_writer/movie_file="//wsl.localhost/Ubuntu-24.04/home/clenel/K.E.V.I.N.-Keep-Evicting-Violators-Insuring-Normalcy-Development-Document/screen_recordings/output.avi"
+
 [input]
 
 move_left={

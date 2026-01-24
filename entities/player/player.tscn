@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://by3yaeckrtk5d"]
+[gd_scene load_steps=24 format=3 uid="uid://by3yaeckrtk5d"]
 
 [ext_resource type="Script" uid="uid://cas4qy1d4k5la" path="res://entities/player/player.gd" id="1_sglur"]
 [ext_resource type="Texture2D" uid="uid://b547espuorehn" path="res://assets/main_assets/Characters/Kevin.png" id="2_afbqv"]
@@ -75,6 +75,19 @@ radius = 192.12756
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j3ovn"]
 radius = 118.258194
+
+[sub_resource type="Gradient" id="Gradient_yqrof"]
+offsets = PackedFloat32Array(0.275, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3wlsy"]
+gradient = SubResource("Gradient_yqrof")
+width = 800
+height = 800
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.508547, 0.491453)
+fill_to = Vector2(0.8846154, 0.23504275)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animations")]
 script = ExtResource("1_sglur")
@@ -156,5 +169,11 @@ script = ExtResource("15_gx6sm")
 hide_state = NodePath("../Hiding")
 dead_state = NodePath("../Dead")
 animation_name = "scared"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 1, 0.2509804, 1)
+energy = 4.57
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_3wlsy")
 
 [connection signal="area_entered" from="KilledHurtbox" to="KilledHurtbox" method="_on_area_entered"]

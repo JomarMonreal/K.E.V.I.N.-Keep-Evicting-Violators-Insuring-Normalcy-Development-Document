@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://mxui41ovhubs"]
+[gd_scene load_steps=12 format=3 uid="uid://mxui41ovhubs"]
 
 [ext_resource type="Script" uid="uid://clfhyk11p2wkd" path="res://entities/invader/invader.gd" id="1_gts6a"]
 [ext_resource type="Texture2D" uid="uid://mrs3lder6t4l" path="res://assets/main_assets/Map/Blueprint Icons/Invader Symbol (Black background).PNG" id="2_olecl"]
@@ -12,6 +12,19 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mwhei"]
 radius = 84.0
 height = 300.0
+
+[sub_resource type="Gradient" id="Gradient_yqrof"]
+offsets = PackedFloat32Array(0.275, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uefs2"]
+gradient = SubResource("Gradient_yqrof")
+width = 800
+height = 800
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.508547, 0.491453)
+fill_to = Vector2(0.8846154, 0.23504275)
 
 [node name="Invader" type="RigidBody2D"]
 mass = 1000.0
@@ -50,5 +63,11 @@ script = ExtResource("7_uefs2")
 
 [node name="Leaving" type="Node2D" parent="StateManager"]
 script = ExtResource("5_qn62y")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 0.21176471, 0.2509804, 1)
+energy = 4.57
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_uefs2")
 
 [connection signal="timeout" from="StateManager/Scanning/ScanDelayTimer" to="StateManager/Scanning" method="_on_scan_delay_timer_timeout"]
