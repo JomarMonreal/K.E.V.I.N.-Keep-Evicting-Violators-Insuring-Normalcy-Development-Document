@@ -6,7 +6,7 @@ var Slots: Array[InventorySlot] = []
 @export var max_stack: int = 20
 
 func _ready() -> void:
-	for child in $InventoryRow1.get_children():
+	for child in $MarginContainer/InventoryRow1.get_children():
 		if child is InventorySlot:
 			child.InventoryManagerInstance = self
 			Slots.append(child)
@@ -71,12 +71,14 @@ func get_item_stack_for_removing(item: Item) -> InventorySlot:
 # DEBUG
 
 func _on_button_pressed() -> void:
+	# note to future devs: use UID instead of string path, from Constants autoload script
 	var item_resource: Item = load("res://resources/items/materials/sample_item_1.tres")
 	print("storing item")
 	store_item(item_resource, 10)
 
 
 func _on_button_2_pressed() -> void:
+	# note to future devs: use UID instead of string path, from Constants autoload script
 	var item_resource: Item = load("res://resources/items/materials/sample_item_1.tres")
 	print("removing item")
 	less_item(item_resource, 10)

@@ -21,6 +21,7 @@ GameToolTip="*res://core/crafting/game_tool_tip.tscn"
 CursorManager="*res://core/crafting/cursor_manager.gd"
 EventListener="*res://core/event_listener.gd"
 Global="*res://core/global.gd"
+Constants="*res://core/constants.gd"
 
 [input]
 

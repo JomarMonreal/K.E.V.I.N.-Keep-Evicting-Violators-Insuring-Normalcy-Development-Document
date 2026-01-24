@@ -31,12 +31,10 @@ func _ready() -> void:
 	EventListener.night_victory.connect(_advance_night)
 
 func change_world_scene(new_scene: String, action : OldSceneAction = OldSceneAction.DELETE):
-	print("changing")
 	if is_instance_valid(current_world_scene):
 		match action:
 			OldSceneAction.DELETE:
 				current_world_scene.queue_free() # delete scene in memory
-				print("VALID")
 				print(current_world_scene)
 			OldSceneAction.HIDE:
 				current_world_scene.visible = false # hide scene but keep in memory
@@ -60,7 +58,6 @@ func change_ui_scene(new_scene: String, action : OldSceneAction = OldSceneAction
 				gui.remove_child(current_ui_scene) # hide scene and dont keep running
 	
 	if new_scene != '':
-		print("CHANGED SCENE")
 		var new = load(new_scene).instantiate()
 		gui.add_child(new)
 		current_ui_scene = new
@@ -73,22 +70,21 @@ func end_game(condition: GameCondition) -> void:
 	Global.game_manager.change_world_scene('')
 	
 	if condition == GameCondition.VICTORY:
-		Global.game_manager.change_ui_scene("res://scenes/ui/victory_screen.tscn")
+		Global.game_manager.change_ui_scene(Constants.SCENE_PATHS.victory_screen)
 	elif condition == GameCondition.KILLED:
-		Global.game_manager.change_ui_scene("res://scenes/ui/death_screen.tscn")
+		Global.game_manager.change_ui_scene(Constants.SCENE_PATHS.death_screen)
 	elif condition == GameCondition.INSANE:
-		Global.game_manager.change_ui_scene("res://scenes/ui/insane_screen.tscn")
+		Global.game_manager.change_ui_scene(Constants.SCENE_PATHS.insane_screen)
 
 
 func _advance_night() -> void:
-	print("next night!")
 	Global.current_night += 1
 	if Global.current_night >= MAX_NIGHTS:
 		end_game(GameCondition.VICTORY)
 		Global.current_night = 1
 		return
 	
-	Global.game_manager.change_world_scene("res://scenes/main/night.tscn") # start night
+	Global.game_manager.change_world_scene(Constants.SCENE_PATHS.night_scene) # restart night
 	Global.game_manager.change_ui_scene('')
 
 
