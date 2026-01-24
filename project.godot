@@ -22,6 +22,7 @@ CursorManager="*res://core/crafting/cursor_manager.gd"
 EventListener="*res://core/event_listener.gd"
 Global="*res://core/global.gd"
 Constants="*res://core/constants.gd"
+AudioManager="*res://core/audio_manager/audio_manager.tscn"
 
 [input]
 
