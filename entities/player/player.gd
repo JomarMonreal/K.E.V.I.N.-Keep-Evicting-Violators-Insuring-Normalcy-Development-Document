@@ -7,6 +7,10 @@ const MAX_SANITY : float = 100.0
 @export var animations : AnimatedSprite2D
 @export var crafting_manager: CraftingManager
 
+@export var footsteps_audio : SoundEffectSettings
+@onready var footsteps_audio_player: AudioStreamPlayer2D = $FootstepsAudio
+
+
 @export_group("Shader Parameters")
 @export var scared_flash_color : Color
 
@@ -29,6 +33,13 @@ func _ready() -> void:
 	
 	night_manager.has_started_planning.connect(_on_planning)
 	night_manager.has_started_invading.connect(_on_invading)
+	
+	footsteps_audio_player.stream = footsteps_audio.sound_effect
+	footsteps_audio_player.volume_db = footsteps_audio.volume
+	footsteps_audio_player.pitch_scale = footsteps_audio.pitch_scale
+	footsteps_audio_player.pitch_scale += randf_range(-footsteps_audio.pitch_randomness, footsteps_audio.pitch_randomness)
+	footsteps_audio_player.finished.connect(footsteps_audio.on_audio_finished)
+	footsteps_audio_player.finished.connect(footsteps_audio_player.queue_free) # clear self after playing
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -48,6 +59,12 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	state_manager.physics_process(delta)
+	
+	if velocity != Vector2.ZERO:
+		if not footsteps_audio_player.playing:
+			footsteps_audio_player.play()
+	else:
+		footsteps_audio_player.stop()
 
 
 func _on_planning():

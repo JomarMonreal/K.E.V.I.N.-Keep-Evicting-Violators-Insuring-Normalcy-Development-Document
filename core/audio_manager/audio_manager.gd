@@ -9,7 +9,7 @@ func _ready() -> void:
 	for sound_effect_setting: SoundEffectSettings in sound_effect_settings:
 		sound_effect_dict[sound_effect_setting.type] = sound_effect_setting
 
-
+# location is global_position
 func create_2d_audio_at_location(location: Vector2, type: SoundEffectSettings.SOUND_EFFECT_TYPE):
 	if sound_effect_dict.has(type):
 		var sound_effect_setting: SoundEffectSettings = sound_effect_dict[type]
