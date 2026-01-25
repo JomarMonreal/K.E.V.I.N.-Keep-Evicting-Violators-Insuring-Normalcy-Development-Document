@@ -1,9 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://by3yaeckrtk5d"]
+[gd_scene load_steps=27 format=3 uid="uid://by3yaeckrtk5d"]
 
 [ext_resource type="Script" uid="uid://cas4qy1d4k5la" path="res://entities/player/player.gd" id="1_sglur"]
+[ext_resource type="Script" uid="uid://cdbx160m6ieqe" path="res://core/audio_manager/SoundEffectSettings.gd" id="2_3wlsy"]
 [ext_resource type="Texture2D" uid="uid://b547espuorehn" path="res://assets/main_assets/Characters/Kevin.png" id="2_afbqv"]
 [ext_resource type="Script" uid="uid://q0c5t8psmc7i" path="res://entities/player/player_state_manager.gd" id="2_bls4j"]
 [ext_resource type="Shader" uid="uid://c47absdv66ytq" path="res://assets/main_assets/Shaders/hit.gdshader" id="2_yqrof"]
+[ext_resource type="AudioStream" uid="uid://f2slhynd647c" path="res://assets/main_assets/SFX/walking.wav" id="3_b2kln"]
 [ext_resource type="Script" uid="uid://b35lwsjswdvw6" path="res://entities/player/states/player_idle.gd" id="3_fkugw"]
 [ext_resource type="Texture2D" uid="uid://c716oroe7j2x5" path="res://assets/main_assets/Characters/KevinGreen.png" id="3_gx6sm"]
 [ext_resource type="Script" uid="uid://xiprp7egc8ii" path="res://entities/player/states/player_moving.gd" id="4_bls4j"]
@@ -16,6 +18,15 @@
 [ext_resource type="Script" uid="uid://bymn015pedw6" path="res://entities/player/killed_hurtbox.gd" id="6_afbqv"]
 [ext_resource type="Script" uid="uid://b1rsyx47w3igk" path="res://entities/player/states/player_dead.gd" id="6_qiwj3"]
 [ext_resource type="Script" uid="uid://dacnrvobuvkiv" path="res://entities/player/states/player_scared.gd" id="15_gx6sm"]
+
+[sub_resource type="Resource" id="Resource_b2kln"]
+script = ExtResource("2_3wlsy")
+limit = 1
+type = 4
+sound_effect = ExtResource("3_b2kln")
+volume = -10
+pitch_randomness = 0.5
+metadata/_custom_type_script = "uid://cdbx160m6ieqe"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gx6sm"]
 resource_local_to_scene = true
@@ -92,6 +103,7 @@ fill_to = Vector2(0.8846154, 0.23504275)
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animations")]
 script = ExtResource("1_sglur")
 animations = NodePath("AnimatedSprite2D")
+footsteps_audio = SubResource("Resource_b2kln")
 scared_flash_color = Color(0.8864921, 0.12058664, 9.62615e-08, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -175,5 +187,7 @@ color = Color(1, 1, 0.2509804, 1)
 energy = 4.57
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_3wlsy")
+
+[node name="FootstepsAudio" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="area_entered" from="KilledHurtbox" to="KilledHurtbox" method="_on_area_entered"]

@@ -5,11 +5,25 @@ extends Resource
 enum SOUND_EFFECT_TYPE {
 	# a collection of all used SFX in game
 	BUTTON_CLICK,
+	VICTORY_ENDING,
+	INSANITY_ENDING,
+	DEATH_ENDING,
+	PLAYER_WALKING,
+	PLAYER_INTERACTING,
+	PLAYER_SCARED,
+	PLAYER_DYING,
+	INVADER_WALKING,
+	INVADER_TRAP_TRIGGERED,
+	INVADER_SPOTTING,
+	INVADER_SCARED,
+	TRAP_COLLECTED,
+	TRAP_PLACED,
+	TRAP_CRAFTED,
 }
 
 @export_range(0, 10) var limit : int = 5
 @export var type : SOUND_EFFECT_TYPE
-@export var sound_effect : AudioStreamMP3
+@export var sound_effect : AudioStream
 @export_range(-40, 20) var volume = 0
 @export_range(0.0, 4.0, 0.01) var pitch_scale : float = 1.0
 @export_range(0.0, 1.0, 0.01) var pitch_randomness : float = 0.0
