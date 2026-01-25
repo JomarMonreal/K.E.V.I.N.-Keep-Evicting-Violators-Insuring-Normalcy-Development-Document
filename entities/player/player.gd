@@ -60,7 +60,7 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	state_manager.physics_process(delta)
 	
-	if velocity != Vector2.ZERO:
+	if velocity != Vector2.ZERO and is_instance_valid(footsteps_audio_player):
 		if not footsteps_audio_player.playing:
 			footsteps_audio_player.play()
 	else:

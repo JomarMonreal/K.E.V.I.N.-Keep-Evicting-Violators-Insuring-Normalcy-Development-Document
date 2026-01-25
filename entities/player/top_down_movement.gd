@@ -2,7 +2,7 @@ extends Node
 
 @export var move_speed : float = 700
 @export var smooth_start_speed : float = 5
-@export var acceleration : float = 2500
+@export var acceleration : float = 1500
 @export var friction : float = 3000
 @onready var player : Player = get_owner()
 
