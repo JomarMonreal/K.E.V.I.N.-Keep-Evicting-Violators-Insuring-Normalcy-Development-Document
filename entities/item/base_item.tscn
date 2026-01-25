@@ -1,7 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcgejlq3sqlef"]
+[gd_scene load_steps=6 format=3 uid="uid://bcgejlq3sqlef"]
 
+[ext_resource type="Script" uid="uid://casatvgrn1oxm" path="res://entities/item/item_area.gd" id="1_3dyfp"]
 [ext_resource type="Texture2D" uid="uid://l142r424ouhh" path="res://assets/main_assets/Trap/Items/Bucket.png" id="1_n2xqc"]
+[ext_resource type="Script" uid="uid://d1ikam1mi4qd4" path="res://core/crafting/item.gd" id="2_3dyfp"]
 
-[node name="Item" type="Sprite2D"]
+[sub_resource type="Resource" id="Resource_bw7jl"]
+script = ExtResource("2_3dyfp")
+item_name = "Bucket"
+texture = ExtResource("1_n2xqc")
+info = "This is a simple stainless steel bucket."
+metadata/_custom_type_script = "uid://d1ikam1mi4qd4"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3dyfp"]
+radius = 61.000015
+
+[node name="Item" type="Area2D"]
+script = ExtResource("1_3dyfp")
+item_info = SubResource("Resource_bw7jl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("CircleShape2D_3dyfp")
+
+[node name="Area2D" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_n2xqc")

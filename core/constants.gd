@@ -8,3 +8,7 @@ const SCENE_PATHS : Dictionary = {
 	"insane_screen": "uid://b218ej54v6rhf",
 	"death_screen": "uid://djjktb1vjb1oj",
 }
+
+const ITEMS: Dictionary = {
+	"bucket": "res://resources/items/materials/bucket.tres"
+}

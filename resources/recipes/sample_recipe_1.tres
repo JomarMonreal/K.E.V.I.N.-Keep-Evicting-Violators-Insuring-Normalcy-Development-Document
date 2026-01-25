@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d3xe7ejmvwcmo" path="res://core/crafting/crafting_ingredient.gd" id="1_mdd2y"]
 [ext_resource type="Script" uid="uid://cux3ib3vcpb6t" path="res://core/crafting/crafting_recipe.gd" id="2_8ye47"]
-[ext_resource type="Resource" uid="uid://sdgxjc41a8d5" path="res://resources/items/materials/sample_item_1.tres" id="2_aoime"]
+[ext_resource type="Resource" uid="uid://sdgxjc41a8d5" path="res://resources/items/materials/bucket.tres" id="2_aoime"]
 
 [sub_resource type="Resource" id="Resource_s8ahx"]
 script = ExtResource("1_mdd2y")

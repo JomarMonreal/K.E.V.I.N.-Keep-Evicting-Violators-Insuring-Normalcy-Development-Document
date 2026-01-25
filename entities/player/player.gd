@@ -9,6 +9,7 @@ const MAX_SANITY : float = 100.0
 
 @export var footsteps_audio : SoundEffectSettings
 @onready var footsteps_audio_player: AudioStreamPlayer2D = $FootstepsAudio
+@onready var item_detector_area: Area2D = $ItemDetector
 
 
 @export_group("Shader Parameters")
@@ -43,9 +44,9 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_pressed("place_trap"):
-		var item_resource: Item = load("res://resources/items/materials/sample_item_1.tres")
-		if crafting_manager.inventory.less_item(item_resource, 10):
+	if Input.is_action_pressed("place_trap") and night_manager.planning_timer.time_left > 0:
+		var item_resource: Item = load(Constants.ITEMS.bucket)
+		if crafting_manager.inventory.less_item(item_resource, 1):
 			var trap = trap_scene.instantiate() as TrapArea
 			trap.global_position = global_position
 			get_tree().root.add_child(trap)
@@ -59,6 +60,17 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	state_manager.physics_process(delta)
+	for area in item_detector_area.get_overlapping_areas():
+		if area is ItemArea:
+			if Input.is_action_just_released("interact") and night_manager.planning_timer.time_left > 0:
+				crafting_manager.inventory.store_item(area.item_info, 1)
+				area.queue_free()
+		if area is TrapArea:
+			if Input.is_action_just_released("interact") and night_manager.planning_timer.time_left > 0:
+				crafting_manager.inventory.store_item(area.items[0], 1)
+				area.queue_free()
+				
+
 	
 	if is_instance_valid(footsteps_audio_player):
 		if velocity != Vector2.ZERO:

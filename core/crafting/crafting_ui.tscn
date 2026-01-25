@@ -47,6 +47,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Debug" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5

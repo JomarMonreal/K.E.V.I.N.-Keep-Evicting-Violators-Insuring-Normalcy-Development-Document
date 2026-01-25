@@ -64,6 +64,7 @@ func get_item_stack_for_removing(item: Item) -> InventorySlot:
 	for slot in Slots:
 		if slot.is_empty:
 			continue
+		print(slot.item.item_name, item.item_name)
 		if slot.item.item_name == item.item_name:
 			return slot
 	return null
@@ -73,13 +74,13 @@ func get_item_stack_for_removing(item: Item) -> InventorySlot:
 
 func _on_button_pressed() -> void:
 	# note to future devs: use UID instead of string path, from Constants autoload script
-	var item_resource: Item = load("res://resources/items/materials/sample_item_1.tres")
+	var item_resource: Item = load(Constants.ITEMS.bucket)
 	print("storing item")
 	store_item(item_resource, 10)
 
 
 func _on_button_2_pressed() -> void:
 	# note to future devs: use UID instead of string path, from Constants autoload script
-	var item_resource: Item = load("res://resources/items/materials/sample_item_1.tres")
+	var item_resource: Item = load(Constants.ITEMS.bucket)
 	print("removing item")
 	less_item(item_resource, 10)

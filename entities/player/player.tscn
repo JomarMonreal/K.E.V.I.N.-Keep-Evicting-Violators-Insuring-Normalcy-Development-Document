@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://by3yaeckrtk5d"]
+[gd_scene load_steps=28 format=3 uid="uid://by3yaeckrtk5d"]
 
 [ext_resource type="Script" uid="uid://cas4qy1d4k5la" path="res://entities/player/player.gd" id="1_sglur"]
 [ext_resource type="Script" uid="uid://cdbx160m6ieqe" path="res://core/audio_manager/SoundEffectSettings.gd" id="2_3wlsy"]
@@ -100,6 +100,10 @@ fill = 1
 fill_from = Vector2(0.508547, 0.491453)
 fill_to = Vector2(0.8846154, 0.23504275)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b2kln"]
+radius = 67.0
+height = 176.0
+
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animations")]
 script = ExtResource("1_sglur")
 animations = NodePath("AnimatedSprite2D")
@@ -189,5 +193,10 @@ shadow_enabled = true
 texture = SubResource("GradientTexture2D_3wlsy")
 
 [node name="FootstepsAudio" type="AudioStreamPlayer2D" parent="."]
+
+[node name="ItemDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemDetector"]
+shape = SubResource("CapsuleShape2D_b2kln")
 
 [connection signal="area_entered" from="KilledHurtbox" to="KilledHurtbox" method="_on_area_entered"]

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://sdgxjc41a8d5"]
+
+[ext_resource type="Script" uid="uid://d1ikam1mi4qd4" path="res://core/crafting/item.gd" id="1_singu"]
+[ext_resource type="Texture2D" uid="uid://l142r424ouhh" path="res://assets/main_assets/Trap/Items/Bucket.png" id="2_xdwo1"]
+
+[resource]
+script = ExtResource("1_singu")
+item_name = "Bucket"
+texture = ExtResource("2_xdwo1")
+info = "This is my description"
