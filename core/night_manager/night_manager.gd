@@ -97,3 +97,11 @@ func _on_results_timer_timeout() -> void:
 	EventListener.night_victory.emit()
 	
 	results_timer.stop()
+
+
+func _on_invader_leaving_scared() -> void:
+	post_processing.visible = false
+	ui_manager.show_victory_ui()
+	results_timer.start()
+	invading_timer.stop()
+	pass # Replace with function body.

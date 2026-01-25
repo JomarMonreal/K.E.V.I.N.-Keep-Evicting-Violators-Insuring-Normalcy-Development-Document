@@ -72,6 +72,9 @@ func _on_body_entered(body: Node2D) -> void:
 	elif body is Invader and has_trap:
 		# Apply trap effects to invader
 		body.scare_direction = scare_direction
+		body.current_fear += scare_factor
+		if body.current_fear >= body.maxFear:
+			body.states.change_state(InvaderBaseState.State.Leaving)
 		body.states.change_state(InvaderBaseState.State.Trapped)
 		has_trap = false
 

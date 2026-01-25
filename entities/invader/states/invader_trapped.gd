@@ -9,6 +9,9 @@ var _old_modulate: Color
 
 func enter() -> void:
 	var invader := entity as Invader
+	if invader.current_fear >= invader.maxFear:
+		invader.states.change_state(InvaderBaseState.State.Leaving)
+		return
 
 	_dir = invader.scare_direction
 	if _dir.length_squared() < 0.0001:

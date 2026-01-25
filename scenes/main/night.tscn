@@ -155,14 +155,14 @@ wait_time = 0.1
 one_shot = true
 
 [node name="PlanningTimer" type="Timer" parent="."]
-wait_time = 8.0
+wait_time = 18.0
 one_shot = true
 
 [node name="PlanToInvadeTimer" type="Timer" parent="."]
 wait_time = 3.0
 
 [node name="InvadingTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 100.0
 one_shot = true
 
 [node name="ResultsTimer" type="Timer" parent="."]
@@ -175,11 +175,6 @@ metadata/_edit_lock_ = true
 
 [node name="Invader" parent="InvaderHandler" node_paths=PackedStringArray("path_graph") instance=ExtResource("5_b440g")]
 position = Vector2(373, -899)
-path_graph = NodePath("../../PathGraph")
-speed = 1000.0
-
-[node name="Invader2" parent="InvaderHandler" node_paths=PackedStringArray("path_graph") instance=ExtResource("5_b440g")]
-position = Vector2(-5163, 2710)
 path_graph = NodePath("../../PathGraph")
 speed = 1000.0
 
@@ -214,7 +209,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="OutsideColliders" type="StaticBody2D" parent="."]
-visible = false
 metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="OutsideColliders"]
@@ -224,7 +218,6 @@ polygon = PackedVector2Array(-24, 157, -30, -417, 932, -424, 1135, -420, 1147, 1
 polygon = PackedVector2Array(4427, -297, 4442, 2371, 4656, 2393, 4686, 5425, -2996, 5432, -3018, -330, -3003, -685, -3662, -737, -3440, 5985, 5619, 5963, 5493, -637, 4449, -571)
 
 [node name="WallColliders" type="StaticBody2D" parent="."]
-visible = false
 metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallColliders"]
@@ -259,8 +252,6 @@ polygon = PackedVector2Array(3348, 3163, 3237, 3148, 3259, 4006, 3362, 3984, 335
 metadata/_edit_lock_ = true
 
 [node name="FurnitureColliders" type="StaticBody2D" parent="."]
-visible = false
-metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FurnitureColliders"]
 polygon = PackedVector2Array(-1690, -258, -1690, 130, -2501, 134, -2484, 1041, -3182, 1057, -3177, -338, -1724, -317)
@@ -353,6 +344,7 @@ shape = SubResource("RectangleShape2D_8oi8u")
 [node name="TrapArea2" parent="TrapAreas" instance=ExtResource("13_jm8a5")]
 position = Vector2(353, 156)
 randomize_cardinal_only = false
+has_trap = true
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TrapAreas/TrapArea2"]
@@ -406,7 +398,9 @@ shape = SubResource("RectangleShape2D_8oi8u")
 
 [node name="TrapArea11" parent="TrapAreas" instance=ExtResource("13_jm8a5")]
 position = Vector2(-2646, 3289)
+scare_factor = 100
 randomize_cardinal_only = false
+has_trap = true
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TrapAreas/TrapArea11"]
@@ -634,3 +628,4 @@ metadata/_edit_group_ = true
 [connection signal="timeout" from="PlanToInvadeTimer" to="." method="_on_plan_to_invade_timer_timeout"]
 [connection signal="timeout" from="InvadingTimer" to="." method="_on_invading_timer_timeout"]
 [connection signal="timeout" from="ResultsTimer" to="." method="_on_results_timer_timeout"]
+[connection signal="leaving_scared" from="InvaderHandler/Invader" to="." method="_on_invader_leaving_scared"]

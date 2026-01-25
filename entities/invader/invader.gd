@@ -13,6 +13,9 @@ var current_node: PathNode
 var scare_direction: Vector2 = Vector2.ZERO
 var trap_redirect_distance: float = 300.0
 
+signal leaving_scared
+signal leaving_with_item
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	current_node = path_graph.get_nodes_by_role(PathNode.Role.ENTRANCE).pick_random()
