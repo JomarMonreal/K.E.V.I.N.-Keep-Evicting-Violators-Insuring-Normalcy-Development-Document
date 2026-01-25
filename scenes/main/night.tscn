@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://cdm3l21spj67o"]
+[gd_scene load_steps=48 format=3 uid="uid://cdm3l21spj67o"]
 
 [ext_resource type="Script" uid="uid://cyugpt4ebl116" path="res://core/night_manager/night_manager.gd" id="1_avkg3"]
 [ext_resource type="PackedScene" uid="uid://do2s031gtn5hu" path="res://core/path_graph/main_path_graph.tscn" id="1_rl6em"]
@@ -13,6 +13,8 @@
 [ext_resource type="Shader" uid="uid://btlqatsbyagmh" path="res://assets/main_assets/Shaders/camera_vignette.gdshader" id="10_o7mr4"]
 [ext_resource type="Shader" uid="uid://ce5doeq28ujcu" path="res://assets/main_assets/Shaders/fog.gdshader" id="12_jyycq"]
 [ext_resource type="PackedScene" uid="uid://d2keaqdk6ymbf" path="res://entities/trap/trap_area.tscn" id="13_jm8a5"]
+[ext_resource type="Script" uid="uid://cm4o2h7gtd7ed" path="res://core/simple_polygon_spawner.gd" id="14_8oi8u"]
+[ext_resource type="PackedScene" uid="uid://bcgejlq3sqlef" path="res://entities/item/base_item.tscn" id="15_a3rsk"]
 
 [sub_resource type="Environment" id="Environment_jyycq"]
 background_mode = 3
@@ -174,11 +176,13 @@ metadata/_edit_lock_ = true
 [node name="InvaderHandler" type="Node2D" parent="."]
 
 [node name="Invader" parent="InvaderHandler" node_paths=PackedStringArray("path_graph") instance=ExtResource("5_b440g")]
+z_index = 10
 position = Vector2(373, -899)
 path_graph = NodePath("../../PathGraph")
 speed = 1000.0
 
 [node name="Player" parent="." node_paths=PackedStringArray("crafting_manager", "night_manager") instance=ExtResource("4_avkg3")]
+z_index = 20
 position = Vector2(581, 946)
 crafting_manager = NodePath("../Camera2D/CraftingUI")
 night_manager = NodePath("..")
@@ -438,6 +442,18 @@ occluder = SubResource("OccluderPolygon2D_owoea")
 blend_mode = 2
 shadow_enabled = true
 metadata/_edit_group_ = true
+
+[node name="Spawners" type="Node2D" parent="."]
+
+[node name="Spawner" type="Area2D" parent="Spawners"]
+position = Vector2(-540, 237)
+script = ExtResource("14_8oi8u")
+spawn_scene = ExtResource("15_a3rsk")
+spawn_parent = NodePath("..")
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spawners/Spawner"]
+polygon = PackedVector2Array(223, 65, 231, 1293, 2162, 1308, 2147, 95)
 
 [connection signal="timeout" from="LoadingTimer" to="." method="_on_loading_timer_timeout"]
 [connection signal="timeout" from="PlanningTimer" to="." method="_on_planning_timer_timeout"]

@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://bcgejlq3sqlef"]
+[gd_scene load_steps=2 format=3 uid="uid://bcgejlq3sqlef"]
 
-[node name="Item" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://l142r424ouhh" path="res://assets/main_assets/Trap/Items/Bucket.png" id="1_n2xqc"]
+
+[node name="Item" type="Sprite2D"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_n2xqc")
