@@ -1,10 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://bgh1j2nml4nex"]
+[gd_scene load_steps=25 format=3 uid="uid://bgh1j2nml4nex"]
 
 [ext_resource type="Script" uid="uid://d4grpd70pymnf" path="res://core/audio_manager/audio_manager.gd" id="1_lsvw8"]
 [ext_resource type="Script" uid="uid://cdbx160m6ieqe" path="res://core/audio_manager/SoundEffectSettings.gd" id="2_nqpyc"]
 [ext_resource type="AudioStream" uid="uid://bid11p1fqrk2h" path="res://assets/main_assets/SFX/Button_Click.wav" id="3_tl1ak"]
 [ext_resource type="AudioStream" uid="uid://dn1knricnb0tg" path="res://assets/main_assets/SFX/victory_alarm.wav" id="4_xmxmr"]
-[ext_resource type="AudioStream" uid="uid://1vehpha72lgp" path="res://assets/main_assets/SFX/136479__hinsinger__scream-kid.wav" id="5_xmxmr"]
+[ext_resource type="AudioStream" uid="uid://f2slhynd647c" path="res://assets/main_assets/SFX/walking.wav" id="5_mct32"]
+[ext_resource type="AudioStream" uid="uid://1vehpha72lgp" path="res://assets/main_assets/SFX/scream.wav" id="5_xmxmr"]
+[ext_resource type="AudioStream" uid="uid://bpx6w8mhcaf82" path="res://assets/main_assets/SFX/bag_open.wav" id="7_1m8e2"]
+[ext_resource type="AudioStream" uid="uid://ba5yoj8lcply4" path="res://assets/main_assets/SFX/man_gasping.wav" id="8_s1seu"]
+[ext_resource type="AudioStream" uid="uid://cowghtbcf8hsc" path="res://assets/main_assets/SFX/breath_scared.wav" id="9_t8t43"]
+[ext_resource type="AudioStream" uid="uid://blnt5oaithprr" path="res://assets/main_assets/SFX/wood_tapped.wav" id="10_tsldt"]
+[ext_resource type="AudioStream" uid="uid://dx3uj2t61osr0" path="res://assets/main_assets/SFX/violin_drone.wav" id="11_s1seu"]
+[ext_resource type="AudioStream" uid="uid://c5jo688ju68xn" path="res://assets/main_assets/SFX/yell.wav" id="12_t8t43"]
 
 [sub_resource type="Resource" id="Resource_n4xgn"]
 script = ExtResource("2_nqpyc")
@@ -21,8 +28,9 @@ metadata/_custom_type_script = "uid://cdbx160m6ieqe"
 
 [sub_resource type="Resource" id="Resource_ef0fw"]
 script = ExtResource("2_nqpyc")
-limit = 10
-type = 8
+limit = 4
+type = 7
+sound_effect = ExtResource("5_mct32")
 metadata/_custom_type_script = "uid://cdbx160m6ieqe"
 
 [sub_resource type="Resource" id="Resource_tl1ak"]
@@ -30,9 +38,62 @@ script = ExtResource("2_nqpyc")
 limit = 1
 type = 2
 sound_effect = ExtResource("5_xmxmr")
+volume = -5
+metadata/_custom_type_script = "uid://cdbx160m6ieqe"
+
+[sub_resource type="Resource" id="Resource_4tyev"]
+script = ExtResource("2_nqpyc")
+type = 11
+sound_effect = ExtResource("7_1m8e2")
+metadata/_custom_type_script = "uid://cdbx160m6ieqe"
+
+[sub_resource type="Resource" id="Resource_x266s"]
+script = ExtResource("2_nqpyc")
+type = 12
+sound_effect = ExtResource("7_1m8e2")
+pitch_scale = 0.54
+metadata/_custom_type_script = "uid://cdbx160m6ieqe"
+
+[sub_resource type="Resource" id="Resource_l0nb8"]
+script = ExtResource("2_nqpyc")
+type = 10
+sound_effect = ExtResource("8_s1seu")
 volume = -2
+metadata/_custom_type_script = "uid://cdbx160m6ieqe"
+
+[sub_resource type="Resource" id="Resource_3va2q"]
+script = ExtResource("2_nqpyc")
+type = 5
+sound_effect = ExtResource("9_t8t43")
+metadata/_custom_type_script = "uid://cdbx160m6ieqe"
+
+[sub_resource type="Resource" id="Resource_ep62w"]
+script = ExtResource("2_nqpyc")
+type = 13
+sound_effect = ExtResource("10_tsldt")
+metadata/_custom_type_script = "uid://cdbx160m6ieqe"
+
+[sub_resource type="Resource" id="Resource_t8t43"]
+script = ExtResource("2_nqpyc")
+type = 9
+sound_effect = ExtResource("11_s1seu")
+metadata/_custom_type_script = "uid://cdbx160m6ieqe"
+
+[sub_resource type="Resource" id="Resource_tsldt"]
+script = ExtResource("2_nqpyc")
+type = 8
+sound_effect = ExtResource("8_s1seu")
+volume = -5
+pitch_scale = 0.6
+metadata/_custom_type_script = "uid://cdbx160m6ieqe"
+
+[sub_resource type="Resource" id="Resource_grnpc"]
+script = ExtResource("2_nqpyc")
+limit = 1
+type = 3
+sound_effect = ExtResource("12_t8t43")
 metadata/_custom_type_script = "uid://cdbx160m6ieqe"
 
 [node name="AudioManager" type="Node2D"]
 script = ExtResource("1_lsvw8")
-sound_effect_settings = Array[ExtResource("2_nqpyc")]([SubResource("Resource_n4xgn"), SubResource("Resource_mct32"), SubResource("Resource_ef0fw"), SubResource("Resource_tl1ak")])
+sound_effect_settings = Array[ExtResource("2_nqpyc")]([SubResource("Resource_n4xgn"), SubResource("Resource_mct32"), SubResource("Resource_ef0fw"), SubResource("Resource_tl1ak"), SubResource("Resource_4tyev"), SubResource("Resource_x266s"), SubResource("Resource_l0nb8"), SubResource("Resource_3va2q"), SubResource("Resource_ep62w"), SubResource("Resource_t8t43"), SubResource("Resource_tsldt"), SubResource("Resource_grnpc")])
