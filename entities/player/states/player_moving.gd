@@ -4,6 +4,7 @@ extends PlayerBaseState
 @export var idle_state : PlayerBaseState
 #@export var interact_state : PlayerBaseState
 @export var hiding_state : PlayerBaseState
+@export var interacting_state: PlayerBaseState
 
 
 func enter():

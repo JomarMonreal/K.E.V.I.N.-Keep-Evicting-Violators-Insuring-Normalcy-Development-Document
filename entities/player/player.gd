@@ -5,6 +5,7 @@ const MAX_SANITY : float = 100.0
 @onready var sanity : float = 0
 
 @export var animations : AnimatedSprite2D
+@export var crafting_manager: CraftingManager
 
 @export_group("Shader Parameters")
 @export var scared_flash_color : Color
@@ -16,6 +17,8 @@ const MAX_SANITY : float = 100.0
 
 @onready var state_manager : PlayerStateManager = $PlayerStateManager
 @onready var is_planning : bool = true
+
+@export var trap_scene: PackedScene
 
 
 func _ready() -> void:
@@ -29,6 +32,13 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_action_pressed("place_trap"):
+		var item_resource: Item = load("res://resources/items/materials/sample_item_1.tres")
+		if crafting_manager.inventory.less_item(item_resource, 10):
+			var trap = trap_scene.instantiate() as TrapArea
+			trap.global_position = global_position
+			get_tree().root.add_child(trap)
+			print("TRAP PLACED")
 	state_manager.input(event)
 
 

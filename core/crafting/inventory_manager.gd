@@ -27,7 +27,7 @@ func store_item(item: Item, count: int) -> void:
 	slot.set_item(item, count)
 
 
-func less_item(item: Item, count: int) -> void:
+func less_item(item: Item, count: int):
 	var slot = get_item_stack_for_removing(item)	
 
 	if slot == null:
@@ -39,6 +39,7 @@ func less_item(item: Item, count: int) -> void:
 		return
 
 	slot.sub_from_stack(count)
+	return true
 
 # Coroutines
 

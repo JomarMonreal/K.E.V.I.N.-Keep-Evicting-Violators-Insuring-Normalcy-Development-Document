@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cecg0rv3tntcx"]
+[gd_scene load_steps=6 format=3 uid="uid://cecg0rv3tntcx"]
 
 [ext_resource type="FontFile" uid="uid://bqjj85gpm6r88" path="res://assets/main_assets/Fonts/Handwritten Font/Kevin-Regular.ttf" id="1_gchie"]
 [ext_resource type="Script" uid="uid://b3ueft0g6cqqm" path="res://core/night_manager/night_ui_manager.gd" id="1_mjqmx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6hd0f"]
+font_size = 12
 
 [sub_resource type="LabelSettings" id="LabelSettings_mjqmx"]
 font = ExtResource("1_gchie")
@@ -19,8 +22,21 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mjqmx")
 
+[node name="Instructions" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="Instructions"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = -40.0
+offset_right = 482.0
+grow_vertical = 0
+text = "Press C to \"place or pickup traps\"
+Press X to \"interact\""
+label_settings = SubResource("LabelSettings_6hd0f")
+
 [node name="Screen" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Screen"]
 offset_right = 1152.0
