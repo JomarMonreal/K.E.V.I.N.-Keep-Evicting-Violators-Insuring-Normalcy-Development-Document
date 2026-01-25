@@ -9,7 +9,6 @@ class_name NightManager
 @onready var path_graph: PathGraph = $PathGraph
 @onready var player: Player = $Player
 @onready var invader: Invader = $InvaderHandler/Invader
-@onready var spawner: SimplePolygonSpawner = $Spawners/Spawner
 
 # timers
 @onready var loading_timer: Timer = $LoadingTimer
@@ -36,7 +35,6 @@ func _ready() -> void:
 	post_processing.visible = false
 	ui_manager.show_night(Global.current_night)
 	loading_timer.start()
-	spawner.spawn(5)
 
 
 func _process(_delta: float) -> void:
