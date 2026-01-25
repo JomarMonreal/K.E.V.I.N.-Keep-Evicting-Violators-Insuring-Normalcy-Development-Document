@@ -5,12 +5,15 @@ class_name TrapArea
 @export var scare_direction: Vector2 = Vector2.LEFT
 @export var scare_distance: float = 300.0
 @export var preview_speed: float = 250.0 # pixels per second
+@export var trap_sprite: Sprite2D
 
 # If true, randomize among the four cardinal directions.
 # If false, pick any random unit vector.
 @export var randomize_cardinal_only: bool = true
 
 @onready var scare_ghost: Node2D = $ScareGhost
+@onready var trap_before_sprite: Sprite2D = $TrapBeforeSprite
+@onready var trap_after_sprite: Sprite2D = $TrapAfterSprite
 
 var start_ghost_preview: bool = false
 var _preview_running: bool = false
@@ -18,9 +21,12 @@ var _ghost_start_pos: Vector2
 var _preview_tween: Tween
 
 @export var has_trap: bool = false
+@export var triggered: bool = false
 
 func _ready() -> void:
 	scare_ghost.visible = false
+	trap_after_sprite.visible = false
+	trap_before_sprite.visible = false
 	_ghost_start_pos = scare_ghost.position
 	_randomize_scare_direction()
 
@@ -28,6 +34,17 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if start_ghost_preview and not _preview_running:
 		_start_preview()
+	
+	if has_trap:
+		if triggered == true:
+			trap_before_sprite.visible = true
+			trap_after_sprite.visible = false
+		else:
+			trap_after_sprite.visible = true
+			trap_before_sprite.visible = false
+	else:
+		trap_before_sprite.visible = false
+		trap_after_sprite.visible = false
 
 func _randomize_scare_direction() -> void:
 	if randomize_cardinal_only:
@@ -69,8 +86,9 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		start_ghost_preview = true
 		
-	elif body is Invader and has_trap:
+	elif body is Invader and has_trap and not triggered:
 		# Apply trap effects to invader
+		triggered = true
 		body.scare_direction = scare_direction
 		body.current_fear += scare_factor
 		if body.current_fear >= body.maxFear:

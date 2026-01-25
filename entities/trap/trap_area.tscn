@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2keaqdk6ymbf"]
+[gd_scene load_steps=5 format=3 uid="uid://d2keaqdk6ymbf"]
 
 [ext_resource type="Script" uid="uid://cw4ee7ta4vq41" path="res://entities/trap/trap_area.gd" id="1_dor7g"]
 [ext_resource type="Texture2D" uid="uid://bdha18fohj4un" path="res://assets/main_assets/Trap/Indicators/Outcome Ghost (Blue background).PNG" id="2_kyr2f"]
+[ext_resource type="Texture2D" uid="uid://brhfuenu2r7s6" path="res://assets/main_assets/Trap/Combinations/Flour Bomb/Before.png" id="3_cpfel"]
+[ext_resource type="Texture2D" uid="uid://woellqqlq70j" path="res://assets/main_assets/Trap/Combinations/Flour Bomb/After.png" id="4_1ym11"]
 
 [node name="TrapArea" type="Area2D"]
 script = ExtResource("1_dor7g")
@@ -9,6 +11,14 @@ script = ExtResource("1_dor7g")
 [node name="ScareGhost" type="Sprite2D" parent="."]
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_kyr2f")
+
+[node name="TrapBeforeSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_cpfel")
+
+[node name="TrapAfterSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_1ym11")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
