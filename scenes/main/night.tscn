@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cdm3l21spj67o"]
+[gd_scene load_steps=46 format=3 uid="uid://cdm3l21spj67o"]
 
 [ext_resource type="Script" uid="uid://cyugpt4ebl116" path="res://core/night_manager/night_manager.gd" id="1_avkg3"]
 [ext_resource type="PackedScene" uid="uid://do2s031gtn5hu" path="res://core/path_graph/main_path_graph.tscn" id="1_rl6em"]
@@ -129,6 +129,9 @@ polygon = PackedVector2Array(-847, -1679, -828, -1319, 65, -1306, 52, -1673)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3rdmx"]
 polygon = PackedVector2Array(34, -2591, 340, -2597, 321, -2273, 34, -2266)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ubtha"]
+polygon = PackedVector2Array(23, 110, 163, 113, 163, 220, -615, 235, -615, 657, -703, 660, -707, -190, -2970, -207, -2950, 963, -2169, 983, -2169, 1118, -2950, 1098, -2983, 3291, -2829, 3271, -2829, 3358, -2983, 3365, -2983, 4515, -2075, 4536, -2082, 3405, -2485, 3385, -2479, 3251, -743, 3251, -703, 3062, -561, 3056, -582, 3486, -723, 3500, -743, 3372, -1947, 3378, -1988, 4542, -683, 4562, -696, 3816, -602, 3809, -602, 4576, 172, 4549, 172, 3230, 2675, 3251, 2708, 5047, 2614, 5060, 2607, 3338, 273, 3365, 286, 5067, 152, 5074, 172, 4663, -2997, 4650, -2970, 5370, 165, 5377, 145, 5269, 266, 5282, 273, 5390, 2614, 5383, 2614, 5289, 2735, 5289, 2735, 5397, 3273, 5397, 3253, 5175, 3334, 5181, 3334, 5377, 4646, 5403, 4632, 4401, 3334, 4408, 3334, 4939, 3246, 4953, 3260, 4206, 3334, 4213, 3327, 4347, 4625, 4334, 4632, 3419, 3354, 3405, 3334, 3944, 3233, 3964, 3273, 3143, 3341, 3156, 3341, 3298, 4632, 3318, 4619, 2423, 3320, 2410, 3327, 2908, 3240, 2921, 3253, 2760, 2237, 2780, 2230, 2679, 3246, 2665, 3253, 1448, 1760, 1468, 1773, 2699, 1928, 2679, 1948, 2766, 1679, 2780, 1692, 1697, 898, 1737, 898, 1636, 1679, 1629, 1686, 1078, 1786, 1091, 1773, 1374, 3919, 1414, 3933, 1481, 3334, 1495, 3347, 2302, 4383, 2315, 4390, 1501, 4181, 1481, 4175, 1414, 4403, 1421, 4397, -288, 1753, -295, 1780, 371, 1679, 351, 1706, 176, 979, 203, 993, 102, 1094, 102, 1100, -382, -3, -409, -3, -490, 4814, -483, 4891, 5715, -3484, 5636, -3373, -725, -589, -613, -612, 105, -57, 113, -71, -516, 3, -627)
+
 [node name="Night" type="Node2D"]
 script = ExtResource("1_avkg3")
 planning_background = ExtResource("2_q0pdu")
@@ -211,6 +214,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="OutsideColliders" type="StaticBody2D" parent="."]
+visible = false
 metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="OutsideColliders"]
@@ -220,6 +224,7 @@ polygon = PackedVector2Array(-24, 157, -30, -417, 932, -424, 1135, -420, 1147, 1
 polygon = PackedVector2Array(4427, -297, 4442, 2371, 4656, 2393, 4686, 5425, -2996, 5432, -3018, -330, -3003, -685, -3662, -737, -3440, 5985, 5619, 5963, 5493, -637, 4449, -571)
 
 [node name="WallColliders" type="StaticBody2D" parent="."]
+visible = false
 metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallColliders"]
@@ -254,6 +259,7 @@ polygon = PackedVector2Array(3348, 3163, 3237, 3148, 3259, 4006, 3362, 3984, 335
 metadata/_edit_lock_ = true
 
 [node name="FurnitureColliders" type="StaticBody2D" parent="."]
+visible = false
 metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FurnitureColliders"]
@@ -611,6 +617,12 @@ occluder = SubResource("OccluderPolygon2D_wxs5i")
 [node name="LightOccluder2D27" type="LightOccluder2D" parent="FurnitureOccluders"]
 position = Vector2(158, 6266)
 occluder = SubResource("OccluderPolygon2D_3rdmx")
+
+[node name="WallOccluders" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="WallOccluders"]
+occluder = SubResource("OccluderPolygon2D_ubtha")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 blend_mode = 2
