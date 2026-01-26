@@ -74,7 +74,8 @@ func _allocate_even(total_items: int) -> PackedInt32Array:
 	var n := _spawners.size()
 	var out := PackedInt32Array()
 	out.resize(n)
-
+	
+	@warning_ignore("integer_division")
 	var base := total_items / n
 	var rem := total_items % n
 

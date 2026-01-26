@@ -102,6 +102,7 @@ func _build_cache() -> void:
 
 	_tri = Geometry2D.triangulate_polygon(_verts)
 	if debug_logs:
+		@warning_ignore("integer_division")
 		print("[Spawner] Tri indices=", _tri.size(), " (triangles=", int(_tri.size() / 3), ")")
 
 	if _tri.size() < 3:
@@ -110,6 +111,7 @@ func _build_cache() -> void:
 		return
 
 	_cdf = PackedFloat32Array()
+	@warning_ignore("integer_division")
 	_cdf.resize(_tri.size() / 3)
 
 	_total_area = 0.0

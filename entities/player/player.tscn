@@ -24,8 +24,9 @@ script = ExtResource("2_3wlsy")
 limit = 1
 type = 4
 sound_effect = ExtResource("3_b2kln")
-volume = -10
-pitch_randomness = 0.5
+volume = -24
+pitch_scale = 0.7
+pitch_randomness = 1.0
 metadata/_custom_type_script = "uid://cdbx160m6ieqe"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gx6sm"]

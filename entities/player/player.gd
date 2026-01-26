@@ -50,7 +50,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			var trap = trap_scene.instantiate() as TrapArea
 			trap.global_position = global_position
 			get_tree().root.add_child(trap)
+			AudioManager.create_2d_audio_at_location(trap.global_position, SoundEffectSettings.SOUND_EFFECT_TYPE.TRAP_PLACED)
 			print("TRAP PLACED")
+			
 	state_manager.input(event)
 
 
@@ -60,6 +62,9 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	state_manager.physics_process(delta)
+	
+	play_footsteps()
+	
 	for area in item_detector_area.get_overlapping_areas():
 		if area is ItemArea:
 			if Input.is_action_just_released("interact") and night_manager.planning_timer.time_left > 0:
@@ -69,15 +74,6 @@ func _physics_process(delta: float) -> void:
 			if Input.is_action_just_released("interact") and night_manager.planning_timer.time_left > 0:
 				crafting_manager.inventory.store_item(area.items[0], 1)
 				area.queue_free()
-				
-
-	
-	if is_instance_valid(footsteps_audio_player):
-		if velocity != Vector2.ZERO:
-			if not footsteps_audio_player.playing:
-				footsteps_audio_player.play()
-		else:
-			footsteps_audio_player.stop()
 
 
 func _on_planning():
@@ -88,4 +84,12 @@ func _on_invading():
 	is_planning = false
 
 
-#TODO: SFX - moving, interacting, hiding, dead
+func play_footsteps():
+	print("is instance valid? ", is_instance_valid(footsteps_audio_player))
+	if is_instance_valid(footsteps_audio_player):
+		print("is playing?", footsteps_audio_player.playing)
+		if velocity != Vector2.ZERO:
+			if not footsteps_audio_player.playing:
+				footsteps_audio_player.play()
+		else:
+			footsteps_audio_player.stop()
