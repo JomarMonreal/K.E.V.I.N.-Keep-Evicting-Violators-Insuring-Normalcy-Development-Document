@@ -193,6 +193,7 @@ trap_scene = ExtResource("13_jm8a5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2421, 2758)
+enabled = false
 zoom = Vector2(0.25, 0.25)
 script = ExtResource("2_6xtx7")
 targets = Array[NodePath]([NodePath("../Player"), NodePath("../InvaderHandler/Invader")])

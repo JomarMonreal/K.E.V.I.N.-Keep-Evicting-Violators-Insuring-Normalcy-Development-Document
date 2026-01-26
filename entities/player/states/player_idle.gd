@@ -26,6 +26,4 @@ func process(_delta: float) -> BaseState:
 	return null
 
 func physics_process(_delta: float) -> BaseState:
-	parent.move_and_slide()
-	
 	return null
