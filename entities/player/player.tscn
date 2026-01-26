@@ -33,7 +33,7 @@ metadata/_custom_type_script = "uid://cdbx160m6ieqe"
 resource_local_to_scene = true
 shader = ExtResource("2_yqrof")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
-shader_parameter/flash_modifier = 1.0
+shader_parameter/flash_modifier = 0.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wq0jh"]
 animations = [{
@@ -114,9 +114,9 @@ scared_flash_color = Color(0.8864921, 0.12058664, 9.62615e-08, 1)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 material = SubResource("ShaderMaterial_gx6sm")
-scale = Vector2(0.035, 0.035)
+scale = Vector2(0.055, 0.055)
 sprite_frames = SubResource("SpriteFrames_wq0jh")
-animation = &"scared"
+animation = &"moving"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

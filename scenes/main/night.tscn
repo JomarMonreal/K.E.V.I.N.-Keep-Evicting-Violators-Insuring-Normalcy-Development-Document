@@ -443,7 +443,6 @@ occluder = SubResource("OccluderPolygon2D_rx8ae")
 occluder = SubResource("OccluderPolygon2D_owoea")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-blend_mode = 2
 shadow_enabled = true
 metadata/_edit_group_ = true
 
