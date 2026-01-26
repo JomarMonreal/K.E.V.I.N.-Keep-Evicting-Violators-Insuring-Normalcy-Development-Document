@@ -81,7 +81,7 @@ func get_free_slot() -> InventorySlot:
 
 func get_item_stack_for_storing(item: Item) -> InventorySlot:
 	for slot in Slots:
-		if slot.is_empty or slot.item == null:
+		if slot.is_empty or slot.item == null or item == null:
 			continue
 		if slot.item.item_name == item.item_name:
 			if slot.item_count != max_stack:
@@ -91,7 +91,7 @@ func get_item_stack_for_storing(item: Item) -> InventorySlot:
 
 func get_item_stack_for_removing(item: Item) -> InventorySlot:
 	for slot in Slots:
-		if slot.is_empty or slot.item == null:
+		if slot.is_empty or slot.item == null or item == null:
 			continue
 		if slot.item.item_name == item.item_name:
 			return slot

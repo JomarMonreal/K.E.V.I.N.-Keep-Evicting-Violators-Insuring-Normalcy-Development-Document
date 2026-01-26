@@ -116,5 +116,8 @@ func _on_invader_leaving_with_item() -> void:
 	post_processing.visible = false
 	print("EMITTED LEAVING ITEM")
 	ui_manager.show_stolen_ui()
+	player.sanity += 30
+	if player.sanity >= player.MAX_SANITY:
+		EventListener.insanity_reached.emit()
 	results_timer.start()
 	invading_timer.stop()

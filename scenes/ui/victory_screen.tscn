@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbyp772858yh5"]
+[gd_scene load_steps=6 format=3 uid="uid://cbyp772858yh5"]
 
 [ext_resource type="Script" uid="uid://by83okujtq5ec" path="res://scenes/ui/victory_screen.gd" id="1_mtfol"]
 [ext_resource type="FontFile" uid="uid://cdp1od0bik7ea" path="res://assets/main_assets/Fonts/Handwritten Font/Kevin-Regular.otf" id="2_lcvyk"]
 [ext_resource type="FontFile" uid="uid://bqjj85gpm6r88" path="res://assets/main_assets/Fonts/Handwritten Font/Kevin-Regular.ttf" id="2_mtfol"]
+[ext_resource type="Texture2D" uid="uid://cwqogu3n10pff" path="res://assets/main_assets/Victory Ending.png" id="4_1x1dp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mjqmx"]
 font = ExtResource("2_mtfol")
@@ -59,3 +60,12 @@ theme_override_font_sizes/font_size = 55
 text = "But we'll get you next time."
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Screen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_1x1dp")
+expand_mode = 1

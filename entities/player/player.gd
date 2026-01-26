@@ -120,3 +120,12 @@ func play_footsteps():
 				footsteps_audio_player.play()
 		else:
 			footsteps_audio_player.stop()
+
+
+func _on_sanity_hurtbox_body_entered(body: Node2D) -> void:
+	sanity += 10
+
+
+func _on_killed_hurtbox_body_entered(body: Node2D) -> void:
+	EventListener.player_killed.emit()
+	pass # Replace with function body.
