@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://mxui41ovhubs"]
+[gd_scene load_steps=14 format=3 uid="uid://mxui41ovhubs"]
 
 [ext_resource type="Script" uid="uid://clfhyk11p2wkd" path="res://entities/invader/invader.gd" id="1_gts6a"]
 [ext_resource type="Texture2D" uid="uid://mrs3lder6t4l" path="res://assets/main_assets/Map/Blueprint Icons/Invader Symbol (Black background).PNG" id="2_olecl"]
@@ -27,18 +27,21 @@ fill = 1
 fill_from = Vector2(0.508547, 0.491453)
 fill_to = Vector2(0.8846154, 0.23504275)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_7b58g"]
+radius = 109.73149
+
 [node name="Invader" type="RigidBody2D"]
 mass = 1000.0
 gravity_scale = 0.0
 script = ExtResource("1_gts6a")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_mwhei")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_olecl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_mwhei")
 
 [node name="StateManager" type="Node" parent="."]
 script = ExtResource("3_fmxwh")
@@ -74,6 +77,13 @@ texture = SubResource("GradientTexture2D_uefs2")
 
 [node name="WalkSoundTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 1536
+collision_mask = 1537
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_7b58g")
 
 [connection signal="timeout" from="StateManager/Scanning/ScanDelayTimer" to="StateManager/Scanning" method="_on_scan_delay_timer_timeout"]
 [connection signal="timeout" from="WalkSoundTimer" to="." method="_on_walk_sound_timer_timeout"]

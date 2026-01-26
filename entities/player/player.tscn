@@ -201,5 +201,6 @@ texture = SubResource("GradientTexture2D_3wlsy")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemDetector"]
 shape = SubResource("CapsuleShape2D_b2kln")
 
+[connection signal="area_entered" from="SanityHurtbox" to="." method="_on_sanity_hurtbox_area_entered"]
 [connection signal="body_entered" from="SanityHurtbox" to="." method="_on_sanity_hurtbox_body_entered"]
-[connection signal="body_entered" from="KilledHurtbox" to="." method="_on_killed_hurtbox_body_entered"]
+[connection signal="area_entered" from="KilledHurtbox" to="." method="_on_killed_hurtbox_area_entered"]

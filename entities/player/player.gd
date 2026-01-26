@@ -121,11 +121,16 @@ func play_footsteps():
 		else:
 			footsteps_audio_player.stop()
 
-
-func _on_sanity_hurtbox_body_entered(body: Node2D) -> void:
-	sanity += 10
-
-
-func _on_killed_hurtbox_body_entered(body: Node2D) -> void:
-	EventListener.player_killed.emit()
+func _on_killed_hurtbox_area_entered(area: Area2D) -> void:
+	print(area)
+	if area.get_parent() and area.get_parent() is Invader:
+		print("KILLED")
+		EventListener.player_killed.emit()
 	pass # Replace with function body.
+
+
+func _on_sanity_hurtbox_area_entered(area: Area2D) -> void:
+	print(area)
+	if area.get_parent() and area.get_parent() is Invader:
+		print("SCARED")
+		sanity += 10
