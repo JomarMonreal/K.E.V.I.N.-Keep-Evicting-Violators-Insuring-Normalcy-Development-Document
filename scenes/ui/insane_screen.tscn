@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b218ej54v6rhf"]
+[gd_scene load_steps=6 format=3 uid="uid://b218ej54v6rhf"]
 
 [ext_resource type="Script" uid="uid://n7dqps70mp4v" path="res://scenes/ui/insane_screen.gd" id="1_hvecu"]
 [ext_resource type="FontFile" uid="uid://bqjj85gpm6r88" path="res://assets/main_assets/Fonts/Handwritten Font/Kevin-Regular.ttf" id="2_v0rse"]
 [ext_resource type="FontFile" uid="uid://cdp1od0bik7ea" path="res://assets/main_assets/Fonts/Handwritten Font/Kevin-Regular.otf" id="3_ml846"]
+[ext_resource type="Texture2D" uid="uid://b7jxmmfti3e5u" path="res://assets/main_assets/Insanity Ending.png" id="4_v0rse"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mjqmx"]
 font = ExtResource("2_v0rse")
@@ -58,3 +59,12 @@ theme_override_font_sizes/font_size = 55
 text = "Insanity."
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Screen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_v0rse")
+expand_mode = 1
