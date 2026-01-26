@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvj5gnbngh5m5"]
+
+[ext_resource type="Script" uid="uid://ctcwg3pgv5s1e" path="res://entities/item/senntimental_item.gd" id="1_x1ypp"]
+[ext_resource type="Texture2D" uid="uid://o0v8pcstu2mt" path="res://assets/main_assets/Trap/Items/Glue.png" id="2_38a5x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_38a5x"]
+radius = 44.102154
+
+[node name="SentimentalItem" type="Area2D"]
+script = ExtResource("1_x1ypp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_38a5x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_38a5x")

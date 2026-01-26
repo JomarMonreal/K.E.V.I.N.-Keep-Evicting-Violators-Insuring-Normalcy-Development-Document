@@ -4,6 +4,7 @@ class_name NightManager
 # background
 @export var planning_background: Texture2D
 @export var invading_background: Texture2D
+@export var sentimental_item_scene: PackedScene
 
 # pathing
 @onready var path_graph: PathGraph = $PathGraph
@@ -34,6 +35,10 @@ func _ready() -> void:
 	invader.visible = false
 	post_processing.visible = false
 	ui_manager.show_night(Global.current_night)
+	var item_node = path_graph.get_nodes_by_role(PathNode.Role.ITEM).pick_random()
+	var sentimental_item = sentimental_item_scene.instantiate()
+	sentimental_item.global_position = item_node.global_position
+	get_tree().root.add_child(sentimental_item)
 	loading_timer.start()
 
 
@@ -104,4 +109,3 @@ func _on_invader_leaving_scared() -> void:
 	ui_manager.show_victory_ui()
 	results_timer.start()
 	invading_timer.stop()
-	pass # Replace with function body.

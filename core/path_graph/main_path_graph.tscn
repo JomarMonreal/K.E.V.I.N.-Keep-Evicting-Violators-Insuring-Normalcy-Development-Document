@@ -125,12 +125,14 @@ metadata/_edit_group_ = true
 
 [node name="Node2D48" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
 process_mode = 3
+modulate = Color(1, 0, 1, 1)
 position = Vector2(1519, -545)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
 line_color = Color(1, 0, 0, 1)
 line_width = 18.0
+role = 3
 neighbors = [NodePath("../Node2D47")]
 metadata/_edit_group_ = true
 
@@ -191,12 +193,14 @@ metadata/_edit_group_ = true
 
 [node name="Node2D61" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
 process_mode = 3
-position = Vector2(2767, 996)
+modulate = Color(1, 0, 1, 1)
+position = Vector2(2706, 1026)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
 line_color = Color(1, 0, 0, 1)
 line_width = 18.0
+role = 3
 neighbors = [NodePath("../Node2D60"), NodePath("../Node2D62")]
 metadata/_edit_group_ = true
 
@@ -224,12 +228,14 @@ metadata/_edit_group_ = true
 
 [node name="Node2D71" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
 process_mode = 3
-position = Vector2(2782, 1993)
+modulate = Color(1, 0, 1, 1)
+position = Vector2(2742, 2013)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
 line_color = Color(1, 0, 0, 1)
 line_width = 18.0
+role = 3
 neighbors = [NodePath("../Node2D69"), NodePath("../Node2D72")]
 metadata/_edit_group_ = true
 
@@ -266,6 +272,19 @@ line_width = 18.0
 neighbors = [NodePath("../Node2D54"), NodePath("../Node2D73"), NodePath("../Node2D74")]
 metadata/_edit_group_ = true
 
+[node name="Node2D91" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+modulate = Color(1, 1, 0, 1)
+position = Vector2(2365, 3330)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+role = 1
+neighbors = [NodePath("../Node2D74")]
+metadata/_edit_group_ = true
+
 [node name="Node2D74" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
 process_mode = 3
 position = Vector2(1990, 2743)
@@ -274,17 +293,19 @@ texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
 line_color = Color(1, 0, 0, 1)
 line_width = 18.0
-neighbors = [NodePath("../Node2D73"), NodePath("../Node2D70")]
+neighbors = [NodePath("../Node2D73"), NodePath("../Node2D70"), NodePath("../Node2D91")]
 metadata/_edit_group_ = true
 
 [node name="Node2D73" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
 process_mode = 3
-position = Vector2(2912, 3043)
+modulate = Color(1, 0, 1, 1)
+position = Vector2(2686, 3039)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
 line_color = Color(1, 0, 0, 1)
 line_width = 18.0
+role = 3
 neighbors = [NodePath("../Node2D70"), NodePath("../Node2D74")]
 metadata/_edit_group_ = true
 
@@ -345,7 +366,7 @@ metadata/_edit_group_ = true
 
 [node name="Node2D68" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
 process_mode = 3
-position = Vector2(-1079, 1687)
+position = Vector2(-917, 1712)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
@@ -356,12 +377,14 @@ metadata/_edit_group_ = true
 
 [node name="Node2D75" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
 process_mode = 3
+modulate = Color(1, 0, 1, 1)
 position = Vector2(-1189, 1387)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
 line_color = Color(1, 0, 0, 1)
 line_width = 18.0
+role = 3
 neighbors = [NodePath("../Node2D68")]
 metadata/_edit_group_ = true
 
@@ -376,17 +399,6 @@ line_width = 18.0
 neighbors = [NodePath("../Node2D58"), NodePath("../Node2D59"), NodePath("../Node2D64")]
 metadata/_edit_group_ = true
 
-[node name="Node2D63" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
-process_mode = 3
-position = Vector2(-1670, 2716)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_frbf0")
-script = ExtResource("3_5axlx")
-line_color = Color(1, 0, 0, 1)
-line_width = 18.0
-neighbors = [NodePath("../Node2D64")]
-metadata/_edit_group_ = true
-
 [node name="Node2D64" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
 process_mode = 3
 position = Vector2(-1659, 3106)
@@ -395,7 +407,7 @@ texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
 line_color = Color(1, 0, 0, 1)
 line_width = 18.0
-neighbors = [NodePath("../Node2D59"), NodePath("../Node2D63"), NodePath("../Node2D57"), NodePath("../Node2D56")]
+neighbors = [NodePath("../Node2D59"), NodePath(""), NodePath("../Node2D57"), NodePath("../Node2D56")]
 metadata/_edit_group_ = true
 
 [node name="Node2D59" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
@@ -523,12 +535,14 @@ metadata/_edit_group_ = true
 
 [node name="Node2D51" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
 process_mode = 3
+modulate = Color(1, 0, 1, 1)
 position = Vector2(2371, 139)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
 line_color = Color(1, 0, 0, 1)
 line_width = 18.0
+role = 3
 neighbors = [NodePath("../Node2D50")]
 metadata/_edit_group_ = true
 
@@ -729,7 +743,20 @@ texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
 line_color = Color(1, 0, 0, 1)
 line_width = 18.0
-neighbors = [NodePath("../Node2D83"), NodePath("../Node2D84"), NodePath("../Node2D86"), NodePath("../Node2D88")]
+neighbors = [NodePath("../Node2D83"), NodePath("../Node2D84"), NodePath("../Node2D86"), NodePath("../Node2D88"), NodePath("../Node2D89")]
+metadata/_edit_group_ = true
+
+[node name="Node2D89" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+modulate = Color(1, 1, 0, 1)
+position = Vector2(-2546, -2253)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+role = 1
+neighbors = [NodePath("../Node2D85")]
 metadata/_edit_group_ = true
 
 [node name="Node2D83" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
@@ -745,12 +772,14 @@ metadata/_edit_group_ = true
 
 [node name="Node2D88" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
 process_mode = 3
+modulate = Color(1, 0, 1, 1)
 position = Vector2(-3999, -1465)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
 line_color = Color(1, 0, 0, 1)
 line_width = 18.0
+role = 3
 neighbors = [NodePath("../Node2D33"), NodePath("../Node2D84"), NodePath("../Node2D85")]
 metadata/_edit_group_ = true
 
@@ -778,24 +807,37 @@ metadata/_edit_group_ = true
 
 [node name="Node2D44" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
 process_mode = 3
-position = Vector2(-4256, -415)
+position = Vector2(-4140, -337)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
 line_color = Color(1, 0, 0, 1)
 line_width = 18.0
-neighbors = [NodePath("../Node2D33"), NodePath("../Node2D45")]
+neighbors = [NodePath("../Node2D33"), NodePath("../Node2D45"), NodePath("../Node2D90")]
+metadata/_edit_group_ = true
+
+[node name="Node2D90" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+modulate = Color(1, 1, 0, 1)
+position = Vector2(-4511, 120)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+role = 1
+neighbors = [NodePath("../Node2D44"), NodePath("../Node2D45")]
 metadata/_edit_group_ = true
 
 [node name="Node2D45" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
 process_mode = 3
-position = Vector2(-4263, 662)
+position = Vector2(-4138, 662)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
 line_color = Color(1, 0, 0, 1)
 line_width = 18.0
-neighbors = [NodePath("../Node2D44"), NodePath("../Node2D38")]
+neighbors = [NodePath("../Node2D44"), NodePath("../Node2D38"), NodePath("../Node2D90")]
 metadata/_edit_group_ = true
 
 [node name="Node2D35" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
@@ -839,7 +881,7 @@ texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
 line_color = Color(1, 0, 0, 1)
 line_width = 18.0
-neighbors = [NodePath("../Node2D38"), NodePath("../Node2D76"), NodePath("../Node2D77"), NodePath("../Node2D78")]
+neighbors = [NodePath("../Node2D38"), NodePath("../Node2D76"), NodePath("../Node2D78")]
 metadata/_edit_group_ = true
 
 [node name="Node2D76" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
@@ -858,25 +900,38 @@ metadata/_edit_group_ = true
 [node name="Node2D77" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
 process_mode = 3
 modulate = Color(1, 0, 1, 1)
-position = Vector2(-3814, 1540)
+position = Vector2(-3864, 1830)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
 line_color = Color(1, 0, 0, 1)
 line_width = 18.0
 role = 3
-neighbors = [NodePath("../Node2D78"), NodePath("../Node2D39"), NodePath("../Node2D76")]
+neighbors = [NodePath("../Node2D78"), NodePath("../Node2D76")]
 metadata/_edit_group_ = true
 
 [node name="Node2D78" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
 process_mode = 3
-position = Vector2(-4407, 1908)
+position = Vector2(-4334, 1896)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")
 line_color = Color(1, 0, 0, 1)
 line_width = 18.0
-neighbors = [NodePath("../Node2D77"), NodePath("../Node2D39"), NodePath("../Node2D76")]
+neighbors = [NodePath("../Node2D77"), NodePath("../Node2D39"), NodePath("../Node2D76"), NodePath("../Node2D92")]
+metadata/_edit_group_ = true
+
+[node name="Node2D92" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
+process_mode = 3
+modulate = Color(1, 1, 0, 1)
+position = Vector2(-4603, 2294)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_frbf0")
+script = ExtResource("3_5axlx")
+line_color = Color(1, 0, 0, 1)
+line_width = 18.0
+role = 1
+neighbors = [NodePath("../Node2D78")]
 metadata/_edit_group_ = true
 
 [node name="Node2D36" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
@@ -937,7 +992,7 @@ metadata/_edit_group_ = true
 [node name="Node2D82" type="Sprite2D" parent="." node_paths=PackedStringArray("neighbors")]
 process_mode = 3
 modulate = Color(1, 0, 1, 1)
-position = Vector2(-3232, 2300)
+position = Vector2(-3222, 2184)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_frbf0")
 script = ExtResource("3_5axlx")

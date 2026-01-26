@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://cdm3l21spj67o"]
+[gd_scene load_steps=50 format=3 uid="uid://cdm3l21spj67o"]
 
 [ext_resource type="Script" uid="uid://cyugpt4ebl116" path="res://core/night_manager/night_manager.gd" id="1_avkg3"]
 [ext_resource type="PackedScene" uid="uid://do2s031gtn5hu" path="res://core/path_graph/main_path_graph.tscn" id="1_rl6em"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bxpl7d6ityfih" path="res://assets/main_assets/Map/Map_Invasion.png" id="3_b440g"]
 [ext_resource type="PackedScene" uid="uid://c3ifr4bjdss33" path="res://core/crafting/crafting_ui.tscn" id="3_vkvwu"]
 [ext_resource type="PackedScene" uid="uid://by3yaeckrtk5d" path="res://entities/player/player.tscn" id="4_avkg3"]
+[ext_resource type="PackedScene" uid="uid://cvj5gnbngh5m5" path="res://entities/item/senntimental_item.tscn" id="4_gwtw3"]
 [ext_resource type="PackedScene" uid="uid://mxui41ovhubs" path="res://entities/invader/base_invader.tscn" id="5_b440g"]
 [ext_resource type="PackedScene" uid="uid://cecg0rv3tntcx" path="res://scenes/ui/night_start.tscn" id="8_q0pdu"]
 [ext_resource type="Script" uid="uid://b37fq0nliyg73" path="res://scenes/main/post_processing.gd" id="10_mixr2"]
@@ -139,6 +140,7 @@ polygon = PackedVector2Array(-1549, 3985, -1537, 4052, -693, 4076, -705, 4572, -
 script = ExtResource("1_avkg3")
 planning_background = ExtResource("2_q0pdu")
 invading_background = ExtResource("3_b440g")
+sentimental_item_scene = ExtResource("4_gwtw3")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jyycq")
