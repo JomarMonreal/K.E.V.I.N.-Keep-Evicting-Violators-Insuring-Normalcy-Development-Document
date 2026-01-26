@@ -68,7 +68,7 @@ func end_game(condition: GameCondition) -> void:
 		return
 	
 	Global.game_manager.change_world_scene('')
-	
+	Global.current_night = 1
 	if condition == GameCondition.VICTORY:
 		Global.game_manager.change_ui_scene(Constants.SCENE_PATHS.victory_screen)
 	elif condition == GameCondition.KILLED:
