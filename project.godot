@@ -25,6 +25,10 @@ Constants="*res://core/constants.gd"
 AudioManager="*res://core/audio_manager/audio_manager.tscn"
 BgmLoader="*res://core/audio_manager/bgm_loader.tscn"
 
+[display]
+
+window/size/mode=3
+
 [editor]
 
 movie_writer/movie_file="//wsl.localhost/Ubuntu-24.04/home/clenel/K.E.V.I.N.-Keep-Evicting-Violators-Insuring-Normalcy-Development-Document/screen_recordings/output.avi"
