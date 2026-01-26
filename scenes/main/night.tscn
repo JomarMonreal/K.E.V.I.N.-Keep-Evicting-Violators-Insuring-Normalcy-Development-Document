@@ -180,7 +180,7 @@ metadata/_edit_lock_ = true
 z_index = 10
 position = Vector2(373, -899)
 path_graph = NodePath("../../PathGraph")
-speed = 1000.0
+speed = 800.0
 
 [node name="Player" parent="." node_paths=PackedStringArray("crafting_manager", "night_manager") instance=ExtResource("4_avkg3")]
 z_index = 20

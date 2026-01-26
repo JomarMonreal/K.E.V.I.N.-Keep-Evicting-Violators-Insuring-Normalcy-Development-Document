@@ -2,112 +2,109 @@ extends InvaderBaseState
 
 const ARRIVE_EPS := 20.0
 
-# Stuck detection tuning
-const STUCK_TIME_SEC := 0.6          # how long we tolerate no real movement
-const STUCK_MOVE_EPS := 2.0          # pixels of net movement within the window
-const STUCK_TARGET_PROGRESS_EPS := 0.5 # optional: minimum improvement in distance-to-target
+# If we don't reach the current target within this time, reroute.
+const TARGET_TIMEOUT_SEC := 4.7
 
-var _stuck_time := 0.0
-var _last_pos: Vector2
-var _last_dist_to_target := INF
-var _has_last := false
+var _time_to_target: float = 0.0
+var _previous_node: Node2D = null
+const VISIT_INCREMENT := 4
+const BACKTRACK_PENALTY := 6
 
-func _ensure_tracking(invader: Invader) -> void:
-	if not _has_last:
-		_last_pos = invader.global_position
-		_last_dist_to_target = invader.global_position.distance_to(invader.target_node.global_position)
-		_has_last = true
+func _as_node2d_array(nodes: Array) -> Array[Node2D]:
+	var out: Array[Node2D] = []
+	for n in nodes:
+		var n2 := n as Node2D
+		if n2 != null:
+			out.append(n2)
+	return out
 
-func _reset_stuck_tracking(invader: Invader) -> void:
-	_stuck_time = 0.0
-	_last_pos = invader.global_position
-	_last_dist_to_target = invader.global_position.distance_to(invader.target_node.global_position)
 
-func _pick_new_target(invader: Invader) -> void:
-	var neighbors: Array = invader.current_node.neighbors
-	if neighbors.is_empty():
+func _choose_next_target(invader: Invader) -> void:
+	var neighbors2d: Array[Node2D] = _as_node2d_array(invader.current_node.neighbors)
+	if neighbors2d.is_empty():
 		return
 
-	# Prefer least-visited neighbors, but avoid picking the same target again if possible.
-	var min_visits := INF
-	for n in neighbors:
-		min_visits = min(min_visits, n.visit_count)
+	var unvisited: Array[Node2D] = []
+	for n in neighbors2d:
+		if int(n.visit_count) == 0:
+			unvisited.append(n)
 
-	var candidates: Array = []
-	for n in neighbors:
-		if n.visit_count == min_visits and n != invader.target_node:
+	if _previous_node != null and neighbors2d.size() > 1:
+		var filtered: Array[Node2D] = []
+		for n in unvisited:
+			if n != _previous_node:
+				filtered.append(n)
+		if not filtered.is_empty():
+			unvisited = filtered
+
+	if not unvisited.is_empty():
+		var next_u: Node2D = unvisited.pick_random()
+		var inc_u := VISIT_INCREMENT
+		if _previous_node != null and next_u == _previous_node:
+			inc_u += BACKTRACK_PENALTY
+		next_u.visit_count += inc_u
+		invader.target_node = next_u
+		_time_to_target = 0.0
+		return
+
+	var pool: Array[Node2D] = neighbors2d
+	if _previous_node != null and neighbors2d.size() > 1:
+		var no_back: Array[Node2D] = []
+		for n in neighbors2d:
+			if n != _previous_node:
+				no_back.append(n)
+		if not no_back.is_empty():
+			pool = no_back
+
+	var min_visits: int = int(pool[0].visit_count)
+	for n in pool:
+		min_visits = min(min_visits, int(n.visit_count))
+
+	var candidates: Array[Node2D] = []
+	for n in pool:
+		if int(n.visit_count) == min_visits:
 			candidates.append(n)
 
-	# If everything is the same node (or only one neighbor), fall back.
-	if candidates.is_empty():
-		for n in neighbors:
-			if n != invader.target_node:
-				candidates.append(n)
+	var next: Node2D = candidates.pick_random()
+	var inc := VISIT_INCREMENT
+	if _previous_node != null and next == _previous_node:
+		inc += BACKTRACK_PENALTY
+	next.visit_count += inc
 
-	if candidates.is_empty():
-		# Only possible target is the same one; nothing we can do.
-		return
-
-	invader.target_node = candidates.pick_random()
-	_reset_stuck_tracking(invader)
+	invader.target_node = next
+	_time_to_target = 0.0
 
 func physics_process(delta: float) -> int:
-	var invader := entity as Invader
-	_ensure_tracking(invader)
+	var invader: Invader = entity as Invader
 
-	var target_pos := invader.target_node.global_position
+	# Ensure target
+	if invader.target_node == null:
+		_choose_next_target(invader)
+		return InvaderBaseState.State.Moving
+
+	var target_node2d := invader.target_node as Node2D
+	if target_node2d == null:
+		invader.target_node = null
+		_choose_next_target(invader)
+		return InvaderBaseState.State.Moving
 
 	# Move
-	invader.global_position = invader.global_position.move_toward(
-		target_pos,
-		invader.speed * delta
-	)
+	var target_pos: Vector2 = target_node2d.global_position
+	invader.global_position = invader.global_position.move_toward(target_pos, invader.speed * delta)
+
+	# Timeout reroute (doesn't depend on movement)
+	_time_to_target += delta
+	if _time_to_target >= TARGET_TIMEOUT_SEC:
+		_choose_next_target(invader)
+		return InvaderBaseState.State.Moving
 
 	# Arrival
 	if invader.global_position.distance_to(target_pos) < ARRIVE_EPS:
-		invader.target_node.visit_count += 1
+		_previous_node = invader.current_node as Node2D
 		invader.current_node = invader.target_node
-
-		var neighbors: Array = invader.current_node.neighbors
-		if neighbors.is_empty():
-			_reset_stuck_tracking(invader)
-			return InvaderBaseState.State.Moving
-
-		var min_visits := INF
-		for n in neighbors:
-			min_visits = min(min_visits, n.visit_count)
-
-		var candidates: Array = []
-		for n in neighbors:
-			if n.visit_count == min_visits:
-				candidates.append(n)
-
-		invader.target_node = candidates.pick_random()
-		_reset_stuck_tracking(invader)
+		_choose_next_target(invader)
 
 		if randi_range(0, 100) < 20:
 			return InvaderBaseState.State.Scanning
-
-		return InvaderBaseState.State.Moving
-
-	# --- Stuck detection (oscillation / not making progress) ---
-	var moved := invader.global_position.distance_to(_last_pos)
-	var dist_to_target := invader.global_position.distance_to(target_pos)
-	var target_progress := _last_dist_to_target - dist_to_target
-
-	# Consider it "not really moving" if it barely moved AND isn't reducing distance meaningfully.
-	var not_moving := moved < STUCK_MOVE_EPS
-	var not_progressing := target_progress < STUCK_TARGET_PROGRESS_EPS
-
-	if not_moving and not_progressing:
-		_stuck_time += delta
-		if _stuck_time >= STUCK_TIME_SEC:
-			_pick_new_target(invader)
-	else:
-		# Reset timer if it is moving/progressing.
-		_stuck_time = 0.0
-
-	_last_pos = invader.global_position
-	_last_dist_to_target = dist_to_target
 
 	return InvaderBaseState.State.Moving
