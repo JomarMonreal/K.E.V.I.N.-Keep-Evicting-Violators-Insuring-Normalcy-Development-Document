@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://mxui41ovhubs"]
+[gd_scene load_steps=13 format=3 uid="uid://mxui41ovhubs"]
 
 [ext_resource type="Script" uid="uid://clfhyk11p2wkd" path="res://entities/invader/invader.gd" id="1_gts6a"]
 [ext_resource type="Texture2D" uid="uid://mrs3lder6t4l" path="res://assets/main_assets/Map/Blueprint Icons/Invader Symbol (Black background).PNG" id="2_olecl"]
@@ -8,10 +8,11 @@
 [ext_resource type="Script" uid="uid://dcddn1rx8tu57" path="res://entities/invader/states/invader_scanning.gd" id="5_olecl"]
 [ext_resource type="Script" uid="uid://bqoonqv52oby2" path="res://entities/invader/states/invader_leaving.gd" id="5_qn62y"]
 [ext_resource type="Script" uid="uid://dpmqncwrsnhae" path="res://entities/invader/states/invader_trapped.gd" id="7_uefs2"]
+[ext_resource type="Script" uid="uid://dtujfsg1ely8x" path="res://entities/invader/states/invader_stealing.gd" id="8_7b58g"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mwhei"]
-radius = 84.0
-height = 300.0
+radius = 55.0
+height = 170.0
 
 [sub_resource type="Gradient" id="Gradient_yqrof"]
 offsets = PackedFloat32Array(0.275, 1)
@@ -60,6 +61,7 @@ script = ExtResource("7_uefs2")
 [node name="Attacking" type="Node2D" parent="StateManager"]
 
 [node name="Stealing" type="Node2D" parent="StateManager"]
+script = ExtResource("8_7b58g")
 
 [node name="Leaving" type="Node2D" parent="StateManager"]
 script = ExtResource("5_qn62y")

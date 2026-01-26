@@ -109,3 +109,10 @@ func _on_invader_leaving_scared() -> void:
 	ui_manager.show_victory_ui()
 	results_timer.start()
 	invading_timer.stop()
+
+
+func _on_invader_leaving_with_item() -> void:
+	post_processing.visible = false
+	ui_manager.show_stolen_ui()
+	results_timer.start()
+	invading_timer.stop()

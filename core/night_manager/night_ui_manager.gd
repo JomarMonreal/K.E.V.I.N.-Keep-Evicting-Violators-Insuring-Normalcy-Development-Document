@@ -42,6 +42,6 @@ func show_victory_ui() -> void:
 	ui_timer_layer.visible = false
 	
 func show_stolen_ui() -> void:
-	night_label.text = "The item has been stolen! Kevin's instanity increased"
+	night_label.text = "The item has been stolen! Kevin's insanity increased"
 	night_start_layer.visible = true
 	ui_timer_layer.visible = false

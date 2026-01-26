@@ -538,3 +538,4 @@ polygon = PackedVector2Array(1113, 3886, 1153, 4802, 2995, 4841, 3005, 3620, 110
 [connection signal="timeout" from="InvadingTimer" to="." method="_on_invading_timer_timeout"]
 [connection signal="timeout" from="ResultsTimer" to="." method="_on_results_timer_timeout"]
 [connection signal="leaving_scared" from="InvaderHandler/Invader" to="." method="_on_invader_leaving_scared"]
+[connection signal="leaving_with_item" from="InvaderHandler/Invader" to="." method="_on_invader_leaving_with_item"]
