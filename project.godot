@@ -25,10 +25,6 @@ Constants="*res://core/constants.gd"
 AudioManager="*res://core/audio_manager/audio_manager.tscn"
 BgmLoader="*res://core/audio_manager/bgm_loader.tscn"
 
-[display]
-
-window/size/mode=3
-
 [editor]
 
 movie_writer/movie_file="//wsl.localhost/Ubuntu-24.04/home/clenel/K.E.V.I.N.-Keep-Evicting-Violators-Insuring-Normalcy-Development-Document/screen_recordings/output.avi"
@@ -119,4 +115,6 @@ inv_select_6={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_s3tc_bptc=true
+textures/vram_compression/import_etc2_astc=true
 viewport/hdr_2d=true
