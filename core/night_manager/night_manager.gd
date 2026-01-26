@@ -100,6 +100,7 @@ func _on_invading_timer_timeout() -> void:
 
 func _on_results_timer_timeout() -> void:
 	EventListener.night_victory.emit()
+	print("EMITTED NIGHT VICTORY")
 	
 	results_timer.stop()
 
@@ -113,6 +114,7 @@ func _on_invader_leaving_scared() -> void:
 
 func _on_invader_leaving_with_item() -> void:
 	post_processing.visible = false
+	print("EMITTED LEAVING ITEM")
 	ui_manager.show_stolen_ui()
 	results_timer.start()
 	invading_timer.stop()

@@ -85,9 +85,7 @@ func _on_invading():
 
 
 func play_footsteps():
-	print("is instance valid? ", is_instance_valid(footsteps_audio_player))
 	if is_instance_valid(footsteps_audio_player):
-		print("is playing?", footsteps_audio_player.playing)
 		if velocity != Vector2.ZERO:
 			if not footsteps_audio_player.playing:
 				footsteps_audio_player.play()

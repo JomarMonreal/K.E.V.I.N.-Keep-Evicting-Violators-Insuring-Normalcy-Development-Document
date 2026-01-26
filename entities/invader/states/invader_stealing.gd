@@ -23,5 +23,7 @@ func physics_process(delta: float) -> int:
 	
 	if leaving_path.size() == 0:
 		invader.leaving_with_item.emit()
+		return InvaderBaseState.State.Idle
+
 	return InvaderBaseState.State.Stealing
 	

@@ -156,7 +156,7 @@ color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
 [node name="LoadingTimer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 1.5
 one_shot = true
 
 [node name="PlanningTimer" type="Timer" parent="."]
