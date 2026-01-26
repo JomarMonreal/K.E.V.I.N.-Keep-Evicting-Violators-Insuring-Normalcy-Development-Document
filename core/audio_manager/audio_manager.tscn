@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cdbx160m6ieqe" path="res://core/audio_manager/SoundEffectSettings.gd" id="2_nqpyc"]
 [ext_resource type="AudioStream" uid="uid://bid11p1fqrk2h" path="res://assets/main_assets/SFX/Button_Click.wav" id="3_tl1ak"]
 [ext_resource type="AudioStream" uid="uid://dn1knricnb0tg" path="res://assets/main_assets/SFX/victory_alarm.wav" id="4_xmxmr"]
-[ext_resource type="AudioStream" uid="uid://f2slhynd647c" path="res://assets/main_assets/SFX/walking.wav" id="5_mct32"]
+[ext_resource type="AudioStream" uid="uid://bvxp81msgt5e1" path="res://assets/main_assets/SFX/walking3.wav" id="5_tsldt"]
 [ext_resource type="AudioStream" uid="uid://1vehpha72lgp" path="res://assets/main_assets/SFX/scream.wav" id="5_xmxmr"]
 [ext_resource type="AudioStream" uid="uid://bpx6w8mhcaf82" path="res://assets/main_assets/SFX/bag_open.wav" id="7_1m8e2"]
 [ext_resource type="AudioStream" uid="uid://ba5yoj8lcply4" path="res://assets/main_assets/SFX/man_gasping.wav" id="8_s1seu"]
@@ -31,7 +31,8 @@ metadata/_custom_type_script = "uid://cdbx160m6ieqe"
 script = ExtResource("2_nqpyc")
 limit = 4
 type = 6
-sound_effect = ExtResource("5_mct32")
+sound_effect = ExtResource("5_tsldt")
+pitch_scale = 1.71
 metadata/_custom_type_script = "uid://cdbx160m6ieqe"
 
 [sub_resource type="Resource" id="Resource_tl1ak"]

@@ -93,7 +93,7 @@ func get_item_stack_for_removing(item: Item) -> InventorySlot:
 	for slot in Slots:
 		if slot.is_empty or slot.item == null or item == null:
 			continue
-		if slot.item.item_name == item.item_name:
+		elif slot.item.item_name == item.item_name:
 			return slot
 	return null
 

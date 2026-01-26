@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcgejlq3sqlef"]
+[gd_scene load_steps=8 format=3 uid="uid://bcgejlq3sqlef"]
 
 [ext_resource type="Script" uid="uid://casatvgrn1oxm" path="res://entities/item/item_area.gd" id="1_3dyfp"]
 [ext_resource type="Texture2D" uid="uid://l142r424ouhh" path="res://assets/main_assets/Trap/Items/Bucket.png" id="1_n2xqc"]
@@ -14,14 +14,29 @@ metadata/_custom_type_script = "uid://d1ikam1mi4qd4"
 [sub_resource type="CircleShape2D" id="CircleShape2D_3dyfp"]
 radius = 61.000015
 
+[sub_resource type="Gradient" id="Gradient_bw7jl"]
+offsets = PackedFloat32Array(0.11785714, 1)
+colors = PackedColorArray(0.33333334, 1, 1, 0.44313726, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y0nie"]
+gradient = SubResource("Gradient_bw7jl")
+fill = 1
+fill_from = Vector2(0.51282054, 0.508547)
+fill_to = Vector2(0.9273504, 0.22222222)
+
 [node name="Item" type="Area2D"]
 script = ExtResource("1_3dyfp")
 item_info = SubResource("Resource_bw7jl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(0.99999976, 0.99999976)
+scale = Vector2(2.19, 2.19)
 shape = SubResource("CircleShape2D_3dyfp")
 
 [node name="Texture" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.12, 0.12)
 texture = ExtResource("1_n2xqc")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(4.265, 4.265)
+energy = 2.55
+texture = SubResource("GradientTexture2D_y0nie")

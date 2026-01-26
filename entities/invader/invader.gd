@@ -9,8 +9,8 @@ class_name Invader
 @export var speed: float = 100
 @export var maxFear: int = 100
 
-const MIN_WALK_TIME = 2.0
-const MAX_WALK_TIME = 10.0
+const MIN_WALK_TIME = 10.0
+const MAX_WALK_TIME = 60.0
 
 var current_fear: int = 0
 var target_node: PathNode
@@ -55,3 +55,4 @@ func _on_walk_sound_timer_timeout() -> void:
 func randomize_walk_time():
 	var chance : float = randf_range(MIN_WALK_TIME, MAX_WALK_TIME)
 	walk_sound_timer.wait_time = chance
+	walk_sound_timer.start()
