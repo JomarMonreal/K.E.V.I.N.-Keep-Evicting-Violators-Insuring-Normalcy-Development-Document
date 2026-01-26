@@ -1,15 +1,13 @@
 [gd_scene load_steps=7 format=3 uid="uid://cmryqnwtmepne"]
 
 [ext_resource type="Script" uid="uid://bkcvsw2djevj2" path="res://scenes/ui/main_menu.gd" id="1_sl14k"]
-[ext_resource type="LabelSettings" uid="uid://ct0i8hoqmvudr" path="res://scenes/ui/title_labels_settings.tres" id="2_4mmo1"]
+[ext_resource type="Texture2D" uid="uid://dnpwj4blsl3or" path="res://assets/main_assets/Main Menu.png" id="2_m1kxf"]
 [ext_resource type="FontFile" uid="uid://bin4xs2m3rbwh" path="res://assets/main_assets/Fonts/Kevin_font1-Regular.otf" id="3_p1fri"]
-[ext_resource type="FontFile" uid="uid://ckcv8vo48oyhg" path="res://assets/main_assets/Fonts/Kevin_font1-Regular.ttf" id="4_qwsyb"]
+[ext_resource type="Texture2D" uid="uid://yjhhtyyr1meq" path="res://assets/main_assets/Title.png" id="3_x2yvf"]
+[ext_resource type="Texture2D" uid="uid://baavd203jle6e" path="res://assets/main_assets/Start button.png" id="4_x2yvf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vrkn"]
 bg_color = Color(0, 0.0239989, 0, 1)
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_rhts7"]
-color = Color(0, 0, 0, 0)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -21,16 +19,83 @@ grow_vertical = 2
 script = ExtResource("1_sl14k")
 main_scene = "uid://cdm3l21spj67o"
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0162137, 0, 0, 1)
+texture = ExtResource("2_m1kxf")
+expand_mode = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -420.0
+offset_top = -151.0
+offset_bottom = 295.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -394.99997
+offset_top = -375.0
+offset_right = 0.14465332
+offset_bottom = 7.5
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("3_x2yvf")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = -197.0
+offset_right = 199.04956
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_x2yvf")
+expand_mode = 1
+
+[node name="Play" type="Button" parent="Control"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.97522
+offset_top = -83.5
+offset_right = 173.02478
+offset_bottom = -21.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("3_p1fri")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
 custom_minimum_size = Vector2(300, 400)
 layout_mode = 1
 anchors_preset = 8
@@ -55,53 +120,4 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 36
-text = "K.E.V.I.N."
-label_settings = ExtResource("2_4mmo1")
-horizontal_alignment = 1
-
-[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxLine_rhts7")
-
-[node name="ButtonVbox" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-alignment = 1
-
-[node name="Play" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/ButtonVbox"]
-custom_minimum_size = Vector2(150, 50)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_fonts/font = ExtResource("3_p1fri")
-text = "Play"
-
-[node name="Settings" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/ButtonVbox"]
-custom_minimum_size = Vector2(150, 50)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_fonts/font = ExtResource("4_qwsyb")
-text = "Settings"
-
-[node name="Quit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/ButtonVbox"]
-custom_minimum_size = Vector2(150, 50)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_fonts/font = ExtResource("3_p1fri")
-text = "Quit"
-
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/ButtonVbox/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/ButtonVbox/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/ButtonVbox/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Control/Play" to="." method="_on_play_pressed"]

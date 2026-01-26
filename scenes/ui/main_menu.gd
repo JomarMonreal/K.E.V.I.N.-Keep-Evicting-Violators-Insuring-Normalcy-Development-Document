@@ -4,11 +4,7 @@ extends Control
 
 @export var delay : float = 0.2
 
-@onready var play_button : Button = $PanelContainer/MarginContainer/VBoxContainer/ButtonVbox/Play
-@onready var settings_button : Button = $PanelContainer/MarginContainer/VBoxContainer/ButtonVbox/Settings
-@onready var quit_button : Button = $PanelContainer/MarginContainer/VBoxContainer/ButtonVbox/Quit
-
-
+@onready var play_button : Button = $Control/Play
 func _on_play_pressed() -> void:
 	print("play!")
 	AudioManager.create_2d_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.BUTTON_CLICK)

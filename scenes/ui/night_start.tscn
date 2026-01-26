@@ -32,11 +32,15 @@ offset_left = 11.0
 offset_top = -40.0
 offset_right = 482.0
 grow_vertical = 0
-text = "Press C to \"place or pickup traps\"
-Press X to \"interact\""
+text = "Press X to \"interact\"
+Press Y to \"switch cameras\"
+Press C to \"place  items/traps\"
+Press 1-6 to swtich between \"slots\"
+Don't let them get your gift to keep you sanity."
 label_settings = SubResource("LabelSettings_6hd0f")
 
 [node name="Screen" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Screen"]
 offset_right = 1152.0
