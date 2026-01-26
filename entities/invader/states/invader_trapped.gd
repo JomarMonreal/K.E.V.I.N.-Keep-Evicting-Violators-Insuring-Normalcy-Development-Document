@@ -9,6 +9,7 @@ var _old_modulate: Color
 
 func enter() -> void:
 	var invader := entity as Invader
+	AudioManager.create_2d_audio_at_location(invader.global_position, SoundEffectSettings.SOUND_EFFECT_TYPE.INVADER_TRAP_TRIGGERED)
 	if invader.current_fear >= invader.maxFear:
 		invader.states.change_state(InvaderBaseState.State.Leaving)
 		return

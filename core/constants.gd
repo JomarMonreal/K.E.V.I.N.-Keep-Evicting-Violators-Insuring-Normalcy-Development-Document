@@ -10,5 +10,5 @@ const SCENE_PATHS : Dictionary = {
 }
 
 const ITEMS: Dictionary = {
-	"bucket": "res://resources/items/materials/bucket.tres"
+	"bucket": "uid://sdgxjc41a8d5"
 }

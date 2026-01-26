@@ -6,6 +6,7 @@ var _old_modulate: Color
 
 func enter() -> void:
 	var invader := entity as Invader
+	AudioManager.create_2d_audio_at_location(invader.global_position, SoundEffectSettings.SOUND_EFFECT_TYPE.ITEM_COLLECTED)
 	target_node = invader.path_graph.get_nodes_by_role(PathNode.Role.ENTRANCE).pick_random()
 	leaving_path = invader.path_graph.find_path(invader.current_node, target_node)
 	invader.speed *= 2

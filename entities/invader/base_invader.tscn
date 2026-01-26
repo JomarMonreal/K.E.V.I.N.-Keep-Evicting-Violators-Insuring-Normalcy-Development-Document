@@ -72,4 +72,8 @@ energy = 4.57
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_uefs2")
 
+[node name="WalkSoundTimer" type="Timer" parent="."]
+autostart = true
+
 [connection signal="timeout" from="StateManager/Scanning/ScanDelayTimer" to="StateManager/Scanning" method="_on_scan_delay_timer_timeout"]
+[connection signal="timeout" from="WalkSoundTimer" to="." method="_on_walk_sound_timer_timeout"]
