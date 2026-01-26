@@ -24,6 +24,7 @@ const MAX_SANITY : float = 100.0
 @onready var is_planning : bool = true
 
 @export var trap_scene: PackedScene
+@export var item_scene: PackedScene
 
 
 func _ready() -> void:
@@ -44,15 +45,6 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_pressed("place_trap") and night_manager.planning_timer.time_left > 0:
-		var item_resource: Item = crafting_manager.inventory.get_item_at_slot_index(crafting_manager.inventory.selected_index)
-		if crafting_manager.inventory.less_item(item_resource, 1):
-			var trap = trap_scene.instantiate() as TrapArea
-			trap.global_position = global_position
-			get_tree().root.add_child(trap)
-			AudioManager.create_2d_audio_at_location(trap.global_position, SoundEffectSettings.SOUND_EFFECT_TYPE.TRAP_PLACED)
-			print("TRAP PLACED")
-			
 	state_manager.input(event)
 
 
@@ -67,13 +59,50 @@ func _physics_process(delta: float) -> void:
 	
 	for area in item_detector_area.get_overlapping_areas():
 		if area is ItemArea:
+			if Input.is_action_just_released("place_trap") and night_manager.planning_timer.time_left > 0:
+				var item_resource: Item = crafting_manager.inventory.get_item_at_slot_index(crafting_manager.inventory.selected_index)
+				if crafting_manager.inventory.less_item(item_resource, 1):
+					var trap = trap_scene.instantiate() as TrapArea
+					trap.trap_info = Constants.get_trap_for_items([area.item_info, item_resource])
+					if trap.trap_info:
+						trap.global_position = global_position
+						get_tree().root.add_child(trap)
+						AudioManager.create_2d_audio_at_location(trap.global_position, SoundEffectSettings.SOUND_EFFECT_TYPE.TRAP_PLACED)
+						area.queue_free()
+						print("TRAP PLACED")
+					else:
+						var item = item_scene.instantiate() as ItemArea
+						item.item_info = item_resource
+						item.global_position = global_position
+						# get the item given items
+						get_tree().root.add_child(item)
+						AudioManager.create_2d_audio_at_location(item.global_position, SoundEffectSettings.SOUND_EFFECT_TYPE.TRAP_PLACED)
+						print("ITEM PLACED")
+				return
+					
 			if Input.is_action_just_released("interact") and night_manager.planning_timer.time_left > 0:
 				crafting_manager.inventory.store_item(area.item_info, 1)
 				area.queue_free()
+				return
+
 		if area is TrapArea:
 			if Input.is_action_just_released("interact") and night_manager.planning_timer.time_left > 0:
-				crafting_manager.inventory.store_item(area.items[0], 1)
+				for item in area.trap_info.items:
+					crafting_manager.inventory.store_item(item, 1)
 				area.queue_free()
+			return
+
+	if Input.is_action_just_released("place_trap") and night_manager.planning_timer.time_left > 0:
+		var item_resource: Item = crafting_manager.inventory.get_item_at_slot_index(crafting_manager.inventory.selected_index)
+		if crafting_manager.inventory.less_item(item_resource, 1):
+			var item = item_scene.instantiate() as ItemArea
+			item.item_info = item_resource
+			item.global_position = global_position
+			# get the item given items
+			get_tree().root.add_child(item)
+			AudioManager.create_2d_audio_at_location(item.global_position, SoundEffectSettings.SOUND_EFFECT_TYPE.TRAP_PLACED)
+			print("ITEM PLACED")
+	return
 
 
 func _on_planning():

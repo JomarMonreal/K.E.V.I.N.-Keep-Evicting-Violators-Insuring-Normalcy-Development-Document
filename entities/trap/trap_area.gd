@@ -8,7 +8,6 @@ class_name TrapArea
 @export var trap_sprite: Sprite2D
 
 var trap_info: Trap
-var items: Array[Item] = [load(Constants.ITEMS.bucket)]
 
 # If true, randomize among the four cardinal directions.
 # If false, pick any random unit vector.
@@ -38,13 +37,18 @@ func _process(_delta: float) -> void:
 	if start_ghost_preview and not _preview_running:
 		_start_preview()
 	
+	if trap_after_sprite.texture != trap_info.after_texture:
+		trap_after_sprite.texture = trap_info.after_texture
+	if trap_before_sprite.texture != trap_info.before_texture:
+		trap_before_sprite.texture = trap_info.before_texture
+		
 	if has_trap:
 		if triggered == true:
-			trap_before_sprite.visible = true
-			trap_after_sprite.visible = false
-		else:
-			trap_after_sprite.visible = true
 			trap_before_sprite.visible = false
+			trap_after_sprite.visible = true
+		else:
+			trap_after_sprite.visible = false
+			trap_before_sprite.visible = true
 	else:
 		trap_before_sprite.visible = false
 		trap_after_sprite.visible = false
@@ -97,7 +101,6 @@ func _on_body_entered(body: Node2D) -> void:
 		if body.current_fear >= body.maxFear:
 			body.states.change_state(InvaderBaseState.State.Leaving)
 		body.states.change_state(InvaderBaseState.State.Trapped)
-		has_trap = false
 
 func _on_body_exited(body: Node2D) -> void:
 	if body is Player:

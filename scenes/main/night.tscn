@@ -190,6 +190,7 @@ position = Vector2(581, 946)
 crafting_manager = NodePath("../Camera2D/CraftingUI")
 night_manager = NodePath("..")
 trap_scene = ExtResource("13_jm8a5")
+item_scene = ExtResource("15_a3rsk")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2421, 2758)
