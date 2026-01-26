@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Trap" load_steps=7 format=3 uid="uid://bi62roxjrtxk7"]
+
+[ext_resource type="Texture2D" uid="uid://woellqqlq70j" path="res://assets/main_assets/Trap/Combinations/Flour Bomb/After.png" id="1_6pou2"]
+[ext_resource type="Texture2D" uid="uid://dfdaiy2opp6l0" path="res://assets/main_assets/Trap/Combinations/Marble Slip n’ Slide/Before.png" id="2_0lwrc"]
+[ext_resource type="Script" uid="uid://w0fms2sgb7kc" path="res://core/crafting/trap.gd" id="3_4c08w"]
+[ext_resource type="Script" uid="uid://d1ikam1mi4qd4" path="res://core/crafting/item.gd" id="3_gxfg2"]
+[ext_resource type="Resource" uid="uid://bxpmes7vgqn0a" path="res://resources/items/materials/marbles.tres" id="4_l78bc"]
+[ext_resource type="Resource" uid="uid://sdgxjc41a8d5" path="res://resources/items/materials/bucket.tres" id="5_qngwc"]
+
+[resource]
+script = ExtResource("3_4c08w")
+trap_name = "Marble Slip n’ Slide"
+before_texture = ExtResource("2_0lwrc")
+after_texture = ExtResource("1_6pou2")
+items = Array[ExtResource("3_gxfg2")]([ExtResource("4_l78bc"), ExtResource("5_qngwc")])
+metadata/_custom_type_script = "uid://w0fms2sgb7kc"

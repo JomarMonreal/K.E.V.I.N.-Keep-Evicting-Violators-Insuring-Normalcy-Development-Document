@@ -45,7 +45,7 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_pressed("place_trap") and night_manager.planning_timer.time_left > 0:
-		var item_resource: Item = load(Constants.ITEMS.bucket)
+		var item_resource: Item = crafting_manager.inventory.get_item_at_slot_index(crafting_manager.inventory.selected_index)
 		if crafting_manager.inventory.less_item(item_resource, 1):
 			var trap = trap_scene.instantiate() as TrapArea
 			trap.global_position = global_position

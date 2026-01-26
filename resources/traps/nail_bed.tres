@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Trap" load_steps=6 format=3 uid="uid://cdn518f7dhrki"]
+
+[ext_resource type="Texture2D" uid="uid://cymi5pymg8nb8" path="res://assets/main_assets/Trap/Combinations/Nail Bed/Before_After.png" id="1_01h0l"]
+[ext_resource type="Script" uid="uid://d1ikam1mi4qd4" path="res://core/crafting/item.gd" id="3_0r87m"]
+[ext_resource type="Resource" uid="uid://bjglw6aaj734t" path="res://resources/items/materials/nails.tres" id="3_tsf6o"]
+[ext_resource type="Resource" uid="uid://coyko3jh22uu6" path="res://resources/items/materials/rope.tres" id="4_fjc52"]
+[ext_resource type="Script" uid="uid://w0fms2sgb7kc" path="res://core/crafting/trap.gd" id="6_42fi0"]
+
+[resource]
+script = ExtResource("6_42fi0")
+trap_name = "nail_bed"
+before_texture = ExtResource("1_01h0l")
+after_texture = ExtResource("1_01h0l")
+items = Array[ExtResource("3_0r87m")]([ExtResource("3_tsf6o"), ExtResource("4_fjc52")])
+metadata/_custom_type_script = "uid://w0fms2sgb7kc"

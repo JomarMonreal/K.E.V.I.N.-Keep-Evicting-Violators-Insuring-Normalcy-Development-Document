@@ -22,6 +22,6 @@ item_info = SubResource("Resource_bw7jl")
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("CircleShape2D_3dyfp")
 
-[node name="Area2D" type="Sprite2D" parent="."]
+[node name="Texture" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_n2xqc")

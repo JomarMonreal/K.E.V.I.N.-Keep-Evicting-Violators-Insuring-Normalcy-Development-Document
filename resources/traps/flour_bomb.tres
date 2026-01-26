@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Trap" load_steps=7 format=3 uid="uid://ov8w8pm2q1md"]
+
+[ext_resource type="Texture2D" uid="uid://woellqqlq70j" path="res://assets/main_assets/Trap/Combinations/Flour Bomb/After.png" id="1_be5cj"]
+[ext_resource type="Texture2D" uid="uid://brhfuenu2r7s6" path="res://assets/main_assets/Trap/Combinations/Flour Bomb/Before.png" id="2_be5cj"]
+[ext_resource type="Script" uid="uid://d1ikam1mi4qd4" path="res://core/crafting/item.gd" id="3_airin"]
+[ext_resource type="Resource" uid="uid://sdgxjc41a8d5" path="res://resources/items/materials/bucket.tres" id="5_pgvp4"]
+[ext_resource type="Resource" uid="uid://coyko3jh22uu6" path="res://resources/items/materials/rope.tres" id="5_vmut7"]
+[ext_resource type="Script" uid="uid://w0fms2sgb7kc" path="res://core/crafting/trap.gd" id="6_gcimd"]
+
+[resource]
+script = ExtResource("6_gcimd")
+trap_name = "Flour Bomb"
+before_texture = ExtResource("2_be5cj")
+after_texture = ExtResource("1_be5cj")
+items = Array[ExtResource("3_airin")]([ExtResource("5_pgvp4"), ExtResource("5_vmut7")])
+metadata/_custom_type_script = "uid://w0fms2sgb7kc"

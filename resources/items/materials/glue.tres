@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://4l5lobts7lqa"]
+
+[ext_resource type="Script" uid="uid://d1ikam1mi4qd4" path="res://core/crafting/item.gd" id="1_5fyn6"]
+[ext_resource type="Texture2D" uid="uid://o0v8pcstu2mt" path="res://assets/main_assets/Trap/Items/Glue.png" id="2_5fyn6"]
+
+[resource]
+script = ExtResource("1_5fyn6")
+item_name = "Glue"
+texture = ExtResource("2_5fyn6")
+info = "This is a glue."

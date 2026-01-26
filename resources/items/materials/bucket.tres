@@ -7,4 +7,4 @@
 script = ExtResource("1_singu")
 item_name = "Bucket"
 texture = ExtResource("2_xdwo1")
-info = "This is my description"
+info = "This is a bucket."

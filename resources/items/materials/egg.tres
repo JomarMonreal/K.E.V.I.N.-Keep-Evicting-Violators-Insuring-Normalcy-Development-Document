@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://besjquie6mlc3"]
+
+[ext_resource type="Script" uid="uid://d1ikam1mi4qd4" path="res://core/crafting/item.gd" id="1_m2350"]
+[ext_resource type="Texture2D" uid="uid://blhvwg87xtfxr" path="res://assets/main_assets/Trap/Items/Egg.png" id="2_m2350"]
+
+[resource]
+script = ExtResource("1_m2350")
+item_name = "Egg"
+texture = ExtResource("2_m2350")
+info = "This are eggs."

@@ -5,14 +5,34 @@ var InventoryManagerInstance: InventoryManager = null
 var item: Item = null
 
 var is_mouse_inside: bool = false
+var item_count: int = 0
+var is_empty: bool = true
+var is_selected: bool = false
 
 @onready var ItemTexture = $MarginContainer/VBoxContainer/TextureRect
 @onready var ItemCount = $MarginContainer/VBoxContainer/TextureRect/TextEdit
-var item_count = 0
-var is_empty = true
 
 func _ready() -> void:
 	clear_item()
+	_apply_border(false)
+
+func set_selected(selected: bool) -> void:
+	is_selected = selected
+	_apply_border(selected)
+
+func _apply_border(selected: bool) -> void:
+	var sb := StyleBoxFlat.new()
+	sb.bg_color = Color(0, 0, 0, 0.5) # transparent background
+	sb.border_width_left = 2
+	sb.border_width_top = 2
+	sb.border_width_right = 2
+	sb.border_width_bottom = 2
+
+	# “Bordered when selected”
+	sb.border_color = Color(1, 1, 1, 1) if selected else Color(0, 0, 0, 0)
+
+	add_theme_stylebox_override("panel", sb)
+
 
 func _process(_delta: float) -> void:
 	if is_mouse_inside:

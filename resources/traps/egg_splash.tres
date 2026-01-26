@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Trap" load_steps=7 format=3 uid="uid://44hofs257682"]
+
+[ext_resource type="Texture2D" uid="uid://b4pwn2y7u77i" path="res://assets/main_assets/Trap/Combinations/Egg Splatter/After.png" id="1_wi2b5"]
+[ext_resource type="Texture2D" uid="uid://bfae2ct70kqxa" path="res://assets/main_assets/Trap/Combinations/Egg Splatter/Before.png" id="2_agnao"]
+[ext_resource type="Script" uid="uid://d1ikam1mi4qd4" path="res://core/crafting/item.gd" id="2_wi2b5"]
+[ext_resource type="Resource" uid="uid://coyko3jh22uu6" path="res://resources/items/materials/rope.tres" id="4_77wl7"]
+[ext_resource type="Resource" uid="uid://besjquie6mlc3" path="res://resources/items/materials/egg.tres" id="4_biwg0"]
+[ext_resource type="Script" uid="uid://w0fms2sgb7kc" path="res://core/crafting/trap.gd" id="5_biwg0"]
+
+[resource]
+script = ExtResource("5_biwg0")
+trap_name = "Egg Splash"
+before_texture = ExtResource("2_agnao")
+after_texture = ExtResource("1_wi2b5")
+items = Array[ExtResource("2_wi2b5")]([ExtResource("4_biwg0"), ExtResource("4_77wl7")])
+metadata/_custom_type_script = "uid://w0fms2sgb7kc"

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Trap" load_steps=7 format=3 uid="uid://c1ljojrs1k5nw"]
+
+[ext_resource type="Texture2D" uid="uid://cw8vqok58l52r" path="res://assets/main_assets/Trap/Combinations/Sticky Escape/After.png" id="1_k8dxq"]
+[ext_resource type="Texture2D" uid="uid://d3qen6fu4pipj" path="res://assets/main_assets/Trap/Combinations/Sticky Escape/Before.png" id="2_oy28j"]
+[ext_resource type="Script" uid="uid://d1ikam1mi4qd4" path="res://core/crafting/item.gd" id="3_v7cfo"]
+[ext_resource type="Resource" uid="uid://sdgxjc41a8d5" path="res://resources/items/materials/bucket.tres" id="4_gnr7v"]
+[ext_resource type="Resource" uid="uid://4l5lobts7lqa" path="res://resources/items/materials/glue.tres" id="5_v7cfo"]
+[ext_resource type="Script" uid="uid://w0fms2sgb7kc" path="res://core/crafting/trap.gd" id="6_487t2"]
+
+[resource]
+script = ExtResource("6_487t2")
+trap_name = "Sticky Escape"
+before_texture = ExtResource("2_oy28j")
+after_texture = ExtResource("1_k8dxq")
+items = Array[ExtResource("3_v7cfo")]([ExtResource("4_gnr7v"), ExtResource("5_v7cfo")])
+metadata/_custom_type_script = "uid://w0fms2sgb7kc"

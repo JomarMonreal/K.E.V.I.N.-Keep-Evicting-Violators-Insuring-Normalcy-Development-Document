@@ -31,6 +31,19 @@ func _refresh_spawners() -> void:
 	for c in get_children():
 		if c is SimplePolygonSpawner:
 			_spawners.append(c as SimplePolygonSpawner)
+			
+func get_random_key_value_pair(dictionary_source: Dictionary):
+	# 1. Get an array of all keys
+	var keys_array = dictionary_source.keys()
+	
+	# 2. Pick a random key from the array
+	var random_key = keys_array.pick_random()
+	
+	# 3. Access the dictionary using the random key to get the value
+	var random_value = dictionary_source[random_key]
+	
+	print("Picked key: ", random_key)
+	return random_value
 
 func spawn_all(total_items: int) -> void:
 	_refresh_spawners()
@@ -42,11 +55,9 @@ func spawn_all(total_items: int) -> void:
 
 	if _spawners.is_empty():
 		push_warning("SpawnManager: No SimplePolygonSpawner children found.")
-		if debug_logs:
-			print("[SpawnManager] spawn_all() aborted: no spawners")
 		return
 
-	var counts: PackedInt32Array = _allocate_counts(total_items)
+	var counts := _allocate_counts(total_items)
 
 	if debug_logs:
 		print("[SpawnManager] spawn_all(total_items=", total_items, ") mode=", distribution_mode)
@@ -61,7 +72,11 @@ func spawn_all(total_items: int) -> void:
 		if debug_logs:
 			print("[SpawnManager] -> spawner#", i, " name=", s.name, " count=", n)
 
-		s.spawn(n)
+		s.spawn(n, func(inst: Node) -> void:
+			if inst is ItemArea:
+				(inst as ItemArea).item_info = load(get_random_key_value_pair(Constants.ITEMS))
+		)
+
 
 func _allocate_counts(total_items: int) -> PackedInt32Array:
 	match distribution_mode:

@@ -6,6 +6,8 @@ class_name TrapArea
 @export var scare_distance: float = 300.0
 @export var preview_speed: float = 250.0 # pixels per second
 @export var trap_sprite: Sprite2D
+
+var trap_info: Trap
 var items: Array[Item] = [load(Constants.ITEMS.bucket)]
 
 # If true, randomize among the four cardinal directions.

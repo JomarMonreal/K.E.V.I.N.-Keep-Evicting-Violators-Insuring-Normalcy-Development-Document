@@ -25,7 +25,7 @@ func _ready() -> void:
 
 	_build_cache()
 
-func spawn(count: int = 1) -> void:
+func spawn(count: int = 1, post_spawn: Callable = Callable()) -> void:
 	if spawn_scene == null:
 		push_warning("SimplePolygonSpawner: spawn_scene is not set.")
 		if debug_logs:
@@ -39,27 +39,18 @@ func spawn(count: int = 1) -> void:
 		return
 
 	var parent: Node = _get_parent_node()
-
-	if debug_logs:
-		print("[Spawner] spawn(count=", count, ") parent=", parent.name, " path=", parent.get_path())
-		print("[Spawner] pre-children=", parent.get_child_count())
-
-	for idx in range(count):
+	for _idx in range(count):
 		var p: Vector2 = _random_point_global()
 		var inst: Node = spawn_scene.instantiate()
+
+		if post_spawn.is_valid():
+			post_spawn.call(inst) # set item_info BEFORE entering tree
+
 		parent.add_child(inst)
 
 		if inst is Node2D:
 			(inst as Node2D).global_position = p
 
-		if debug_logs:
-			var inst_name: String = ""
-			if inst.name != "":
-				inst_name = inst.name
-			else:
-				inst_name = inst.get_class()			
-			var pos := (inst as Node2D).global_position if inst is Node2D else Vector2.INF
-			print("[Spawner]  #", idx, " spawned=", inst_name, " global_pos=", pos)
 
 	if debug_logs:
 		print("[Spawner] post-children=", parent.get_child_count())
