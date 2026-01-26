@@ -18,6 +18,9 @@ enum SOUND_EFFECT_TYPE {
 	TRAP_COLLECTED,
 	TRAP_PLACED,
 	TRAP_CRAFTED,
+	AMBIENT_BGM_1,
+	AMBIENT_BGM_2,
+	AMBIENT_BGM_3,
 }
 
 @export_range(0, 10) var limit : int = 5

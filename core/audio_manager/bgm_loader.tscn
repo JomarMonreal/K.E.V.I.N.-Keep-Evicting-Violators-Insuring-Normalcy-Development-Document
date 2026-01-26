@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=3 uid="uid://dby8eky5afawf"]
+
+[ext_resource type="Script" uid="uid://bbiex1o4irxwb" path="res://core/audio_manager/bgm_loader.gd" id="1_gqhio"]
+[ext_resource type="Script" uid="uid://cdbx160m6ieqe" path="res://core/audio_manager/SoundEffectSettings.gd" id="2_6mq7o"]
+[ext_resource type="AudioStream" uid="uid://tvbofh6bhhga" path="res://assets/main_assets/SFX/396457__patricklieberkind__dark-ambient-drone.wav" id="3_3a1ah"]
+[ext_resource type="AudioStream" uid="uid://k1u0ctga1yje" path="res://assets/main_assets/SFX/541216__erokia__apocalyptic-soundscape-ambiance.wav" id="4_jrfgf"]
+[ext_resource type="AudioStream" uid="uid://11vu5pflcpc" path="res://assets/main_assets/SFX/583590__szegvari__space-dark-atmo.wav" id="5_64a0s"]
+
+[sub_resource type="Resource" id="Resource_m4n81"]
+script = ExtResource("2_6mq7o")
+limit = 1
+type = 14
+sound_effect = ExtResource("3_3a1ah")
+metadata/_custom_type_script = "uid://cdbx160m6ieqe"
+
+[sub_resource type="Resource" id="Resource_elixo"]
+script = ExtResource("2_6mq7o")
+limit = 1
+type = 15
+sound_effect = ExtResource("4_jrfgf")
+volume = -7
+metadata/_custom_type_script = "uid://cdbx160m6ieqe"
+
+[sub_resource type="Resource" id="Resource_fltiu"]
+script = ExtResource("2_6mq7o")
+limit = 1
+type = 16
+sound_effect = ExtResource("5_64a0s")
+volume = -6
+metadata/_custom_type_script = "uid://cdbx160m6ieqe"
+
+[node name="BGMLoader" type="Node2D"]
+script = ExtResource("1_gqhio")
+bgm_options = Array[ExtResource("2_6mq7o")]([SubResource("Resource_m4n81"), SubResource("Resource_elixo"), SubResource("Resource_fltiu")])
+
+[node name="BGMTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="BGMTimer" to="." method="_on_bgm_timer_timeout"]
